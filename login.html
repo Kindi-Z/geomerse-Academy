@@ -566,6 +566,11 @@
     const form = document.getElementById('loginForm');
     const errorBox = document.getElementById('errorBox');
 
+    // Jika user sudah login di browser yang sama, langsung masuk ke homepage.
+    if (sessionStorage.getItem('geomersLoggedIn') === 'true') {
+      window.location.href = 'index.html';
+    }
+
     form.addEventListener('submit', function(event) {
       event.preventDefault();
 
@@ -578,9 +583,11 @@
         return;
       }
 
+      // Akun demo. Nanti bagian ini bisa diganti dengan API/Firebase Auth.
       if (username === 'admin' && password === '123456') {
-        errorBox.classList.remove('show');
-        alert('Login demo berhasil. Silakan hubungkan ke backend/Firebase untuk login sungguhan.');
+        sessionStorage.setItem('geomersLoggedIn', 'true');
+        sessionStorage.setItem('geomersUser', username);
+        window.location.href = 'index.html';
       } else {
         errorBox.textContent = 'Username atau password salah. Untuk demo gunakan admin / 123456.';
         errorBox.classList.add('show');
