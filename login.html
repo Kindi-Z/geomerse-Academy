@@ -587,14 +587,28 @@
         return;
       }
 
-      if (username === 'admin' && password === '123456') {
-        errorBox.classList.remove('show');
-        localStorage.setItem('geomersLoggedIn', 'true');
-        window.location.replace('index.html');
-      } else {
-        errorBox.textContent = 'Username atau password salah. Untuk demo gunakan admin / 123456.';
-        errorBox.classList.add('show');
-      }
+      const users = [
+  { username: "irzal", password: "67" },
+  { username: "ziyad", password: "67" },
+  { username: "khaliv", password: "67" }
+];
+
+const validUser = users.find(
+  user => user.username === username && user.password === password
+);
+
+if (validUser) {
+  errorBox.classList.remove('show');
+
+  // simpan status login
+  localStorage.setItem('geomersLoggedIn', 'true');
+  localStorage.setItem('geomersUser', username);
+
+  window.location.replace('index.html');
+} else {
+  errorBox.textContent = 'Username atau password salah.';
+  errorBox.classList.add('show');
+}
     });
   </script>
 </body>
