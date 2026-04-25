@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const VALID_USERNAME = 'geomers';
-const VALID_PASSWORD = 'rahasia123';
+const VALID_PASSWORD = '123456';
 
 module.exports = (req, res) => {
   const authHeader = req.headers.authorization || '';
