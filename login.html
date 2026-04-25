@@ -562,12 +562,7 @@
     <div>© 2026 Geomers Academy. All rights reserved.</div>
   </footer>
 
-    <script>
-    // Jika user sudah login, langsung masuk ke halaman utama.
-    if (localStorage.getItem('geomers_is_login') === 'true') {
-      window.location.replace('index.html');
-    }
-
+  <script>
     const form = document.getElementById('loginForm');
     const errorBox = document.getElementById('errorBox');
 
@@ -583,10 +578,9 @@
         return;
       }
 
-      // Akun demo
       if (username === 'admin' && password === '123456') {
-        localStorage.setItem('geomers_is_login', 'true');
-        localStorage.setItem('geomers_user', username);
+        errorBox.classList.remove('show');
+        localStorage.setItem('geomersLoggedIn', 'true');
         window.location.replace('index.html');
       } else {
         errorBox.textContent = 'Username atau password salah. Untuk demo gunakan admin / 123456.';
@@ -594,6 +588,5 @@
       }
     });
   </script>
-
 </body>
 </html>
