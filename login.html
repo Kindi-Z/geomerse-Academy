@@ -562,14 +562,14 @@
     <div>© 2026 Geomers Academy. All rights reserved.</div>
   </footer>
 
-  <script>
+    <script>
+    // Jika user sudah login, langsung masuk ke halaman utama.
+    if (localStorage.getItem('geomers_is_login') === 'true') {
+      window.location.replace('index.html');
+    }
+
     const form = document.getElementById('loginForm');
     const errorBox = document.getElementById('errorBox');
-
-    // Jika user sudah login di browser yang sama, langsung masuk ke homepage.
-    if (sessionStorage.getItem('geomersLoggedIn') === 'true') {
-      window.location.href = 'index.html';
-    }
 
     form.addEventListener('submit', function(event) {
       event.preventDefault();
@@ -583,16 +583,17 @@
         return;
       }
 
-      // Akun demo. Nanti bagian ini bisa diganti dengan API/Firebase Auth.
+      // Akun demo
       if (username === 'admin' && password === '123456') {
-        sessionStorage.setItem('geomersLoggedIn', 'true');
-        sessionStorage.setItem('geomersUser', username);
-        window.location.href = 'index.html';
+        localStorage.setItem('geomers_is_login', 'true');
+        localStorage.setItem('geomers_user', username);
+        window.location.replace('index.html');
       } else {
         errorBox.textContent = 'Username atau password salah. Untuk demo gunakan admin / 123456.';
         errorBox.classList.add('show');
       }
     });
   </script>
+
 </body>
 </html>
