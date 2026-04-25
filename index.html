@@ -80,6 +80,16 @@
     }
     .nav-social a:hover { background: var(--lemon); color: var(--dark); }
 
+
+    .logout-btn {
+      color: #fff; background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.28);
+      padding: 8px 14px; border-radius: 50px;
+      font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: all 0.22s;
+    }
+    .logout-btn:hover { background: var(--lemon); color: var(--dark); }
+
     .hamburger {
       display: none; background: none; border: none;
       color: #fff; font-size: 20px; cursor: pointer;
@@ -611,14 +621,14 @@
       .quick-section, .res-section, .inner-section { padding: 50px 5%; }
     }
   </style>
-  <script>
-    // Proteksi halaman utama: jika belum login, arahkan ke halaman login.
-    if (localStorage.getItem('geomers_is_login') !== 'true') {
-      window.location.replace('login.html');
-    }
-  </script>
 </head>
 <body>
+<script>
+  // Guard sederhana: halaman home hanya terbuka setelah login.
+  if (localStorage.getItem('geomersLoggedIn') !== 'true') {
+    window.location.replace('login.html');
+  }
+</script>
 
 <!-- ══ NAV ══ -->
 <nav id="navbar">
@@ -646,6 +656,7 @@
   </ul>
 
   <div style="display:flex;align-items:center;gap:8px;">
+    <button class="logout-btn" onclick="logoutGeomers()">Keluar</button>
     <div class="nav-social">
       <a href="https://www.instagram.com/geomers_linguistics" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://wa.me/6281270508101" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -1187,6 +1198,13 @@
   document.querySelectorAll('.feat-card').forEach((c, i) => {
     c.style.animationDelay = (i * 0.08) + 's';
   });
+
+
+  // ── LOGOUT ──
+  function logoutGeomers() {
+    localStorage.removeItem('geomersLoggedIn');
+    window.location.replace('login.html');
+  }
 </script>
 </body>
 </html>
