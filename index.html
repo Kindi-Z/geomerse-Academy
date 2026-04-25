@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Geomers | OSN Kebumian</title>
+  <script>
+    // Proteksi sederhana halaman utama: user harus login dari login.html terlebih dahulu.
+    if (sessionStorage.getItem('geomersLoggedIn') !== 'true') {
+      window.location.replace('login.html');
+    }
+  </script>
   <meta name="description" content="Platform belajar OSN Kebumian: materi, soal, tryout, dan ebook lengkap">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -79,6 +85,22 @@
       font-size: 14px; text-decoration: none; transition: all 0.22s;
     }
     .nav-social a:hover { background: var(--lemon); color: var(--dark); }
+
+
+    .logout-btn {
+      color: var(--dark);
+      background: var(--lemon);
+      border: none;
+      border-radius: 50px;
+      padding: 9px 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(249,216,87,0.35);
+      transition: all 0.22s;
+    }
+    .logout-btn:hover { background: var(--lemon-dark); transform: translateY(-1px); }
 
     .hamburger {
       display: none; background: none; border: none;
@@ -640,6 +662,7 @@
   </ul>
 
   <div style="display:flex;align-items:center;gap:8px;">
+    <button class="logout-btn" onclick="logoutGeomers()" title="Keluar dari akun">Keluar</button>
     <div class="nav-social">
       <a href="https://www.instagram.com/geomers_linguistics" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://wa.me/6281270508101" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -1181,6 +1204,14 @@
   document.querySelectorAll('.feat-card').forEach((c, i) => {
     c.style.animationDelay = (i * 0.08) + 's';
   });
+
+  // ── LOGOUT ──
+  function logoutGeomers() {
+    sessionStorage.removeItem('geomersLoggedIn');
+    sessionStorage.removeItem('geomersUser');
+    window.location.href = 'login.html';
+  }
+
 </script>
 </body>
 </html>
