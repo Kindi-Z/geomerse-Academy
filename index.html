@@ -19,20 +19,37 @@
     <p>Mengarahkan akun Anda...</p>
   </div>
 
-  <script>
-    const loggedIn = localStorage.getItem('geomersLoggedIn');
-    const role = localStorage.getItem('geomersRole');
-
-    if (loggedIn !== 'true') {
+  <script type="module">
+  import { auth } from './firebase-config.js';
+  
+  // Cek apakah user masih login di Firebase
+  auth.onAuthStateChanged(async (user) => {
+    if (!user) {
+      // Tidak login
       window.location.replace('login.html');
-    } else if (role === 'kebumian') {
-      window.location.replace('kebumian/index.html');
-    } else if (role === 'geografi') {
-      window.location.replace('geografi/index.html');
-    } else {
-      localStorage.clear();
+      return;
+    }
+    
+    // Ambil role dari custom claims
+    try {
+      const idTokenResult = await user.getIdTokenResult();
+      const role = idTokenResult.claims.role;
+      
+      if (role === 'kebumian') {
+        window.location.replace('kebumian/index.html');
+      } else if (role === 'geografi') {
+        window.location.replace('geografi/index.html');
+      } else {
+        // Role tidak dikenal, logout
+        await auth.signOut();
+        localStorage.clear();
+        window.location.replace('login.html');
+      }
+    } catch (error) {
+      console.error('Error:', error);
       window.location.replace('login.html');
     }
-  </script>
+  });
+</script>
 </body>
 </html>
