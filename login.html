@@ -572,56 +572,84 @@
     <div>© 2026 Geomers Academy. All rights reserved.</div>
   </footer>
 
-  <script>
-   const form = document.getElementById('loginForm');
-const errorBox = document.getElementById('errorBox');
+  <script type="module">
+  // Import Firebase
+  import { auth, signInWithEmailAndPassword } from './firebase-config.js';
 
-form.addEventListener('submit', async function(event) {
-  event.preventDefault();
+  const form = document.getElementById('loginForm');
+  const errorBox = document.getElementById('errorBox');
 
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value.trim();
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
 
-  if (!username || !password) {
-    errorBox.textContent = 'Mohon isi username/email dan password terlebih dahulu.';
-    errorBox.classList.add('show');
-    return;
-  }
+    const email = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-  // Loading state (opsional tapi disarankan)
-  const loginBtn = document.querySelector('.login-btn');
-  const originalText = loginBtn.textContent;
-  loginBtn.textContent = 'Memproses...';
-  loginBtn.disabled = true;
+    if (!email || !password) {
+      errorBox.textContent = 'Mohon isi email dan password terlebih dahulu.';
+      errorBox.classList.add('show');
+      return;
+    }
 
-  try {
-    const response = await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    });
+    // Loading state
+    const loginBtn = document.querySelector('.login-btn');
+    const originalText = loginBtn.textContent;
+    loginBtn.textContent = 'Memproses...';
+    loginBtn.disabled = true;
 
-    const result = await response.json();
+    try {
+      // Login ke Firebase
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-    if (response.ok && result.success) {
-      errorBox.classList.remove('show');
+      // Ambil role dari Custom Claims (nanti kita setup di Step 8)
+      const idTokenResult = await user.getIdTokenResult();
+      const role = idTokenResult.claims.role || null;
+
+      if (!role) {
+        throw new Error('Akun Anda belum memiliki role. Hubungi admin.');
+      }
+
+      // Simpan ke localStorage (untuk digunakan di index.html redirector)
       localStorage.setItem('geomersLoggedIn', 'true');
-      localStorage.setItem('geomersUser', result.username);
-      localStorage.setItem('geomersRole', result.role);
-      window.location.replace('index.html');
-    } else {
-      errorBox.textContent = result.message || 'Username atau password salah.';
+      localStorage.setItem('geomersUser', user.email);
+      localStorage.setItem('geomersRole', role);
+
+      // Redirect sesuai role
+      if (role === 'kebumian') {
+        window.location.replace('kebumian/index.html');
+      } else if (role === 'geografi') {
+        window.location.replace('geografi/index.html');
+      } else {
+        throw new Error('Role tidak dikenal');
+      }
+
+    } catch (error) {
+      let pesanError = 'Login gagal. ';
+      
+      switch (error.code) {
+        case 'auth/invalid-email':
+          pesanError = 'Format email tidak valid.';
+          break;
+        case 'auth/user-not-found':
+          pesanError = 'Email tidak terdaftar.';
+          break;
+        case 'auth/wrong-password':
+          pesanError = 'Password salah.';
+          break;
+        case 'auth/too-many-requests':
+          pesanError = 'Terlalu banyak percobaan. Coba lagi nanti.';
+          break;
+        default:
+          pesanError = error.message || 'Email atau password salah.';
+      }
+      
+      errorBox.textContent = pesanError;
       errorBox.classList.add('show');
       loginBtn.textContent = originalText;
       loginBtn.disabled = false;
     }
-  } catch (error) {
-    errorBox.textContent = 'Gagal terhubung ke server. Pastikan backend sedang berjalan.';
-    errorBox.classList.add('show');
-    loginBtn.textContent = originalText;
-    loginBtn.disabled = false;
-  }
-}); 
-  </script>
+  });
+</script>
 </body>
 </html>
