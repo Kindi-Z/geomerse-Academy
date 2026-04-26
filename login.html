@@ -573,42 +573,55 @@
   </footer>
 
   <script>
-    const form = document.getElementById('loginForm');
-    const errorBox = document.getElementById('errorBox');
+   const form = document.getElementById('loginForm');
+const errorBox = document.getElementById('errorBox');
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
+form.addEventListener('submit', async function(event) {
+  event.preventDefault();
 
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
 
-      if (!username || !password) {
-        errorBox.textContent = 'Mohon isi username/email dan password terlebih dahulu.';
-        errorBox.classList.add('show');
-        return;
-      }
+  if (!username || !password) {
+    errorBox.textContent = 'Mohon isi username/email dan password terlebih dahulu.';
+    errorBox.classList.add('show');
+    return;
+  }
 
-      const users = [
-        { username: "irzal", password: "67", role: "kebumian" },
-        { username: "ziyad", password: "67", role: "geografi" },
-        { username: "khaliv", password: "67", role: "kebumian" }
-      ];
+  // Loading state (opsional tapi disarankan)
+  const loginBtn = document.querySelector('.login-btn');
+  const originalText = loginBtn.textContent;
+  loginBtn.textContent = 'Memproses...';
+  loginBtn.disabled = true;
 
-      const validUser = users.find(
-        user => user.username === username && user.password === password
-      );
-
-      if (validUser) {
-        errorBox.classList.remove('show');
-        localStorage.setItem('geomersLoggedIn', 'true');
-        localStorage.setItem('geomersUser', validUser.username);
-        localStorage.setItem('geomersRole', validUser.role);
-        window.location.replace('index.html');
-      } else {
-        errorBox.textContent = 'Username atau password salah.';
-        errorBox.classList.add('show');
-      }
+  try {
+    const response = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
     });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      errorBox.classList.remove('show');
+      localStorage.setItem('geomersLoggedIn', 'true');
+      localStorage.setItem('geomersUser', result.username);
+      localStorage.setItem('geomersRole', result.role);
+      window.location.replace('index.html');
+    } else {
+      errorBox.textContent = result.message || 'Username atau password salah.';
+      errorBox.classList.add('show');
+      loginBtn.textContent = originalText;
+      loginBtn.disabled = false;
+    }
+  } catch (error) {
+    errorBox.textContent = 'Gagal terhubung ke server. Pastikan backend sedang berjalan.';
+    errorBox.classList.add('show');
+    loginBtn.textContent = originalText;
+    loginBtn.disabled = false;
+  }
+}); 
   </script>
 </body>
 </html>
