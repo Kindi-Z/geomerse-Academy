@@ -46,9 +46,9 @@
       const role = idTokenResult.claims.role;
 
       if (role === 'kebumian') {
-        window.location.replace('kebumian/index.html');
+        window.location.replace('kebumian/');
       } else if (role === 'geografi') {
-        window.location.replace('geografi/index.html');
+        window.location.replace('geografi/');
       } else {
         await auth.signOut();
         localStorage.clear();
