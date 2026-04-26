@@ -573,8 +573,20 @@
   </footer>
 
   <script type="module">
-  // Import Firebase
-  import { auth, signInWithEmailAndPassword } from './firebase-config.js';
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCxwyTe5FylqJZcPO8TA7Va_xCRbMzJyWk",
+    authDomain: "geomers-academy-5b9e5.firebaseapp.com",
+    projectId: "geomers-academy-5b9e5",
+    storageBucket: "geomers-academy-5b9e5.firebasestorage.app",
+    messagingSenderId: "598328922866",
+    appId: "1:598328922866:web:d2f38f330c53e9d227766b"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
   const form = document.getElementById('loginForm');
   const errorBox = document.getElementById('errorBox');
@@ -591,31 +603,25 @@
       return;
     }
 
-    // Loading state
     const loginBtn = document.querySelector('.login-btn');
     const originalText = loginBtn.textContent;
     loginBtn.textContent = 'Memproses...';
     loginBtn.disabled = true;
 
     try {
-      // Login ke Firebase
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      // Ambil role dari Custom Claims (nanti kita setup di Step 8)
       const idTokenResult = await user.getIdTokenResult();
-      const role = idTokenResult.claims.role || null;
+      const role = idTokenResult.claims.role;
 
       if (!role) {
-        throw new Error('Akun Anda belum memiliki role. Hubungi admin.');
+        throw new Error('Akun belum memiliki role. Hubungi admin.');
       }
 
-      // Simpan ke localStorage (untuk digunakan di index.html redirector)
       localStorage.setItem('geomersLoggedIn', 'true');
       localStorage.setItem('geomersUser', user.email);
       localStorage.setItem('geomersRole', role);
 
-      // Redirect sesuai role
       if (role === 'kebumian') {
         window.location.replace('kebumian/index.html');
       } else if (role === 'geografi') {
@@ -626,7 +632,6 @@
 
     } catch (error) {
       let pesanError = 'Login gagal. ';
-      
       switch (error.code) {
         case 'auth/invalid-email':
           pesanError = 'Format email tidak valid.';
@@ -643,7 +648,6 @@
         default:
           pesanError = error.message || 'Email atau password salah.';
       }
-      
       errorBox.textContent = pesanError;
       errorBox.classList.add('show');
       loginBtn.textContent = originalText;
