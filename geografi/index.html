@@ -80,7 +80,6 @@
     }
     .nav-social a:hover { background: var(--lemon); color: var(--dark); }
 
-
     .logout-btn {
       color: #fff; background: rgba(255,255,255,0.18);
       border: 1px solid rgba(255,255,255,0.28);
@@ -186,7 +185,6 @@
     }
     .hstat-lbl { font-size: 11px; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* Emoji deco */
     .hero-deco {
       position: absolute; right: 7%; top: 50%;
       transform: translateY(-50%); display: none;
@@ -203,7 +201,7 @@
       50% { transform: translateY(-14px); }
     }
 
-    /* ── QUICK ACCESS (home) ── */
+    /* ── QUICK ACCESS ── */
     .quick-section {
       background: var(--warm); padding: 64px 8%;
       position: relative;
@@ -232,7 +230,6 @@
     .sec-header h2 span { color: var(--teal); }
     .sec-header p { color: var(--mid); font-size: 14px; max-width: 480px; margin: 0 auto; line-height: 1.65; }
 
-    /* Feature grid */
     .feat-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -463,9 +460,57 @@
     /* ── MATERI ── */
     .materi-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
     }
+
+    /* Materi section divider */
+    .materi-section-header {
+      display: flex; align-items: center; gap: 16px;
+      margin: 40px 0 20px;
+    }
+    .materi-section-header:first-child { margin-top: 0; }
+    .materi-section-icon {
+      width: 44px; height: 44px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .materi-section-icon.manusia { background: rgba(167,139,250,0.15); border: 1.5px solid rgba(167,139,250,0.3); }
+    .materi-section-icon.fisik   { background: var(--teal-light); border: 1.5px solid rgba(20,184,157,0.3); }
+    .materi-section-title {
+      font-family: 'Nunito', sans-serif; font-size: 1.25rem; font-weight: 900; color: var(--dark);
+    }
+    .materi-section-sub { font-size: 12px; color: var(--mid); margin-top: 2px; }
+    .materi-section-line { flex: 1; height: 1px; background: var(--teal-light); }
+    .materi-section-count {
+      font-size: 11.5px; color: var(--mid);
+      background: var(--teal-xlight); border: 1px solid var(--teal-light);
+      border-radius: 20px; padding: 3px 11px;
+    }
+
+    /* Small materi card (no desc) */
+    .materi-card-sm {
+      background: var(--white); border: 2px solid var(--teal-light);
+      border-radius: 16px; padding: 16px 18px;
+      text-decoration: none; color: inherit;
+      display: flex; align-items: center; gap: 12px;
+      transition: all 0.22s;
+    }
+    .materi-card-sm:hover { border-color: var(--teal); background: var(--teal-xlight); transform: translateY(-3px); box-shadow: var(--card-shadow); }
+    .materi-card-sm-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--teal-xlight); border: 1px solid var(--teal-light);
+      display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;
+    }
+    .materi-card-sm-title { font-size: 13.5px; font-weight: 700; color: var(--dark); }
+    .materi-card-sm-arrow {
+      margin-left: auto; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--teal-xlight); border: 1px solid var(--teal-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--teal-dark);
+      transition: all 0.22s; flex-shrink: 0;
+    }
+    .materi-card-sm:hover .materi-card-sm-arrow { background: var(--teal); color: #fff; transform: translateX(3px); }
 
     /* ── PAGE HEADER ── */
     .page-hero {
@@ -558,7 +603,6 @@
     .footer-col a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; transition: color 0.2s; }
     .footer-col a:hover { color: var(--lemon); }
 
-    /* Contact info block */
     .footer-contact { display: flex; flex-direction: column; gap: 12px; }
     .contact-row {
       display: flex; align-items: center; gap: 12px;
@@ -590,7 +634,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* back to top */
     #btt {
       position: fixed; bottom: 26px; right: 26px;
       width: 44px; height: 44px; border-radius: 50%;
@@ -604,7 +647,6 @@
     #btt.show { opacity: 1; transform: translateY(0); }
     #btt:hover { background: var(--teal-dark); transform: translateY(-3px); }
 
-    /* mobile */
     @media(max-width:760px){
       .nav-links {
         display: none; flex-direction: column;
@@ -624,10 +666,8 @@
 </head>
 <body>
 <script>
-  // Guard role: hanya akun Geografi yang boleh membuka halaman ini.
   const loggedIn = localStorage.getItem('geomersLoggedIn');
   const role = localStorage.getItem('geomersRole');
-
   if (loggedIn !== 'true' || role !== 'geografi') {
     window.location.replace('../login.html');
   }
@@ -671,7 +711,6 @@
 <!-- ══════════════════════ HOME ══════════════════════ -->
 <div class="page active" id="page-home">
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge"><i class="fas fa-globe"></i> Platform OSN Geografi Terlengkap</div>
@@ -741,13 +780,13 @@
     </div>
   </section>
 
-  <!-- All Resources -->
+  <!-- All Resources — only keep: Geografi Bersama, Bank Soal Puspresnas, Materi Geografi Sosial -->
   <section class="res-section">
     <div class="res-header">
       <div class="res-dot"></div>
       <div class="res-title">Semua Sumber Daya</div>
       <div class="res-line"></div>
-      <div class="res-count" id="res-count">10 sumber</div>
+      <div class="res-count" id="res-count">3 sumber</div>
     </div>
 
     <div class="search-bar" style="margin-bottom:28px;">
@@ -756,65 +795,23 @@
     </div>
 
     <div class="res-grid" id="all-cards">
-      <a href="https://drive.google.com/drive/folders/1DmtHSt54CL-lnP8qF_xUqq96-yZ05Kvu?usp=drive_link" target="_blank" class="res-card" data-tags="tryout latihan" style="animation-delay:0.05s">
-        <div class="res-card-icon">🎯</div>
-        <div class="res-card-title">TryOut Geografi</div>
-        <div class="res-card-desc">Kumpulan soal tryout resmi untuk persiapan OSN Geografi.</div>
-        <div class="res-card-footer"><span class="rtag rtag-latihan">Latihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/u/0/mobile/folders/1R3Z1-CB6s4WxY7J2vN3Gua1Lsf2eN-1H" target="_blank" class="res-card" data-tags="soal osn sd sma" style="animation-delay:0.10s">
-        <div class="res-card-icon">📋</div>
-        <div class="res-card-title">Soal OSN SD–SMA</div>
-        <div class="res-card-desc">Arsip lengkap soal OSN dari berbagai jenjang pendidikan.</div>
-        <div class="res-card-footer"><span class="rtag rtag-soal">Soal</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1Fbncx_JvsmrFIpOyaAsAnGawy_txtZ64" target="_blank" class="res-card" data-tags="meteorologi materi" style="animation-delay:0.15s">
-        <div class="res-card-icon">🌤</div>
-        <div class="res-card-title">Meteorologi Lengkap</div>
-        <div class="res-card-desc">Folder materi meteorologi komprehensif untuk semua level.</div>
-        <div class="res-card-footer"><span class="rtag rtag-materi">Materi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://bit.ly/geografibersama" target="_blank" class="res-card" data-tags="komunitas geografi" style="animation-delay:0.20s">
+      <a href="https://bit.ly/geografibersama" target="_blank" class="res-card" data-tags="komunitas geografi" style="animation-delay:0.05s">
         <div class="res-card-icon">🤝</div>
         <div class="res-card-title">Geografi Bersama</div>
         <div class="res-card-desc">Komunitas siswa dan pelatih OSN Geografi se-Indonesia.</div>
         <div class="res-card-footer"><span class="rtag rtag-komunitas">Komunitas</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
       </a>
-      <a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank" class="res-card" data-tags="bank soal puspresnas resmi" style="animation-delay:0.25s">
+      <a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank" class="res-card" data-tags="bank soal puspresnas resmi" style="animation-delay:0.10s">
         <div class="res-card-icon">🏛</div>
         <div class="res-card-title">Bank Soal Puspresnas</div>
         <div class="res-card-desc">Sumber soal resmi dari Pusat Prestasi Nasional Kemendikdasmen.</div>
         <div class="res-card-footer"><span class="rtag rtag-resmi">Resmi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
       </a>
-      <a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank" class="res-card" data-tags="arsip fariq geografi" style="animation-delay:0.30s">
-        <div class="res-card-icon">🗂</div>
-        <div class="res-card-title">Arsip Geografi Fariq</div>
-        <div class="res-card-desc">Koleksi arsip materi dan soal Geografi dari komunitas.</div>
-        <div class="res-card-footer"><span class="rtag rtag-arsip">Arsip</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1rwjW0QbvijZh_9BAXyRvDFtgV9TF1g0T" target="_blank" class="res-card" data-tags="kumpulan soal latihan" style="animation-delay:0.35s">
-        <div class="res-card-icon">📑</div>
-        <div class="res-card-title">Kumpulan Soal</div>
-        <div class="res-card-desc">Berbagai soal latihan tersusun rapi untuk semua topik.</div>
-        <div class="res-card-footer"><span class="rtag rtag-latihan">Latihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1tWSV-05Th6BBq_ImMpVy8unZWcn19MWh?usp=drive_link" target="_blank" class="res-card" data-tags="materi geografi sosial" style="animation-delay:0.40s">
+      <a href="https://drive.google.com/drive/folders/1tWSV-05Th6BBq_ImMpVy8unZWcn19MWh?usp=drive_link" target="_blank" class="res-card" data-tags="materi geografi sosial" style="animation-delay:0.15s">
         <div class="res-card-icon">🧭</div>
         <div class="res-card-title">Materi Geografi Sosial</div>
         <div class="res-card-desc">Kompilasi materi geografi sosial untuk persiapan OSN.</div>
         <div class="res-card-footer"><span class="rtag rtag-materi">Materi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1uY2q3J8B781eeFUU6Y81qMoIwWX7Bn7n" target="_blank" class="res-card" data-tags="pelat scuola pelatihan" style="animation-delay:0.45s">
-        <div class="res-card-icon">🎓</div>
-        <div class="res-card-title">Pelat Scuola</div>
-        <div class="res-card-desc">Modul pelatihan intensif Scuola untuk peserta OSN.</div>
-        <div class="res-card-footer"><span class="rtag rtag-pelatihan">Pelatihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/12HQ8ll7-r2POdEKjNalD0tT_hmYvaJHg" target="_blank" class="res-card" data-tags="pelatihan osnp" style="animation-delay:0.50s">
-        <div class="res-card-icon">🏅</div>
-        <div class="res-card-title">Pelatihan OSN-P</div>
-        <div class="res-card-desc">Materi dan soal pelatihan khusus OSN Provinsi Geografi.</div>
-        <div class="res-card-footer"><span class="rtag rtag-pelatihan">Pelatihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
       </a>
     </div>
   </section>
@@ -893,59 +890,50 @@
       <div class="res-count">8 paket</div>
     </div>
     <div class="to-grid">
-
       <div class="to-card">
         <div class="to-group">🏫 Geomaster Class</div>
         <a href="https://drive.google.com/file/d/1cq9PfyFtLWJEgJpVcEclOtzuCQxIrB9C/view" target="_blank" class="to-link">TO 1</a>
         <a href="https://drive.google.com/file/d/1R-cnSPpnMznAF-zuTshpDGF_d9rtRBsA/view" target="_blank" class="to-link">TO 2</a>
         <a href="https://drive.google.com/file/d/1cHLwl8t-4_d00kq4xuuMCUVgkMABO08H/view" target="_blank" class="to-link">TO 3</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🌀 Vortex</div>
         <a href="https://drive.google.com/file/d/1xI8M3YSL7xCrHlsHAbDgU1UxWBVnCbuf/view" target="_blank" class="to-link">Soal</a>
         <a href="https://drive.google.com/file/d/1Jt7U9gt5XdSrcS5pWsgRaar0vXa7N36v/view" target="_blank" class="to-link">Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🔶 KOJA TO</div>
         <a href="https://drive.google.com/file/d/1pcBP7ZqLIPka53VSoytdk1k5wgcHwTq7/view" target="_blank" class="to-link">Soal</a>
         <a href="https://drive.google.com/file/d/1EA8wesAXIfR_v4xNR74tLlHQZROlHwYG/view" target="_blank" class="to-link">Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🌐 Geoscience Q&A</div>
         <a href="https://drive.google.com/file/d/1PZvrfGV7Dn4TaKvQ3ZCmtfTqCJbqyncJ/view" target="_blank" class="to-link">Soal</a>
         <a href="https://drive.google.com/file/d/1O0AVA6JPKoeaadXRE4fEuGOun9WPwovf/view" target="_blank" class="to-link">Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">⚗️ IOSTPI (SCE)</div>
         <a href="https://drive.google.com/file/d/1f9VHHVMnyw0FKUct2qyoPXBQXUum0uar/view" target="_blank" class="to-link">2017</a>
         <a href="https://drive.google.com/file/d/1IcaP8s8_Fqjd4E5LDamQhQdyrxsEfNI1/view" target="_blank" class="to-link">2018</a>
         <a href="https://drive.google.com/file/d/1TYqxTCNyP6rM-6D-VdzIeejw6fSvAYDg/view" target="_blank" class="to-link">2020</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🏆 TO PPSN</div>
         <a href="https://drive.google.com/file/d/1wnmQDHMybLa2mMNKiW1jeJyiOlFUUR3r/view" target="_blank" class="to-link">2023 Soal & Pembahasan</a>
         <a href="https://drive.google.com/file/d/1_xpfiS4ctgOaOPkClWWYt9S-u_rFV2TW/view" target="_blank" class="to-link">2024 Soal & Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">⚡ Alpha TO</div>
         <a href="https://drive.google.com/file/d/1XGZI1HsWsnDb7Eky8dJvDLQX2Wv8xHhr/view" target="_blank" class="to-link">Vol. 7</a>
         <a href="https://drive.google.com/file/d/1uYCbuBqYXq7RwrW78Ts0RK2IzX4Asdkq/view" target="_blank" class="to-link">Vol. 13</a>
         <a href="https://drive.google.com/file/d/1HAK9Ue_vtGcH_bFRWGCGQMay37zRCPfG/view" target="_blank" class="to-link">Vol. 14</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">📗 POSI</div>
         <a href="https://drive.google.com/file/d/1kVo9V9YSt-B5-ANPOTHJfTG-PeAEPWPB/view" target="_blank" class="to-link">2018</a>
         <a href="https://drive.google.com/file/d/1U-myL_Vxk57T10_0D0UXcd5xyPEiTo4O/view" target="_blank" class="to-link">2019</a>
         <a href="https://drive.google.com/file/d/1SBefXK3nrzJ6zwKyuv8fPY7N3EjApGOY/view" target="_blank" class="to-link">2020</a>
       </div>
-
     </div>
   </section>
 </div>
@@ -965,111 +953,57 @@
       <div class="res-line"></div>
       <div class="res-count">14 bidang</div>
     </div>
-   <div class="ebook-grid">
-
-  <!-- 1. Geografi Fisik -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">🌍</div>
-      <div class="ebook-cat-name">Geografi Fisik (Umum)</div>
+    <div class="ebook-grid">
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">🌍</div><div class="ebook-cat-name">Geografi Fisik (Umum)</div></div>
+        <a href="https://drive.google.com/file/d/1LJNwkQ8AY3sFmmBup4FNCf7icU9AtmjL/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Fundamentals of Physical Geography</a>
+        <a href="https://drive.google.com/file/d/1Ku7exJ54VLH2GFnrm22SjZr419R114TS/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Geography: An Integrated Approach</a>
+        <a href="https://drive.google.com/file/d/18B9Of9n808Du9JXLjNOybeL6wA780ssE/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Visual Guide of Geography (DK)</a>
+        <a href="https://drive.google.com/file/d/1NeY20HDOg9ZMwzlaOjPnn7pkSo63sMKS/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">4.</span> GEOG101</a>
+        <a href="https://drive.google.com/file/d/13JQmWubNkaOqYz9Dbuc5U8FZUtTeApaw/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">5.</span> IB Geography Course Book</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">🌦️</div><div class="ebook-cat-name">Iklim & Perubahan Iklim</div></div>
+        <a href="https://drive.google.com/file/d/1k3Ga3B1uLx3mZ20zuZrkR79UWqHKPD4K/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Meteorology Today</a>
+        <a href="https://drive.google.com/file/d/1904zWiDeKtaXw1wMRrzZ-Tj-2yvroboS/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Meteorologi Dasar</a>
+        <a href="https://drive.google.com/file/d/1iftQ44Z8bDveUW3QU0TyXZlZ5W52BH-p/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Introduction to Atmosphere</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">🌊</div><div class="ebook-cat-name">Oseanografi</div></div>
+        <a href="https://drive.google.com/file/d/11-da0s6VGoRlD3xoKD5oA0S58ZNwZYry/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Essentials of Oceanography</a>
+        <a href="https://drive.google.com/file/d/1WFuGrZ8113PbNeSRtLnHYoCMUArhqcCn/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Investigating Oceanography</a>
+        <a href="https://drive.google.com/file/d/1E9EUszJaxcQ3s2yy-_X8CKznpBi38jsh/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Oseanografi Dasar</a>
+        <a href="https://drive.google.com/file/d/1CYdlG34XAyb0jBJrtOhnUapYefVI2OYk/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">4.</span> Oseanografi Sumbar</a>
+        <a href="https://drive.google.com/file/d/1IsQotyZM2Of5HMslU-PcaeQhTLMn-mt_/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">5.</span> Diklat Oseanografi</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">🪨</div><div class="ebook-cat-name">Geologi & Geomorfologi</div></div>
+        <a href="https://drive.google.com/file/d/13QMwb8cCkM3b2HIJX3m4XKTgJV2OFDp2/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Essentials of Geology</a>
+        <a href="https://drive.google.com/file/d/1Nd8Y1wYMppMOPQLUxhhS49Zi91Z8Imm1/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Materi Geologi</a>
+        <a href="https://drive.google.com/file/d/1-FcAz7a3RKqNybYybxODAzLdFaVvwvru/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Fundamentals of Geomorphology</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">👥</div><div class="ebook-cat-name">Geografi Penduduk</div></div>
+        <a href="https://drive.google.com/file/d/1z_5yXA2Ih9JaAGfmOyTyO7zYUBM8swFm/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Fundamentals of Human Geography</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">💰</div><div class="ebook-cat-name">Geografi Ekonomi</div></div>
+        <a href="https://drive.google.com/file/d/1g57FPvvAkvknVLOLe_cLhFPpUPewX-IE/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Cambridge Geography</a>
+        <a href="https://drive.google.com/file/d/1yCHUFLbF6200gjwypZYktJYugSqRYYoq/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> AQA Geography</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">📊</div><div class="ebook-cat-name">Geografi Pembangunan</div></div>
+        <a href="https://drive.google.com/file/d/1ePXTIu8V61GtIWrcRvJfdoFxc_saUTiq/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> World Regional Geography</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">✈️</div><div class="ebook-cat-name">Geografi Pariwisata</div></div>
+        <a href="https://drive.google.com/file/d/1Xj1eLmpkCfDyoYFc_VdnCP__GIiQx_Is/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Pengantar Pariwisata</a>
+      </div>
+      <div class="ebook-cat">
+        <div class="ebook-cat-head"><div class="ebook-cat-icon">🧑‍🤝‍🧑</div><div class="ebook-cat-name">Geografi Budaya</div></div>
+        <a href="https://drive.google.com/file/d/15nYbHSM21pxEGSqYZFpdFb95YlnD_g6a/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Cultural Landscape</a>
+      </div>
     </div>
-    <a href="https://drive.google.com/file/d/1LJNwkQ8AY3sFmmBup4FNCf7icU9AtmjL/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Fundamentals of Physical Geography</a>
-    <a href="https://drive.google.com/file/d/1Ku7exJ54VLH2GFnrm22SjZr419R114TS/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Geography: An Integrated Approach</a>
-    <a href="https://drive.google.com/file/d/18B9Of9n808Du9JXLjNOybeL6wA780ssE/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Visual Guide of Geography (DK)</a>
-    <a href="https://drive.google.com/file/d/1NeY20HDOg9ZMwzlaOjPnn7pkSo63sMKS/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">4.</span> GEOG101</a>
-    <a href="https://drive.google.com/file/d/13JQmWubNkaOqYz9Dbuc5U8FZUtTeApaw/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">5.</span> IB Geography Course Book</a>
-  </div>
-
-  <!-- 2. Iklim -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">🌦️</div>
-      <div class="ebook-cat-name">Iklim & Perubahan Iklim</div>
-    </div>
-    <a href="https://drive.google.com/file/d/1k3Ga3B1uLx3mZ20zuZrkR79UWqHKPD4K/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Meteorology Today</a>
-    <a href="https://drive.google.com/file/d/1904zWiDeKtaXw1wMRrzZ-Tj-2yvroboS/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Meteorologi Dasar</a>
-    <a href="https://drive.google.com/file/d/1iftQ44Z8bDveUW3QU0TyXZlZ5W52BH-p/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Introduction to Atmosphere</a>
-  </div>
-
-  <!-- 3. Oseanografi -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">🌊</div>
-      <div class="ebook-cat-name">Oseanografi</div>
-    </div>
-    <a href="https://drive.google.com/file/d/11-da0s6VGoRlD3xoKD5oA0S58ZNwZYry/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Essentials of Oceanography</a>
-    <a href="https://drive.google.com/file/d/1WFuGrZ8113PbNeSRtLnHYoCMUArhqcCn/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Investigating Oceanography</a>
-    <a href="https://drive.google.com/file/d/1E9EUszJaxcQ3s2yy-_X8CKznpBi38jsh/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Oseanografi Dasar</a>
-    <a href="https://drive.google.com/file/d/1CYdlG34XAyb0jBJrtOhnUapYefVI2OYk/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">4.</span> Oseanografi Sumbar</a>
-    <a href="https://drive.google.com/file/d/1IsQotyZM2Of5HMslU-PcaeQhTLMn-mt_/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">5.</span> Diklat Oseanografi</a>
-  </div>
-
-  <!-- 4. Geologi -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">🪨</div>
-      <div class="ebook-cat-name">Geologi & Geomorfologi</div>
-    </div>
-    <a href="https://drive.google.com/file/d/13QMwb8cCkM3b2HIJX3m4XKTgJV2OFDp2/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Essentials of Geology</a>
-    <a href="https://drive.google.com/file/d/1Nd8Y1wYMppMOPQLUxhhS49Zi91Z8Imm1/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Materi Geologi</a>
-    <a href="https://drive.google.com/file/d/1-FcAz7a3RKqNybYybxODAzLdFaVvwvru/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Fundamentals of Geomorphology</a>
-  </div>
-
-  <!-- 5. Penduduk -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">👥</div>
-      <div class="ebook-cat-name">Geografi Penduduk</div>
-    </div>
-    <a href="https://drive.google.com/file/d/1z_5yXA2Ih9JaAGfmOyTyO7zYUBM8swFm/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Fundamentals of Human Geography</a>
-  </div>
-
-  <!-- 6. Ekonomi -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">💰</div>
-      <div class="ebook-cat-name">Geografi Ekonomi</div>
-    </div>
-    <a href="https://drive.google.com/file/d/1g57FPvvAkvknVLOLe_cLhFPpUPewX-IE/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Cambridge Geography</a>
-    <a href="https://drive.google.com/file/d/1yCHUFLbF6200gjwypZYktJYugSqRYYoq/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> AQA Geography</a>
-  </div>
-
-  <!-- 7. Pembangunan -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">📊</div>
-      <div class="ebook-cat-name">Geografi Pembangunan</div>
-    </div>
-    <a href="https://drive.google.com/file/d/1ePXTIu8V61GtIWrcRvJfdoFxc_saUTiq/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> World Regional Geography</a>
-  </div>
-
-  <!-- 8. Pariwisata -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">✈️</div>
-      <div class="ebook-cat-name">Geografi Pariwisata</div>
-    </div>
-    <a href="https://drive.google.com/file/d/1Xj1eLmpkCfDyoYFc_VdnCP__GIiQx_Is/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Pengantar Pariwisata</a>
-  </div>
-
-  <!-- 9. Budaya -->
-  <div class="ebook-cat">
-    <div class="ebook-cat-head">
-      <div class="ebook-cat-icon">🧑‍🤝‍🧑</div>
-      <div class="ebook-cat-name">Geografi Budaya</div>
-    </div>
-    <a href="https://drive.google.com/file/d/15nYbHSM21pxEGSqYZFpdFb95YlnD_g6a/view?usp=drive_link" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Cultural Landscape</a>
-  </div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
   </section>
 </div>
 
@@ -1078,150 +1012,140 @@
   <div class="page-hero">
     <div class="page-hero-badge">🌍 Materi</div>
     <h1>Materi & <span class="t">Sumber Daya</span></h1>
-    <p>Kumpulan folder drive materi, arsip, komunitas, dan program pelatihan OSN Geografi</p>
+    <p>Kumpulan materi OSN Geografi lengkap — dibagi menjadi Geografi Manusia dan Geografi Fisik</p>
   </div>
 
   <section class="inner-section">
-    <div class="res-header">
-      <div class="res-dot"></div>
-      <div class="res-title">Sumber Materi</div>
-      <div class="res-line"></div>
-      <div class="res-count">6 sumber</div>
+
+    <!-- ── GEOGRAFI MANUSIA ── -->
+    <div class="materi-section-header">
+      <div class="materi-section-icon manusia">👥</div>
+      <div>
+        <div class="materi-section-title">Geografi Manusia</div>
+        <div class="materi-section-sub">Pariwisata · Kewilayahan · Budaya · Flora &amp; Fauna · Demografi · Bencana · Pertanian</div>
+      </div>
+      <div class="materi-section-line"></div>
+      <div class="materi-section-count">7 materi</div>
     </div>
-   <div class="materi-grid">
 
-  <!-- Geografi Manusia -->
-  <a href="https://drive.google.com/drive/folders/GEOGRAFI_MANUSIA" target="_blank" class="res-card">
-    <div class="res-card-icon">👥</div>
-    <div class="res-card-title">Geografi Manusia</div>
-    <div class="res-card-desc">
-      Kumpulan materi geografi manusia: pariwisata, kewilayahan, budaya, flora fauna, demografi, dan pertanian.
+    <div class="materi-grid" style="margin-bottom: 48px;">
+      <a href="https://drive.google.com/file/d/1UiQ1zQGDhpPQ03vdRNnkqW056RyI21n3/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">✈️</div>
+        <div class="materi-card-sm-title">Pariwisata</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1YRBmyUP4ZFSHx8xUU8u0o_g8nM1BuRpE/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🗺️</div>
+        <div class="materi-card-sm-title">Kewilayahan</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/15FKYnV5E2s5Ms5Jbz_4H7gM35cxXrenP/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🧑‍🤝‍🧑</div>
+        <div class="materi-card-sm-title">Geografi Budaya</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1N6LshrV3vTQN3fdLbPdoxME2ZTsN0ZGd/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🌿</div>
+        <div class="materi-card-sm-title">Flora &amp; Fauna</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/14TsnU23ORdH1HRXO9SKWAtOjIXHEJOI5/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">👨‍👩‍👧‍👦</div>
+        <div class="materi-card-sm-title">Demografi</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1dg6vD4xjTgpBesVYIuCCeEs7341C_rE/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">⚠️</div>
+        <div class="materi-card-sm-title">Bencana</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1AqDi61BYsu0BqczGRKHmJL30ULtFuSHt/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🌾</div>
+        <div class="materi-card-sm-title">Agriculture</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
     </div>
-    <div class="res-card-footer">
-      <span class="rtag rtag-materi">Materi</span>
-      <div class="res-arrow"><i class="fas fa-arrow-right"></i></div>
+
+    <!-- ── GEOGRAFI FISIK ── -->
+    <div class="materi-section-header">
+      <div class="materi-section-icon fisik">🌍</div>
+      <div>
+        <div class="materi-section-title">Geografi Fisik</div>
+        <div class="materi-section-sub">Meteorologi · Oseanografi · Klimatologi · Geomorfologi · Geologi · Kartografi</div>
+      </div>
+      <div class="materi-section-line"></div>
+      <div class="materi-section-count">12 materi</div>
     </div>
-  </a>
 
-  <!-- Detail Geografi Manusia -->
-  <a href="https://drive.google.com/file/d/1UiQ1zQGDhpPQ03vdRNnkqW056RyI21n3/view" target="_blank" class="res-card">
-    <div class="res-card-icon">📄</div>
-    <div class="res-card-title">Pariwisata</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1YRBmyUP4ZFSHx8xUU8u0o_g8nM1BuRpE/view" target="_blank" class="res-card">
-    <div class="res-card-icon">📄</div>
-    <div class="res-card-title">Kewilayahan</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/15FKYnV5E2s5Ms5Jbz_4H7gM35cxXrenP/view" target="_blank" class="res-card">
-    <div class="res-card-icon">📄</div>
-    <div class="res-card-title">Geografi Budaya</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1N6LshrV3vTQN3fdLbPdoxME2ZTsNOZGd/view" target="_blank" class="res-card">
-    <div class="res-card-icon">📄</div>
-    <div class="res-card-title">Flora & Fauna</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/14TsnU23ORDh1HRX09SKWAtOjIXHEJOl5/view" target="_blank" class="res-card">
-    <div class="res-card-icon">📄</div>
-    <div class="res-card-title">Demografi</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1dg6VD4xjTgpBesVYIuCCeEs7341C_rE/view" target="_blank" class="res-card">
-    <div class="res-card-icon">📄</div>
-    <div class="res-card-title">Bencana</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1AqDi61BYsu0BqczGRKHmJL30ULtFuSHt/view" target="_blank" class="res-card">
-    <div class="res-card-icon">📄</div>
-    <div class="res-card-title">Agriculture</div>
-  </a>
-
-
-  <!-- Geografi Fisik -->
-  <a href="https://drive.google.com/drive/folders/GEOGRAFI_FISIK" target="_blank" class="res-card">
-    <div class="res-card-icon">🌍</div>
-    <div class="res-card-title">Geografi Fisik</div>
-    <div class="res-card-desc">
-      Materi geografi fisik: meteorologi, oseanografi, klimatologi, geomorfologi, dan geologi.
+    <div class="materi-grid">
+      <a href="https://drive.google.com/file/d/1pWz68ztQfawN_mdwPTPJ5oTMYK2uVjzW/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🌊</div>
+        <div class="materi-card-sm-title">Oseanografi</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1tUekgKHpiJY-bcnDyxyZCFC-zyM5mQii/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🌦️</div>
+        <div class="materi-card-sm-title">Klasifikasi Iklim</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1bn0bdkrMgeOv8rLMYQRv9mWKVLO_SGgb/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🌪️</div>
+        <div class="materi-card-sm-title">Massa Udara &amp; Bencana</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1-Ekd9Q9fgAAjxXKuyhuGrIFJO-A4PHd1/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🗺️</div>
+        <div class="materi-card-sm-title">Peta Sinoptik</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/13LSRYe0Xmx3mpXmnelYBkD2bzBrbUo7z/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">☁️</div>
+        <div class="materi-card-sm-title">Unsur Cuaca</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/11debBWIcPDXP619GRpvlR0nIB0o7dTAO/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🌫️</div>
+        <div class="materi-card-sm-title">Struktur Atmosfer</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1uNm3edehF9LaAcuUpYjoySZLtv3nb5nl/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🗺️</div>
+        <div class="materi-card-sm-title">Kartografi</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1qo6J7OM7S-Wha93QCYayOn46VOywD2vi/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🏞️</div>
+        <div class="materi-card-sm-title">Geomorfologi Landscape</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1dCYBFle44Xrbv1uMnKC6sa9lHpA0_s8L/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">⛰️</div>
+        <div class="materi-card-sm-title">Tenaga Pembentuk Muka Bumi</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1U8aqEc-IXYuu55seMEPKmCAD-sC2NAOU/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🪨</div>
+        <div class="materi-card-sm-title">Geomorfologi Lanjutan</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1EBlFIEH-PVY5nJL7UzApdfprjxNUqz8u/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🧱</div>
+        <div class="materi-card-sm-title">Petrologi</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://drive.google.com/file/d/13sIeUOfqHXR3UVhRVkK30ugyuS1T964/view" target="_blank" class="materi-card-sm">
+        <div class="materi-card-sm-icon">🌋</div>
+        <div class="materi-card-sm-title">Geologi Interior &amp; Tektonik</div>
+        <div class="materi-card-sm-arrow"><i class="fas fa-arrow-right"></i></div>
+      </a>
     </div>
-    <div class="res-card-footer">
-      <span class="rtag rtag-materi">Materi</span>
-      <div class="res-arrow"><i class="fas fa-arrow-right"></i></div>
-    </div>
-  </a>
 
-  <!-- Detail Geografi Fisik -->
-  <a href="https://drive.google.com/file/d/1pWz68ztQfawN_mdwPTPJ5oTMYK2uVjzW/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🌊</div>
-    <div class="res-card-title">Oseanografi</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1tUekgKHpJiY-bcnDyxyZCFC-zyM5mQji/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🌦️</div>
-    <div class="res-card-title">Klasifikasi Iklim</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1bn0bdkrMgeOv8rLMYQRv9mWKVLO_SGgb/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🌪️</div>
-    <div class="res-card-title">Massa Udara & Bencana</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1-Ekd9Q9fgAAjxXKuyhuGrIFJO-A4PHd1/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🗺️</div>
-    <div class="res-card-title">Peta Sinoptik</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/13LSRYe0Xmx3mpXmneIYBkD2bzBrbUo7z/view" target="_blank" class="res-card">
-    <div class="res-card-icon">☁️</div>
-    <div class="res-card-title">Unsur Cuaca</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/11debBWICPXf619GRpvlR0nIBoo7dTA0/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🌫️</div>
-    <div class="res-card-title">Struktur Atmosfer</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1uNm3edehF9LaAcuUpYjoySZLtv3nb5nl/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🗺️</div>
-    <div class="res-card-title">Kartografi</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1qo6J70M7S-Wha93QCYay0n46V0ywd2vi/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🏞️</div>
-    <div class="res-card-title">Geomorfologi Landscape</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1dVGBFLe44Xrbv1uMnKC6sa9lHpA0_s8L/view" target="_blank" class="res-card">
-    <div class="res-card-icon">⛰️</div>
-    <div class="res-card-title">Tenaga Pembentuk Muka Bumi</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1U8aqEc-IXYuu55seMEPKmCAD-sC2NAOU/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🪨</div>
-    <div class="res-card-title">Geomorfologi Lanjutan</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/1EBIFLEH-PVY5nJL7UzApdfprjxNUqz8u/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🧱</div>
-    <div class="res-card-title">Petrologi</div>
-  </a>
-
-  <a href="https://drive.google.com/file/d/13sIeU0fqHXR3UVhRVkK30ugyuS1T964/view" target="_blank" class="res-card">
-    <div class="res-card-icon">🌋</div>
-    <div class="res-card-title">Geologi Interior & Tektonik</div>
-  </a>
-
-</div>
   </section>
 </div>
 
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-inner">
-    <!-- Brand -->
     <div class="footer-brand">
       <div class="footer-logo-row">
         <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
@@ -1240,8 +1164,6 @@
         <a href="https://wa.me/6281270508101" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-
-    <!-- Nav links -->
     <div class="footer-col">
       <h4>Navigasi</h4>
       <ul>
@@ -1252,18 +1174,13 @@
         <li><a href="#" onclick="showPage('materi');return false;">Materi</a></li>
       </ul>
     </div>
-
-    <!-- Resources -->
     <div class="footer-col">
       <h4>Sumber Daya</h4>
       <ul>
         <li><a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank">Bank Soal Puspresnas</a></li>
         <li><a href="https://bit.ly/geografibersama" target="_blank">Komunitas Geografi</a></li>
-        <li><a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank">Arsip Fariq</a></li>
       </ul>
     </div>
-
-    <!-- Contact info -->
     <div>
       <div class="footer-col" style="margin-bottom:14px;"><h4>Informasi Web</h4></div>
       <div class="footer-contact">
@@ -1295,19 +1212,16 @@
       </div>
     </div>
   </div>
-
   <div class="footer-bottom">
     © 2026 <span>Geomers Academy</span> · Platform OSN Geografi untuk pelajar Indonesia 🌏
   </div>
 </footer>
 
-<!-- Back to top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Ke atas">
   <i class="fas fa-chevron-up"></i>
 </button>
 
 <script>
-  // ── PAGE NAVIGATION ──
   const navMap = { home:0, soal:1, tryout:2, ebook:3, materi:4 };
 
   function showPage(name, btn) {
@@ -1320,7 +1234,6 @@
     document.getElementById('navLinks').classList.remove('open');
   }
 
-  // ── HOME SEARCH ──
   function homeSearch(val) {
     const v = val.toLowerCase();
     const cards = document.querySelectorAll('#all-cards .res-card');
@@ -1334,23 +1247,18 @@
     document.getElementById('res-count').textContent = visible + ' sumber';
   }
 
-  // ── HAMBURGER ──
   document.getElementById('hamburger').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  // ── BACK TO TOP ──
   window.addEventListener('scroll', () => {
     document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
   });
 
-  // ── CARD ANIMATION DELAY ──
   document.querySelectorAll('.feat-card').forEach((c, i) => {
     c.style.animationDelay = (i * 0.08) + 's';
   });
 
-
-  // ── LOGOUT ──
   function logoutGeomers() {
     localStorage.clear();
     window.location.replace('../login.html');
