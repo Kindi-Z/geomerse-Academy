@@ -1,3 +1,121 @@
-<html>
-  <p>halo</p>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geomers | Geografi</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e8faf7, #ffffff, #fef8d5);
+      color: #2D3E50;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Nunito', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    h1 span {
+      color: #14B89D;
+    }
+
+    p {
+      color: #5a7080;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 15px;
+      display: inline-block;
+      width: 220px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .logout {
+      margin-top: 50px;
+      display: inline-block;
+      padding: 12px 25px;
+      background: #14B89D;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logout:hover {
+      background: #0e9a84;
+    }
+  </style>
+</head>
+
+<body>
+
+<script>
+  // proteksi role
+  if (localStorage.getItem('geomersRole') !== 'geografi') {
+    window.location.replace('../login.html');
+  }
+</script>
+
+<div class="container">
+  <h1><span>Geomers</span> Geografi 🌍</h1>
+  <p>Selamat datang di halaman Geografi. Materi dan fitur akan segera hadir.</p>
+
+  <div>
+    <div class="card">
+      <div class="icon">🗺️</div>
+      <h3>Peta</h3>
+      <p>Eksplorasi dunia</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌏</div>
+      <h3>Wilayah</h3>
+      <p>Studi regional</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>Data</h3>
+      <p>Analisis geospasial</p>
+    </div>
+  </div>
+
+  <a href="#" class="logout" onclick="logout()">Keluar</a>
+</div>
+
+<script>
+function logout() {
+  localStorage.clear();
+  window.location.replace('../login.html');
+}
+</script>
+
+</body>
 </html>
