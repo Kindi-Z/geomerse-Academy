@@ -37,7 +37,7 @@
 
   auth.onAuthStateChanged(async (user) => {
     if (!user) {
-      window.location.replace('login.html');
+      window.location.replace('login/');
       return;
     }
 
@@ -52,11 +52,11 @@
       } else {
         await auth.signOut();
         localStorage.clear();
-        window.location.replace('login.html');
+        window.location.replace('login/');
       }
     } catch (error) {
       console.error('Error:', error);
-      window.location.replace('login.html');
+      window.location.replace('login/');
     }
   });
 </script>
