@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "username": "irzal",
+      "password": "67",
+      "role": "kebumian"
+    },
+    {
+      "username": "ziyad",
+      "password": "67",
+      "role": "geografi"
+    },
+    {
+      "username": "khaliv",
+      "password": "67",
+      "role": "kebumian"
+    }
+  ]
+}
