@@ -965,6 +965,282 @@ footer {
   .hero-stats > div { min-width: 120px; }
 }
 
+
+/* =========================================================
+   FULL EARTH-SCIENCE REDESIGN OVERRIDE
+   Ocean–land–atmosphere interface for Geomers OSN Kebumian
+   ========================================================= */
+:root {
+  --teal:        #0E7490;   /* deep ocean cyan */
+  --teal-dark:   #064E3B;   /* forest/earth green */
+  --teal-light:  #D8F3EA;   /* pale biosphere */
+  --teal-xlight: #ECFDF5;
+  --lemon:       #F4B860;   /* sediment/sunlight */
+  --lemon-dark:  #D97706;
+  --lemon-light: #FFF3D6;
+  --white:       #FEFCF7;
+  --warm:        #F3EFE2;
+  --dark:        #17332D;
+  --mid:         #56736B;
+  --light-gray:  #DDE7E0;
+  --earth-deep:  #06202A;
+  --earth-ocean: #0B4F6C;
+  --earth-sea:   #0E7490;
+  --earth-green: #2F7D51;
+  --earth-moss:  #8BAA56;
+  --earth-sand:  #EBCB8B;
+  --earth-clay:  #B85C38;
+  --earth-cloud: rgba(255,255,255,0.72);
+  --contour:     rgba(255,255,255,0.12);
+  --earth-shadow: 0 18px 55px rgba(5, 46, 39, 0.20), 0 4px 16px rgba(0,0,0,0.08);
+  --earth-shadow-hover: 0 24px 70px rgba(14, 116, 144, 0.28), 0 8px 24px rgba(6, 78, 59, 0.16);
+  --card-shadow: var(--earth-shadow);
+  --card-shadow-hover: var(--earth-shadow-hover);
+}
+
+html { background: var(--earth-deep); }
+body {
+  color: var(--dark);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(244,184,96,0.28), transparent 25%),
+    radial-gradient(circle at 86% 12%, rgba(14,116,144,0.34), transparent 30%),
+    radial-gradient(circle at 20% 86%, rgba(47,125,81,0.28), transparent 32%),
+    linear-gradient(135deg, #F8F3E6 0%, #EAF7F1 36%, #DCEFF1 68%, #F7E8C6 100%);
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    repeating-radial-gradient(ellipse at 18% 22%, rgba(6,78,59,0.12) 0 1px, transparent 1px 18px),
+    repeating-radial-gradient(ellipse at 82% 70%, rgba(11,79,108,0.10) 0 1px, transparent 1px 22px),
+    linear-gradient(120deg, rgba(255,255,255,0.36), rgba(255,255,255,0));
+  opacity: 0.75;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0 94%, rgba(6,78,59,0.05) 94% 95%, transparent 95% 100%),
+    linear-gradient(0deg, transparent 0 94%, rgba(6,78,59,0.05) 94% 95%, transparent 95% 100%);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at center, black, transparent 76%);
+}
+
+nav {
+  background: rgba(6, 32, 42, 0.86) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid rgba(235, 203, 139, 0.25);
+  box-shadow: 0 10px 35px rgba(6, 32, 42, 0.24) !important;
+}
+.nav-links a:hover, .nav-links button:hover,
+.nav-links a.active, .nav-links button.active {
+  background: rgba(235,203,139,0.18) !important;
+  color: #fff !important;
+}
+.nav-social a, .logout-btn {
+  background: rgba(255,255,255,0.10) !important;
+  border-color: rgba(255,255,255,0.16) !important;
+}
+.nav-social a:hover, .logout-btn:hover {
+  background: var(--earth-sand) !important;
+  color: var(--earth-deep) !important;
+}
+.logo-svg { filter: drop-shadow(0 0 12px rgba(235,203,139,0.34)) !important; }
+
+.hero {
+  background:
+    radial-gradient(circle at 72% 38%, rgba(244,184,96,0.22), transparent 24%),
+    radial-gradient(circle at 82% 58%, rgba(14,116,144,0.28), transparent 29%),
+    linear-gradient(135deg, #083344 0%, #0B4F6C 34%, #2F7D51 70%, #EBCB8B 130%) !important;
+  color: #fff;
+  min-height: 560px;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+.hero::before {
+  width: 760px !important;
+  height: 760px !important;
+  top: -260px !important;
+  right: -220px !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  background:
+    repeating-radial-gradient(ellipse at center, transparent 0 24px, rgba(255,255,255,0.10) 25px 26px),
+    radial-gradient(circle, rgba(255,255,255,0.05), transparent 68%) !important;
+  transform: rotate(-18deg);
+}
+.hero::after {
+  width: 520px !important;
+  height: 520px !important;
+  left: auto !important;
+  right: 6% !important;
+  bottom: -210px !important;
+  border-radius: 50% !important;
+  background:
+    radial-gradient(circle at 38% 28%, rgba(235,203,139,0.62), transparent 10%),
+    radial-gradient(circle at 42% 40%, #2F7D51 0 12%, transparent 13%),
+    radial-gradient(circle at 60% 52%, #0E7490 0 18%, transparent 19%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.12), transparent 64%) !important;
+  box-shadow: inset -26px -36px 80px rgba(6,32,42,0.32), 0 0 80px rgba(235,203,139,0.18);
+  opacity: 0.85;
+}
+.hero-content { max-width: 650px !important; }
+.hero-badge, .page-hero-badge {
+  background: rgba(255,255,255,0.16) !important;
+  color: #fff !important;
+  border: 1px solid rgba(235,203,139,0.38);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 28px rgba(6,32,42,0.18);
+}
+.hero h1 { color: #fff !important; text-shadow: 0 8px 38px rgba(6,32,42,0.36); }
+.hero h1 em { color: var(--earth-sand) !important; }
+.hero h1 em::after { background: rgba(47,125,81,0.55) !important; height: 7px !important; bottom: 1px !important; }
+.hero p { color: rgba(255,255,255,0.82) !important; }
+.hstat-num { color: var(--earth-sand) !important; text-shadow: 0 0 18px rgba(235,203,139,0.30); }
+.hstat-lbl { color: rgba(255,255,255,0.68) !important; }
+
+.deco-emoji {
+  filter: drop-shadow(0 10px 22px rgba(6,32,42,0.30));
+}
+
+.quick-section, .inner-section.alt, .res-section, .inner-section {
+  background: transparent !important;
+}
+.quick-section::before {
+  background: linear-gradient(90deg, var(--earth-ocean), var(--earth-green), var(--earth-sand), var(--earth-clay)) !important;
+}
+.sec-label-line, .res-dot { background: var(--earth-green) !important; box-shadow: 0 0 14px rgba(47,125,81,0.38) !important; }
+.sec-label span, .footer-col h4 { color: var(--earth-ocean) !important; }
+.sec-header h2, .res-title, .list-label, .ebook-cat-name, .feat-title, .res-card-title { color: var(--dark) !important; }
+.sec-header h2 span, .feat-cta, .to-link:hover, .ebook-link:hover { color: var(--earth-ocean) !important; }
+.sec-header p, .res-card-desc, .feat-desc, .page-hero p { color: var(--mid) !important; }
+
+.feat-card, .res-card, .to-card, .ebook-cat, .list-item, .pillar {
+  background: rgba(254,252,247,0.78) !important;
+  border: 1px solid rgba(6,78,59,0.13) !important;
+  backdrop-filter: blur(18px) saturate(135%);
+  box-shadow: var(--earth-shadow) !important;
+}
+.feat-card::before, .res-card::before, .ebook-cat::before, .to-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(14,116,144,0.10), rgba(235,203,139,0.12), rgba(47,125,81,0.10));
+  transition: opacity 0.25s;
+}
+.feat-card:hover, .res-card:hover, .to-card:hover, .ebook-cat:hover, .list-item:hover {
+  border-color: rgba(184,92,56,0.42) !important;
+  box-shadow: var(--earth-shadow-hover) !important;
+}
+.feat-card:hover::before, .res-card:hover::before, .ebook-cat:hover::before, .to-card:hover::before { opacity: 1; }
+.feat-card::after {
+  background: linear-gradient(90deg, var(--earth-ocean), var(--earth-green), var(--earth-sand)) !important;
+}
+.feat-icon, .res-card-icon, .ebook-cat-icon {
+  background: linear-gradient(135deg, rgba(216,243,234,0.95), rgba(255,243,214,0.95)) !important;
+  border: 1px solid rgba(14,116,144,0.15) !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--earth-sand), #F6DFAE) !important;
+  color: var(--earth-deep) !important;
+  box-shadow: 0 12px 30px rgba(235,203,139,0.34) !important;
+}
+.btn-primary:hover { background: linear-gradient(135deg, #F6DFAE, var(--earth-sand)) !important; }
+.btn-outline {
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.56) !important;
+  background: rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(12px);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.18) !important; color: #fff !important; }
+
+.page-hero {
+  background:
+    repeating-radial-gradient(ellipse at 85% 0%, rgba(255,255,255,0.13) 0 1px, transparent 1px 20px),
+    linear-gradient(135deg, #0B4F6C 0%, #2F7D51 58%, #EBCB8B 130%) !important;
+  color: #fff;
+}
+.page-hero h1 { color: #fff !important; }
+.page-hero h1 span.t, .page-hero h1 span.y { color: var(--earth-sand) !important; }
+.page-hero p { color: rgba(255,255,255,0.78) !important; }
+
+.mission {
+  background:
+    linear-gradient(135deg, rgba(6,32,42,0.96), rgba(6,78,59,0.94)),
+    repeating-radial-gradient(ellipse at 20% 20%, rgba(235,203,139,0.20) 0 1px, transparent 1px 18px) !important;
+  border-top: 1px solid rgba(235,203,139,0.18);
+  border-bottom: 1px solid rgba(235,203,139,0.18);
+}
+.mission h2 { color: #fff !important; }
+.mission p { color: rgba(255,255,255,0.76) !important; }
+.pillar { background: rgba(255,255,255,0.10) !important; border-color: rgba(235,203,139,0.22) !important; }
+.pillar-sub { color: rgba(255,255,255,0.62) !important; }
+
+.rtag-latihan, .rtag-soal, .rtag-materi, .rtag-pelatihan {
+  background: rgba(216,243,234,0.78) !important;
+  color: var(--earth-ocean) !important;
+  border-color: rgba(14,116,144,0.18) !important;
+}
+.rtag-arsip { background: rgba(255,243,214,0.86) !important; color: var(--lemon-dark) !important; }
+.rtag-resmi { background: rgba(184,92,56,0.12) !important; color: var(--earth-clay) !important; }
+.rtag-komunitas { background: rgba(47,125,81,0.12) !important; color: var(--earth-green) !important; }
+.res-arrow, .list-badge {
+  background: rgba(216,243,234,0.9) !important;
+  color: var(--earth-ocean) !important;
+  border-color: rgba(14,116,144,0.18) !important;
+}
+.res-card:hover .res-arrow { background: var(--earth-ocean) !important; color: #fff !important; }
+.list-year { color: var(--earth-ocean) !important; }
+.list-na { opacity: 0.42 !important; filter: grayscale(0.2); }
+
+.search-bar input {
+  background: rgba(254,252,247,0.82) !important;
+  border-color: rgba(14,116,144,0.18) !important;
+  box-shadow: 0 12px 28px rgba(6,32,42,0.08);
+}
+.search-bar i { color: var(--earth-ocean) !important; }
+
+footer {
+  background: linear-gradient(135deg, #06202A 0%, #064E3B 100%) !important;
+  border-top: 1px solid rgba(235,203,139,0.18);
+}
+.footer-logo-name span, .footer-bottom span, .footer-col a:hover { color: var(--earth-sand) !important; }
+.footer-social a:hover { background: var(--earth-ocean) !important; color: #fff !important; }
+.contact-row:hover { background: rgba(14,116,144,0.18) !important; border-color: rgba(235,203,139,0.26) !important; }
+#btt { background: var(--earth-ocean) !important; box-shadow: 0 12px 30px rgba(14,116,144,0.28) !important; }
+#btt:hover { background: var(--earth-green) !important; }
+
+/* Earth science decorative labels */
+.hero-content::before {
+  content: "EARTH SYSTEMS · ATMOSPHERE · OCEAN · GEOSPHERE";
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: rgba(235,203,139,0.86);
+  font-weight: 800;
+}
+.hero-deco::before {
+  content: "";
+  position: absolute;
+  inset: -38px;
+  border-radius: 34px;
+  background:
+    repeating-linear-gradient(20deg, rgba(255,255,255,0.12) 0 1px, transparent 1px 16px),
+    rgba(255,255,255,0.04);
+  border: 1px solid rgba(235,203,139,0.18);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
 </style>
 </head>
 <body>
