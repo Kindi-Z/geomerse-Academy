@@ -20,27 +20,36 @@
   </div>
 
   <script type="module">
-  import { auth } from './firebase-config.js';
-  
-  // Cek apakah user masih login di Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCxwyTe5FylqJZcPO8TA7Va_xCRbMzJyWk",
+    authDomain: "geomers-academy-5b9e5.firebaseapp.com",
+    projectId: "geomers-academy-5b9e5",
+    storageBucket: "geomers-academy-5b9e5.firebasestorage.app",
+    messagingSenderId: "598328922866",
+    appId: "1:598328922866:web:d2f38f330c53e9d227766b"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
   auth.onAuthStateChanged(async (user) => {
     if (!user) {
-      // Tidak login
       window.location.replace('login.html');
       return;
     }
-    
-    // Ambil role dari custom claims
+
     try {
       const idTokenResult = await user.getIdTokenResult();
       const role = idTokenResult.claims.role;
-      
+
       if (role === 'kebumian') {
         window.location.replace('kebumian/index.html');
       } else if (role === 'geografi') {
         window.location.replace('geografi/index.html');
       } else {
-        // Role tidak dikenal, logout
         await auth.signOut();
         localStorage.clear();
         window.location.replace('login.html');
