@@ -620,74 +620,92 @@
       .quick-section, .res-section, .inner-section { padding: 50px 5%; }
     }
 
-    /* === COUNTDOWN HERO RIGHT === */
+   /* === COUNTDOWN HERO RIGHT === */
 .hero-right {
   position: absolute;
   right: 8%;
   top: 50%;
-  transform: translateY(-50%) translateY(-30px);
+  transform: translateY(-50%) translateY(-20px);
+  width: 390px;
   text-align: center;
-  z-index: 2;
+  z-index: 3;
 }
 
 .countdown-title {
-  font-weight: 800;
+  font-weight: 900;
   color: var(--teal);
-  letter-spacing: 2px;
-  font-size: 13px;
+  letter-spacing: 3px;
+  font-size: 14px;
 }
 
 .countdown-main {
   font-family: 'Nunito', sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 900;
-  margin: 4px 0 6px;
+  color: var(--dark);
+  margin: 6px 0;
 }
 
 .countdown-sub {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--mid);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .countdown-box {
   display: flex;
-  gap: 6px;
+  gap: 12px;
   justify-content: center;
 }
 
 .c-item {
   background: #fff;
-  border-radius: 10px;
-  padding: 8px;
-  width: 55px;
+  border-radius: 14px;
+  padding: 12px 8px;
+  width: 70px;
   box-shadow: var(--card-shadow);
 }
 
 .c-num {
-  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 25px;
   font-weight: 900;
   color: var(--teal);
+  line-height: 1;
 }
 
 .c-lbl {
-  font-size: 9px;
+  margin-top: 6px;
+  font-size: 10px;
   color: var(--mid);
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.08em;
 }
 
 .countdown-date {
-  margin-top: 6px;
-  font-size: 11px;
+  margin-top: 14px;
+  font-size: 13px;
   color: var(--teal);
-  font-weight: 700;
+  font-weight: 800;
+}
+
+.countdown-icons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+}
+
+.countdown-icons span {
+  font-size: 2rem;
 }
 
 @media(max-width:900px){
-  .hero-right{
+  .hero-right {
     position: static;
     transform: none;
-    margin-top: 30px;
+    width: 100%;
+    margin-top: 38px;
   }
 }
   </style>
