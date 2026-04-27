@@ -186,73 +186,21 @@
     .hstat-lbl { font-size: 11px; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
     .hero-deco {
-      position: absolute; right: 7%; top: 150px;
-      transform: none; display: none;
-      width: min(430px, 36vw); text-align: center;
-      animation: fadeUp 0.55s 0.32s ease both;
+      position: absolute; right: 15%; top: 50%;
+      transform: translateY(-50%); display: none;
     }
     @media(min-width:900px){ .hero-deco { display: block; } }
-
-    .countdown-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(1.15rem, 2vw, 1.55rem);
-      font-weight: 900; color: var(--teal);
-      line-height: 1.15; text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .countdown-subtitle {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(1.25rem, 2.3vw, 1.8rem);
-      font-weight: 900; color: var(--dark);
-      line-height: 1.15; text-transform: uppercase;
-      margin-top: 4px;
-    }
-    .countdown-note {
-      color: var(--mid); font-size: 12.5px;
-      margin: 8px 0 18px;
-    }
-    .countdown-boxes {
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px; margin-bottom: 16px;
-    }
-    .countdown-card {
-      min-width: 70px; padding: 13px 8px 10px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid rgba(20,184,157,0.12);
-      border-radius: 12px;
-      box-shadow: 0 5px 16px rgba(20,184,157,0.13), 0 2px 8px rgba(0,0,0,0.06);
-      backdrop-filter: blur(8px);
-    }
-    .countdown-num {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.75rem; font-weight: 900;
-      color: var(--teal); line-height: 1;
-    }
-    .countdown-label {
-      margin-top: 6px;
-      font-size: 10px; font-weight: 700; color: var(--mid);
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
-    .countdown-sep {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.7rem; font-weight: 900;
-      color: var(--teal-dark); opacity: 0.65;
-      margin-top: -10px;
-    }
-    .countdown-reminder {
-      font-size: 13px; color: var(--teal-dark);
-      font-weight: 700; margin-bottom: 18px;
-    }
-    .deco-row { display: flex; justify-content: center; gap: 22px; margin: 8px 0; }
+    .deco-row { display: flex; gap: 28px; margin: 10px 0; }
     .deco-emoji {
-      font-size: 2.15rem; display: block;
+      font-size: 3rem; display: block;
       animation: floaty var(--d,3s) ease-in-out infinite;
       animation-delay: var(--dd,0s);
     }
     @keyframes floaty {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-14px); }
     }
+
     /* ── QUICK ACCESS ── */
     .quick-section {
       background: var(--warm); padding: 64px 8%;
@@ -874,55 +822,28 @@
 
 <!-- ══════════════════════ HOME ══════════════════════ -->
 <div class="page active" id="page-home">
-
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge"><i class="fas fa-globe"></i> Platform OSN Geografi Terlengkap</div>
-      <h1>Raih <em>Emas</em> OSN<br>Geografi Bersama<br>Geomers!</h1>
-      <p>Soal OSK 2013–2025, TryOut dari berbagai komunitas, Ebook referensi, dan materi lengkap — semuanya gratis dalam satu platform.</p>
+      <div class="hero-badge"><i class="fas fa-globe"></i> Platform OSN Kebumian Terlengkap</div>
+      <h1>Raih <em>Emas</em> OSN<br>Kebumian Bersama<br>Geomers!</h1>
+      <p>Soal OSK 2008–2025, TryOut dari berbagai komunitas, Ebook referensi, dan materi lengkap — semuanya gratis dalam satu platform.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('soal')"><i class="fas fa-file-alt"></i> Lihat Soal OSN</button>
         <button class="btn-outline" onclick="showPage('tryout')"><i class="fas fa-bullseye"></i> Mulai TryOut</button>
       </div>
       <div class="hero-stats">
-        <div><div class="hstat-num">12+</div><div class="hstat-lbl">Tahun Soal</div></div>
+        <div><div class="hstat-num">17+</div><div class="hstat-lbl">Tahun Soal</div></div>
         <div><div class="hstat-num">10+</div><div class="hstat-lbl">Paket TryOut</div></div>
-        <div><div class="hstat-num">14</div><div class="hstat-lbl">Bidang Ebook</div></div>
+        <div><div class="hstat-num">12+</div><div class="hstat-lbl">Ebook</div></div>
         <div><div class="hstat-num">∞</div><div class="hstat-lbl">Semangat</div></div>
       </div>
     </div>
-    <div class="hero-deco" aria-label="Countdown OSN-K 2026">
-      <div class="countdown-title">OSN-K 2026</div>
-      <div class="countdown-subtitle">Segera Dimulai!</div>
-      <div class="countdown-note">Persiapkan dirimu dan raih medali emas!</div>
-
-      <div class="countdown-boxes">
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-days">00</div>
-          <div class="countdown-label">Hari</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-hours">00</div>
-          <div class="countdown-label">Jam</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-minutes">00</div>
-          <div class="countdown-label">Menit</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-seconds">00</div>
-          <div class="countdown-label">Detik</div>
-        </div>
-      </div>
-
-      <div class="countdown-reminder">18 Juni 2026 · 08.00 WIB</div>
-
+    <div class="hero-deco">
       <div class="deco-row">
         <span class="deco-emoji" style="--d:3.2s;--dd:0s">🌋</span>
         <span class="deco-emoji" style="--d:2.8s;--dd:0.4s">🌊</span>
+      </div>
+      <div class="deco-row">
         <span class="deco-emoji" style="--d:3.6s;--dd:0.2s">🏔</span>
         <span class="deco-emoji" style="--d:3s;--dd:0.6s">🌤</span>
       </div>
@@ -933,7 +854,6 @@
     </div>
   </section>
 
-  <!-- Quick Access -->
   <section class="quick-section">
     <div class="sec-header">
       <div class="sec-label" style="justify-content:center;">
@@ -945,8 +865,8 @@
     <div class="feat-grid">
       <button class="feat-card" onclick="showPage('soal')" style="text-align:left;">
         <div class="feat-icon">📋</div>
-        <div class="feat-title">Soal OSK Geografi</div>
-        <div class="feat-desc">Arsip lengkap soal Olimpiade Sains Kabupaten dari 2013 hingga 2024. Download PDF langsung.</div>
+        <div class="feat-title">Soal OSK Kebumian</div>
+        <div class="feat-desc">Arsip lengkap soal Olimpiade Sains Kabupaten dari 2008 hingga 2024. Download PDF langsung.</div>
         <div class="feat-cta">Lihat soal <i class="fas fa-arrow-right" style="font-size:11px;"></i></div>
       </button>
       <button class="feat-card" onclick="showPage('tryout')" style="text-align:left;">
@@ -958,25 +878,24 @@
       <button class="feat-card" onclick="showPage('ebook')" style="text-align:left;">
         <div class="feat-icon">📚</div>
         <div class="feat-title">Ebook Referensi</div>
-        <div class="feat-desc">Buku teks dan referensi Geografi dari berbagai bidang pendukung.</div>
+        <div class="feat-desc">Buku teks Meteorologi, Geologi, Oseanografi, dan Astronomi dari penerbit internasional.</div>
         <div class="feat-cta">Buka ebook <i class="fas fa-arrow-right" style="font-size:11px;"></i></div>
       </button>
       <button class="feat-card" onclick="showPage('materi')" style="text-align:left;">
         <div class="feat-icon">🌍</div>
-        <div class="feat-title">Materi & Komunitas</div>
-        <div class="feat-desc">Folder drive lengkap Geografi Manusia dan Geografi Fisik.</div>
+        <div class="feat-title">Materi Kebumian</div>
+        <div class="feat-desc">100+ file PPT & PDF dari dosen ITB, UGM, Undip — Astronomi, Geologi, Meteorologi, Oseanografi.</div>
         <div class="feat-cta">Eksplorasi <i class="fas fa-arrow-right" style="font-size:11px;"></i></div>
       </button>
     </div>
   </section>
 
-  <!-- All Resources — only keep: Geografi Bersama, Bank Soal Puspresnas, Materi Geografi Sosial -->
   <section class="res-section">
     <div class="res-header">
       <div class="res-dot"></div>
       <div class="res-title">Semua Sumber Daya</div>
       <div class="res-line"></div>
-      <div class="res-count" id="res-count">3 sumber</div>
+      <div class="res-count" id="res-count">10 sumber</div>
     </div>
 
     <div class="search-bar" style="margin-bottom:28px;">
@@ -985,45 +904,85 @@
     </div>
 
     <div class="res-grid" id="all-cards">
-      <a href="https://bit.ly/geografibersama" target="_blank" class="res-card" data-tags="komunitas geografi" style="animation-delay:0.05s">
+      <a href="https://drive.google.com/drive/folders/10NUA3RhK24mc9JvOFoeG3Q5Ni53ksGxo" target="_blank" class="res-card" data-tags="tryout latihan" style="animation-delay:0.05s">
+        <div class="res-card-icon">🎯</div>
+        <div class="res-card-title">TryOut Kebumian</div>
+        <div class="res-card-desc">Kumpulan soal tryout resmi untuk persiapan OSN Kebumian.</div>
+        <div class="res-card-footer"><span class="rtag rtag-latihan">Latihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
+      </a>
+      <a href="https://drive.google.com/drive/u/0/mobile/folders/1R3Z1-CB6s4WxY7J2vN3Gua1Lsf2eN-1H" target="_blank" class="res-card" data-tags="soal osn sd sma" style="animation-delay:0.10s">
+        <div class="res-card-icon">📋</div>
+        <div class="res-card-title">Soal OSN SD–SMA</div>
+        <div class="res-card-desc">Arsip lengkap soal OSN dari berbagai jenjang pendidikan.</div>
+        <div class="res-card-footer"><span class="rtag rtag-soal">Soal</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1Fbncx_JvsmrFIpOyaAsAnGawy_txtZ64" target="_blank" class="res-card" data-tags="meteorologi materi" style="animation-delay:0.15s">
+        <div class="res-card-icon">🌤</div>
+        <div class="res-card-title">Meteorologi Lengkap</div>
+        <div class="res-card-desc">Folder materi meteorologi komprehensif untuk semua level.</div>
+        <div class="res-card-footer"><span class="rtag rtag-materi">Materi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
+      </a>
+      <a href="https://bit.ly/kebumianbersama" target="_blank" class="res-card" data-tags="komunitas kebumian" style="animation-delay:0.20s">
         <div class="res-card-icon">🤝</div>
-        <div class="res-card-title">Geografi Bersama</div>
-        <div class="res-card-desc">Komunitas siswa dan pelatih OSN Geografi se-Indonesia.</div>
+        <div class="res-card-title">Kebumian Bersama</div>
+        <div class="res-card-desc">Komunitas siswa dan pelatih OSN Kebumian se-Indonesia.</div>
         <div class="res-card-footer"><span class="rtag rtag-komunitas">Komunitas</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
       </a>
-      <a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank" class="res-card" data-tags="bank soal puspresnas resmi" style="animation-delay:0.10s">
+      <a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank" class="res-card" data-tags="bank soal puspresnas resmi" style="animation-delay:0.25s">
         <div class="res-card-icon">🏛</div>
         <div class="res-card-title">Bank Soal Puspresnas</div>
         <div class="res-card-desc">Sumber soal resmi dari Pusat Prestasi Nasional Kemendikdasmen.</div>
         <div class="res-card-footer"><span class="rtag rtag-resmi">Resmi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
       </a>
-      <a href="https://drive.google.com/drive/folders/1tWSV-05Th6BBq_ImMpVy8unZWcn19MWh?usp=drive_link" target="_blank" class="res-card" data-tags="materi geografi sosial" style="animation-delay:0.15s">
+      <a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank" class="res-card" data-tags="arsip fariq kebumian" style="animation-delay:0.30s">
+        <div class="res-card-icon">🗂</div>
+        <div class="res-card-title">Arsip Kebumian Fariq</div>
+        <div class="res-card-desc">Koleksi arsip materi dan soal Kebumian dari komunitas.</div>
+        <div class="res-card-footer"><span class="rtag rtag-arsip">Arsip</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1rwjW0QbvijZh_9BAXyRvDFtgV9TF1g0T" target="_blank" class="res-card" data-tags="kumpulan soal latihan" style="animation-delay:0.35s">
+        <div class="res-card-icon">📑</div>
+        <div class="res-card-title">Kumpulan Soal</div>
+        <div class="res-card-desc">Berbagai soal latihan tersusun rapi untuk semua topik.</div>
+        <div class="res-card-footer"><span class="rtag rtag-latihan">Latihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1Cx6Qp37QK7IJxlUBwqJ6gXGP9qMzWMPl" target="_blank" class="res-card" data-tags="opsilon materi" style="animation-delay:0.40s">
         <div class="res-card-icon">🧭</div>
-        <div class="res-card-title">Materi Geografi Sosial</div>
-        <div class="res-card-desc">Kompilasi materi geografi sosial untuk persiapan OSN.</div>
+        <div class="res-card-title">Opsilon Materi</div>
+        <div class="res-card-desc">Kompilasi materi dari tim Opsilon untuk persiapan OSN.</div>
         <div class="res-card-footer"><span class="rtag rtag-materi">Materi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/1uY2q3J8B781eeFUU6Y81qMoIwWX7Bn7n" target="_blank" class="res-card" data-tags="pelat scuola pelatihan" style="animation-delay:0.45s">
+        <div class="res-card-icon">🎓</div>
+        <div class="res-card-title">Pelat Scuola</div>
+        <div class="res-card-desc">Modul pelatihan intensif Scuola untuk peserta OSN.</div>
+        <div class="res-card-footer"><span class="rtag rtag-pelatihan">Pelatihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
+      </a>
+      <a href="https://drive.google.com/drive/folders/12HQ8ll7-r2POdEKjNalD0tT_hmYvaJHg" target="_blank" class="res-card" data-tags="pelatihan osnp" style="animation-delay:0.50s">
+        <div class="res-card-icon">🏅</div>
+        <div class="res-card-title">Pelatihan OSN-P</div>
+        <div class="res-card-desc">Materi dan soal pelatihan khusus OSN Provinsi Kebumian.</div>
+        <div class="res-card-footer"><span class="rtag rtag-pelatihan">Pelatihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
       </a>
     </div>
   </section>
 
-  <!-- Mission -->
   <section class="mission">
     <div class="sec-label" style="justify-content:center;margin-bottom:10px;">
       <div class="sec-label-line" style="background:rgba(255,255,255,0.4);"></div>
       <span style="color:rgba(255,255,255,0.85);">Misi Kami</span>
       <div class="sec-label-line" style="background:rgba(255,255,255,0.4);"></div>
     </div>
-    <h2>Satu Platform, Semua Bekal OSN Geografi 🌏</h2>
-    <p>Geomers hadir agar setiap pelajar Indonesia punya akses yang setara terhadap materi OSN Geografi berkualitas tinggi — sepenuhnya gratis.</p>
+    <h2>Satu Platform, Semua Bekal OSN 🌏</h2>
+    <p>Geomers hadir agar setiap pelajar Indonesia punya akses yang setara terhadap materi OSN Kebumian berkualitas tinggi — sepenuhnya gratis.</p>
     <div class="pillars">
-      <div class="pillar"><div class="pillar-icon">📋</div><div class="pillar-title">Soal Lengkap</div><div class="pillar-sub">12+ tahun arsip OSK</div></div>
+      <div class="pillar"><div class="pillar-icon">📋</div><div class="pillar-title">Soal Lengkap</div><div class="pillar-sub">17+ tahun arsip OSK</div></div>
       <div class="pillar"><div class="pillar-icon">🎯</div><div class="pillar-title">TryOut Beragam</div><div class="pillar-sub">Dari banyak komunitas</div></div>
       <div class="pillar"><div class="pillar-icon">📚</div><div class="pillar-title">Ebook Pilihan</div><div class="pillar-sub">Referensi internasional</div></div>
       <div class="pillar"><div class="pillar-icon">🤝</div><div class="pillar-title">Komunitas</div><div class="pillar-sub">Belajar bersama</div></div>
     </div>
   </section>
-
-</div><!-- /home -->
+</div>
 
 <!-- ══════════════════════ SOAL OSN ══════════════════════ -->
 <div class="page" id="page-soal">
@@ -2378,10 +2337,10 @@
         </svg>
         <div class="footer-logo-name">GEOMERS <span>Academy</span></div>
       </div>
-      <p>Platform belajar OSN Geografi terlengkap untuk pelajar Indonesia. Semua materi gratis dan terbuka untuk semua.</p>
+      <p>Platform belajar OSN Kebumian terlengkap untuk pelajar Indonesia. Semua materi gratis dan terbuka untuk semua.</p>
       <div class="footer-social">
-        <a href="https://www.instagram.com/geomers_linguistics" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/6281270508101" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/geomers_linguistics" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6281270508101" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -2398,7 +2357,8 @@
       <h4>Sumber Daya</h4>
       <ul>
         <li><a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank">Bank Soal Puspresnas</a></li>
-        <li><a href="https://bit.ly/geografibersama" target="_blank">Komunitas Geografi</a></li>
+        <li><a href="https://bit.ly/kebumianbersama" target="_blank">Komunitas Kebumian</a></li>
+        <li><a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank">Arsip Fariq</a></li>
       </ul>
     </div>
     <div>
@@ -2406,34 +2366,25 @@
       <div class="footer-contact">
         <a href="https://www.instagram.com/geomers_linguistics" target="_blank" class="contact-row">
           <div class="contact-row-icon icon-ig"><i class="fab fa-instagram"></i></div>
-          <div>
-            <div class="contact-row-lbl">Instagram</div>
-            <div class="contact-row-val">@geomers_linguistics</div>
-          </div>
+          <div><div class="contact-row-lbl">Instagram</div><div class="contact-row-val">@geomers_linguistics</div></div>
           <i class="fas fa-external-link-alt" style="margin-left:auto;font-size:11px;opacity:0.5;"></i>
         </a>
         <a href="https://wa.me/6281270508101" target="_blank" class="contact-row">
           <div class="contact-row-icon icon-wa"><i class="fab fa-whatsapp"></i></div>
-          <div>
-            <div class="contact-row-lbl">WhatsApp Admin</div>
-            <div class="contact-row-val">+62 812-7050-8101</div>
-          </div>
+          <div><div class="contact-row-lbl">WhatsApp Admin</div><div class="contact-row-val">+62 812-7050-8101</div></div>
           <i class="fas fa-external-link-alt" style="margin-left:auto;font-size:11px;opacity:0.5;"></i>
         </a>
         <div class="contact-row" style="cursor:default;">
           <div class="contact-row-icon" style="background:rgba(20,184,157,0.2);color:var(--teal);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;">
             <i class="fas fa-clock"></i>
           </div>
-          <div>
-            <div class="contact-row-lbl">Jam Respons</div>
-            <div class="contact-row-val" style="font-size:12px;">Senin–Sabtu, 08.00–20.00</div>
-          </div>
+          <div><div class="contact-row-lbl">Jam Respons</div><div class="contact-row-val" style="font-size:12px;">Senin–Sabtu, 08.00–20.00</div></div>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 <span>Geomers Academy</span> · Platform OSN Geografi untuk pelajar Indonesia 🌏
+    © 2026 <span>Geomers Academy</span> · Platform OSN Kebumian untuk pelajar Indonesia 🌏
   </div>
 </footer>
 
@@ -2442,6 +2393,7 @@
 </button>
 
 <script>
+  // ── PAGE NAVIGATION ──
   const navMap = { home:0, soal:1, tryout:2, ebook:3, materi:4 };
 
   function showPage(name, btn) {
@@ -2454,6 +2406,44 @@
     document.getElementById('navLinks').classList.remove('open');
   }
 
+  // ── MATERI TAB SWITCH ──
+  function switchMateriTab(tab) {
+    // tabs
+    document.querySelectorAll('.materi-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.tab === tab);
+    });
+    // panels
+    document.querySelectorAll('.materi-panel').forEach(p => {
+      p.classList.toggle('active', p.id === 'panel-' + tab);
+    });
+    // clear search
+    document.getElementById('materi-search-input').value = '';
+    document.querySelectorAll('.file-item').forEach(f => f.style.display = '');
+    document.querySelectorAll('.subtopic').forEach(s => s.style.display = '');
+    // scroll to tabs
+    document.getElementById('materi-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── MATERI SEARCH ──
+  function materiSearch(val) {
+    const v = val.toLowerCase().trim();
+    // Only search in active panel
+    const activePanel = document.querySelector('.materi-panel.active');
+    if (!activePanel) return;
+
+    activePanel.querySelectorAll('.subtopic').forEach(section => {
+      let sectionVisible = false;
+      section.querySelectorAll('.file-item').forEach(item => {
+        const text = item.innerText.toLowerCase();
+        const show = !v || text.includes(v);
+        item.style.display = show ? '' : 'none';
+        if (show) sectionVisible = true;
+      });
+      section.style.display = sectionVisible ? '' : 'none';
+    });
+  }
+
+  // ── HOME SEARCH ──
   function homeSearch(val) {
     const v = val.toLowerCase();
     const cards = document.querySelectorAll('#all-cards .res-card');
@@ -2467,56 +2457,25 @@
     document.getElementById('res-count').textContent = visible + ' sumber';
   }
 
+  // ── HAMBURGER ──
   document.getElementById('hamburger').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
   });
 
+  // ── BACK TO TOP ──
   window.addEventListener('scroll', () => {
     document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
   });
 
+  // ── CARD ANIMATION DELAY ──
   document.querySelectorAll('.feat-card').forEach((c, i) => {
     c.style.animationDelay = (i * 0.08) + 's';
   });
 
-  const countdownTarget = new Date('2026-06-18T08:00:00+07:00').getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = countdownTarget - now;
-
-    const daysEl = document.getElementById('cd-days');
-    const hoursEl = document.getElementById('cd-hours');
-    const minutesEl = document.getElementById('cd-minutes');
-    const secondsEl = document.getElementById('cd-seconds');
-
-    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
-
-    if (distance <= 0) {
-      daysEl.textContent = '00';
-      hoursEl.textContent = '00';
-      minutesEl.textContent = '00';
-      secondsEl.textContent = '00';
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    daysEl.textContent = String(days).padStart(2, '0');
-    hoursEl.textContent = String(hours).padStart(2, '0');
-    minutesEl.textContent = String(minutes).padStart(2, '0');
-    secondsEl.textContent = String(seconds).padStart(2, '0');
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
+  // ── LOGOUT ──
   function logoutGeomers() {
     localStorage.clear();
-    window.location.replace('../login/');
+    window.location.replace('../login.html');
   }
 </script>
 </body>
