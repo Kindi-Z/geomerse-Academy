@@ -2378,10 +2378,10 @@
         </svg>
         <div class="footer-logo-name">GEOMERS <span>Academy</span></div>
       </div>
-      <p>Platform belajar OSN Kebumian terlengkap untuk pelajar Indonesia. Semua materi gratis dan terbuka untuk semua.</p>
+      <p>Platform belajar OSN Geografi terlengkap untuk pelajar Indonesia. Semua materi gratis dan terbuka untuk semua.</p>
       <div class="footer-social">
-        <a href="https://www.instagram.com/geomers_linguistics" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/6281270508101" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/geomers_linguistics" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6281270508101" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -2398,8 +2398,7 @@
       <h4>Sumber Daya</h4>
       <ul>
         <li><a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank">Bank Soal Puspresnas</a></li>
-        <li><a href="https://bit.ly/kebumianbersama" target="_blank">Komunitas Kebumian</a></li>
-        <li><a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank">Arsip Fariq</a></li>
+        <li><a href="https://bit.ly/geografibersama" target="_blank">Komunitas Geografi</a></li>
       </ul>
     </div>
     <div>
@@ -2407,25 +2406,34 @@
       <div class="footer-contact">
         <a href="https://www.instagram.com/geomers_linguistics" target="_blank" class="contact-row">
           <div class="contact-row-icon icon-ig"><i class="fab fa-instagram"></i></div>
-          <div><div class="contact-row-lbl">Instagram</div><div class="contact-row-val">@geomers_linguistics</div></div>
+          <div>
+            <div class="contact-row-lbl">Instagram</div>
+            <div class="contact-row-val">@geomers_linguistics</div>
+          </div>
           <i class="fas fa-external-link-alt" style="margin-left:auto;font-size:11px;opacity:0.5;"></i>
         </a>
         <a href="https://wa.me/6281270508101" target="_blank" class="contact-row">
           <div class="contact-row-icon icon-wa"><i class="fab fa-whatsapp"></i></div>
-          <div><div class="contact-row-lbl">WhatsApp Admin</div><div class="contact-row-val">+62 812-7050-8101</div></div>
+          <div>
+            <div class="contact-row-lbl">WhatsApp Admin</div>
+            <div class="contact-row-val">+62 812-7050-8101</div>
+          </div>
           <i class="fas fa-external-link-alt" style="margin-left:auto;font-size:11px;opacity:0.5;"></i>
         </a>
         <div class="contact-row" style="cursor:default;">
           <div class="contact-row-icon" style="background:rgba(20,184,157,0.2);color:var(--teal);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;">
             <i class="fas fa-clock"></i>
           </div>
-          <div><div class="contact-row-lbl">Jam Respons</div><div class="contact-row-val" style="font-size:12px;">Senin–Sabtu, 08.00–20.00</div></div>
+          <div>
+            <div class="contact-row-lbl">Jam Respons</div>
+            <div class="contact-row-val" style="font-size:12px;">Senin–Sabtu, 08.00–20.00</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 <span>Geomers Academy</span> · Platform OSN Kebumian untuk pelajar Indonesia 🌏
+    © 2026 <span>Geomers Academy</span> · Platform OSN Geografi untuk pelajar Indonesia 🌏
   </div>
 </footer>
 
@@ -2434,7 +2442,6 @@
 </button>
 
 <script>
-  // ── PAGE NAVIGATION ──
   const navMap = { home:0, soal:1, tryout:2, ebook:3, materi:4 };
 
   function showPage(name, btn) {
@@ -2447,44 +2454,6 @@
     document.getElementById('navLinks').classList.remove('open');
   }
 
-  // ── MATERI TAB SWITCH ──
-  function switchMateriTab(tab) {
-    // tabs
-    document.querySelectorAll('.materi-tab').forEach(t => {
-      t.classList.toggle('active', t.dataset.tab === tab);
-    });
-    // panels
-    document.querySelectorAll('.materi-panel').forEach(p => {
-      p.classList.toggle('active', p.id === 'panel-' + tab);
-    });
-    // clear search
-    document.getElementById('materi-search-input').value = '';
-    document.querySelectorAll('.file-item').forEach(f => f.style.display = '');
-    document.querySelectorAll('.subtopic').forEach(s => s.style.display = '');
-    // scroll to tabs
-    document.getElementById('materi-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  // ── MATERI SEARCH ──
-  function materiSearch(val) {
-    const v = val.toLowerCase().trim();
-    // Only search in active panel
-    const activePanel = document.querySelector('.materi-panel.active');
-    if (!activePanel) return;
-
-    activePanel.querySelectorAll('.subtopic').forEach(section => {
-      let sectionVisible = false;
-      section.querySelectorAll('.file-item').forEach(item => {
-        const text = item.innerText.toLowerCase();
-        const show = !v || text.includes(v);
-        item.style.display = show ? '' : 'none';
-        if (show) sectionVisible = true;
-      });
-      section.style.display = sectionVisible ? '' : 'none';
-    });
-  }
-
-  // ── HOME SEARCH ──
   function homeSearch(val) {
     const v = val.toLowerCase();
     const cards = document.querySelectorAll('#all-cards .res-card');
@@ -2498,25 +2467,56 @@
     document.getElementById('res-count').textContent = visible + ' sumber';
   }
 
-  // ── HAMBURGER ──
   document.getElementById('hamburger').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  // ── BACK TO TOP ──
   window.addEventListener('scroll', () => {
     document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
   });
 
-  // ── CARD ANIMATION DELAY ──
   document.querySelectorAll('.feat-card').forEach((c, i) => {
     c.style.animationDelay = (i * 0.08) + 's';
   });
 
-  // ── LOGOUT ──
+  const countdownTarget = new Date('2026-06-18T08:00:00+07:00').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownTarget - now;
+
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minutesEl = document.getElementById('cd-minutes');
+    const secondsEl = document.getElementById('cd-seconds');
+
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+    if (distance <= 0) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    daysEl.textContent = String(days).padStart(2, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
   function logoutGeomers() {
     localStorage.clear();
-    window.location.replace('../login.html');
+    window.location.replace('../login/');
   }
 </script>
 </body>
