@@ -186,21 +186,73 @@
     .hstat-lbl { font-size: 11px; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
     .hero-deco {
-      position: absolute; right: 15%; top: 50%;
-      transform: translateY(-50%); display: none;
+      position: absolute; right: 7%; top: 150px;
+      transform: none; display: none;
+      width: min(430px, 36vw); text-align: center;
+      animation: fadeUp 0.55s 0.32s ease both;
     }
     @media(min-width:900px){ .hero-deco { display: block; } }
-    .deco-row { display: flex; gap: 28px; margin: 10px 0; }
+
+    .countdown-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-weight: 900; color: var(--teal);
+      line-height: 1.15; text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .countdown-subtitle {
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(1.25rem, 2.3vw, 1.8rem);
+      font-weight: 900; color: var(--dark);
+      line-height: 1.15; text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .countdown-note {
+      color: var(--mid); font-size: 12.5px;
+      margin: 8px 0 18px;
+    }
+    .countdown-boxes {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-bottom: 16px;
+    }
+    .countdown-card {
+      min-width: 70px; padding: 13px 8px 10px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(20,184,157,0.12);
+      border-radius: 12px;
+      box-shadow: 0 5px 16px rgba(20,184,157,0.13), 0 2px 8px rgba(0,0,0,0.06);
+      backdrop-filter: blur(8px);
+    }
+    .countdown-num {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.75rem; font-weight: 900;
+      color: var(--teal); line-height: 1;
+    }
+    .countdown-label {
+      margin-top: 6px;
+      font-size: 10px; font-weight: 700; color: var(--mid);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .countdown-sep {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.7rem; font-weight: 900;
+      color: var(--teal-dark); opacity: 0.65;
+      margin-top: -10px;
+    }
+    .countdown-reminder {
+      font-size: 13px; color: var(--teal-dark);
+      font-weight: 700; margin-bottom: 18px;
+    }
+    .deco-row { display: flex; justify-content: center; gap: 22px; margin: 8px 0; }
     .deco-emoji {
-      font-size: 3rem; display: block;
+      font-size: 2.15rem; display: block;
       animation: floaty var(--d,3s) ease-in-out infinite;
       animation-delay: var(--dd,0s);
     }
     @keyframes floaty {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
+      50% { transform: translateY(-10px); }
     }
-
     /* ── QUICK ACCESS ── */
     .quick-section {
       background: var(--warm); padding: 64px 8%;
