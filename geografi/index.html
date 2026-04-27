@@ -759,7 +759,7 @@
   <ul class="nav-links" id="navLinks">
     <li><button class="active" onclick="showPage('home',this)">🏠 Beranda</button></li>
     <li><button onclick="showPage('soal',this)">📋 Soal OSN</button></li>
-    <li><button onclick="showPage('tryout',this)">🎯 Kumpulan Soal</button></li>
+    <li><button onclick="showPage('kumpulan-soal',this)">🎯 Kumpulan Soal</button></li>
     <li><button onclick="showPage('ebook',this)">📚 Ebook</button></li>
     <li><button onclick="showPage('materi',this)">🌍 Materi</button></li>
   </ul>
@@ -788,13 +788,12 @@
       <p>Soal OSK 2013–2025, Kumpulan Soal dari berbagai komunitas, Ebook referensi, dan materi lengkap — semuanya gratis dalam satu platform.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('soal')"><i class="fas fa-file-alt"></i> Lihat Soal OSN</button>
-        <button class="btn-outline" onclick="showPage('tryout')"><i class="fas fa-bullseye"></i> Lihat Kumpulan Soal</button>
+        <button class="btn-outline" onclick="showPage('kumpulan-soal')"><i class="fas fa-bullseye"></i> Lihat Kumpulan Soal</button>
       </div>
       <div class="hero-stats">
         <div><div class="hstat-num">12+</div><div class="hstat-lbl">Tahun Soal</div></div>
         <div><div class="hstat-num">10+</div><div class="hstat-lbl">Paket Kumpulan Soal</div></div>
         <div><div class="hstat-num">14</div><div class="hstat-lbl">Bidang Ebook</div></div>
-        <div><div class="hstat-num">∞</div><div class="hstat-lbl">Semangat</div></div>
       </div>
     </div>
     <div class="hero-deco" aria-label="Countdown OSN-K 2026">
@@ -855,11 +854,11 @@
         <div class="feat-desc">Arsip lengkap soal Olimpiade Sains Kabupaten dari 2013 hingga 2024. Download PDF langsung.</div>
         <div class="feat-cta">Lihat soal <i class="fas fa-arrow-right" style="font-size:11px;"></i></div>
       </button>
-      <button class="feat-card" onclick="showPage('tryout')" style="text-align:left;">
+      <button class="feat-card" onclick="showPage('kumpulan-soal')" style="text-align:left;">
         <div class="feat-icon">🎯</div>
         <div class="feat-title">Kumpulan Soal & Latihan</div>
         <div class="feat-desc">Geomaster, Vortex, KOJA, POSI, Alpha TO, PPSN dan banyak lagi untuk persiapan maksimal.</div>
-        <div class="feat-cta">Buka kumpulan soal <i class="fas fa-arrow-right" style="font-size:11px;"></i></div>
+        <div class="feat-cta">Mulai kumpulan soal <i class="fas fa-arrow-right" style="font-size:11px;"></i></div>
       </button>
       <button class="feat-card" onclick="showPage('ebook')" style="text-align:left;">
         <div class="feat-icon">📚</div>
@@ -971,11 +970,11 @@
 </div>
 
 <!-- ══════════════════════ KUMPULAN SOAL ══════════════════════ -->
-<div class="page" id="page-tryout">
+<div class="page" id="page-kumpulan-soal">
   <div class="page-hero">
     <div class="page-hero-badge">🎯 Kumpulan Soal</div>
     <h1>Kumpulan Soal & <span class="t">Latihan</span></h1>
-    <p>Berbagai kumpulan soal dari komunitas terpercaya untuk persiapan OSN Geografi</p>
+    <p>Berbagai paket kumpulan soal dari komunitas terpercaya untuk persiapan OSN Geografi</p>
   </div>
 
   <section class="inner-section">
@@ -1355,7 +1354,7 @@
       <ul>
         <li><a href="#" onclick="showPage('home');return false;">Beranda</a></li>
         <li><a href="#" onclick="showPage('soal');return false;">Soal OSN</a></li>
-        <li><a href="#" onclick="showPage('tryout');return false;">Kumpulan Soal</a></li>
+        <li><a href="#" onclick="showPage('kumpulan-soal');return false;">Kumpulan Soal</a></li>
         <li><a href="#" onclick="showPage('ebook');return false;">Ebook</a></li>
         <li><a href="#" onclick="showPage('materi');return false;">Materi</a></li>
       </ul>
@@ -1408,7 +1407,7 @@
 </button>
 
 <script>
-  const navMap = { home:0, soal:1, tryout:2, ebook:3, materi:4 };
+  const navMap = { home:0, soal:1, 'kumpulan-soal':2, ebook:3, materi:4 };
 
   function showPage(name, btn) {
     const targetPage = document.getElementById('page-' + name);
