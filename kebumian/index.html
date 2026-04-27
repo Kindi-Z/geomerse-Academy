@@ -1302,5 +1302,28 @@
     window.location.replace('../login/');
   }
 </script>
+  <script>
+const targetDate = new Date("2026-06-18T08:00:00+07:00");
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = targetDate - now;
+
+  if (diff <= 0) return;
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff/(1000*60*60)) % 24);
+  const m = Math.floor((diff/(1000*60)) % 60);
+  const s = Math.floor((diff/1000) % 60);
+
+  document.getElementById("hari").textContent = String(d).padStart(2,'0');
+  document.getElementById("jam").textContent = String(h).padStart(2,'0');
+  document.getElementById("menit").textContent = String(m).padStart(2,'0');
+  document.getElementById("detik").textContent = String(s).padStart(2,'0');
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
 </body>
 </html>
