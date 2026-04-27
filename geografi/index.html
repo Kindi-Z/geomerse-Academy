@@ -1411,14 +1411,37 @@
   const navMap = { home:0, soal:1, tryout:2, ebook:3, materi:4 };
 
   function showPage(name, btn) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const targetPage = document.getElementById('page-' + name);
+    if (!targetPage) return;
+
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.remove('active');
+      p.style.display = 'none';
+    });
+
     document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
-    document.getElementById('page-' + name).classList.add('active');
+
+    targetPage.classList.add('active');
+    targetPage.style.display = 'block';
+
     const btns = document.querySelectorAll('.nav-links button');
     if (btns[navMap[name]]) btns[navMap[name]].classList.add('active');
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.getElementById('navLinks').classList.remove('open');
+
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks) navLinks.classList.remove('open');
   }
+
+  // Fallback agar tab Materi tetap muncul meskipun ada cache/konflik CSS lama.
+  document.addEventListener('DOMContentLoaded', () => {
+    const activePage = document.querySelector('.page.active') || document.getElementById('page-home');
+    if (activePage) activePage.style.display = 'block';
+
+    if (window.location.hash === '#materi') {
+      showPage('materi');
+    }
+  });
 
   function homeSearch(val) {
     const v = val.toLowerCase();
@@ -1498,6 +1521,18 @@
       userEmailBox.title = 'Email login tidak ditemukan';
     }
   }
+
+  // Tombol khusus Materi: memastikan tab Materi terbuka saat diklik.
+  document.querySelectorAll('button[onclick*="materi"], a[onclick*="materi"]').forEach(el => {
+    el.addEventListener('click', () => {
+      setTimeout(() => {
+        const materiPage = document.getElementById('page-materi');
+        if (materiPage && !materiPage.classList.contains('active')) {
+          showPage('materi');
+        }
+      }, 0);
+    });
+  });
 
   renderLoginEmail();
 
