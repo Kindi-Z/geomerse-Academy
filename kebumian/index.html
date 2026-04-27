@@ -80,7 +80,6 @@
     }
     .nav-social a:hover { background: var(--lemon); color: var(--dark); }
 
-
     .logout-btn {
       color: #fff; background: rgba(255,255,255,0.18);
       border: 1px solid rgba(255,255,255,0.28);
@@ -187,75 +186,22 @@
     .hstat-lbl { font-size: 11px; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
     .hero-deco {
-      position: absolute; right: 7%; top: 150px;
-      transform: none; display: none;
-      width: min(430px, 36vw); text-align: center;
-      animation: fadeUp 0.55s 0.32s ease both;
+      position: absolute; right: 15%; top: 50%;
+      transform: translateY(-50%); display: none;
     }
     @media(min-width:900px){ .hero-deco { display: block; } }
-
-    .countdown-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(1.15rem, 2vw, 1.55rem);
-      font-weight: 900; color: var(--teal);
-      line-height: 1.15; text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .countdown-subtitle {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(1.25rem, 2.3vw, 1.8rem);
-      font-weight: 900; color: var(--dark);
-      line-height: 1.15; text-transform: uppercase;
-      margin-top: 4px;
-    }
-    .countdown-note {
-      color: var(--mid); font-size: 12.5px;
-      margin: 8px 0 18px;
-    }
-    .countdown-boxes {
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px; margin-bottom: 16px;
-    }
-    .countdown-card {
-      min-width: 70px; padding: 13px 8px 10px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid rgba(20,184,157,0.12);
-      border-radius: 12px;
-      box-shadow: 0 5px 16px rgba(20,184,157,0.13), 0 2px 8px rgba(0,0,0,0.06);
-      backdrop-filter: blur(8px);
-    }
-    .countdown-num {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.75rem; font-weight: 900;
-      color: var(--teal); line-height: 1;
-    }
-    .countdown-label {
-      margin-top: 6px;
-      font-size: 10px; font-weight: 700; color: var(--mid);
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
-    .countdown-sep {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.7rem; font-weight: 900;
-      color: var(--teal-dark); opacity: 0.65;
-      margin-top: -10px;
-    }
-    .countdown-reminder {
-      font-size: 13px; color: var(--teal-dark);
-      font-weight: 700; margin-bottom: 18px;
-    }
-    .deco-row { display: flex; justify-content: center; gap: 22px; margin: 8px 0; }
+    .deco-row { display: flex; gap: 28px; margin: 10px 0; }
     .deco-emoji {
-      font-size: 2.15rem; display: block;
+      font-size: 3rem; display: block;
       animation: floaty var(--d,3s) ease-in-out infinite;
       animation-delay: var(--dd,0s);
     }
     @keyframes floaty {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-14px); }
     }
 
-    /* ── QUICK ACCESS (home) ── */
+    /* ── QUICK ACCESS ── */
     .quick-section {
       background: var(--warm); padding: 64px 8%;
       position: relative;
@@ -284,7 +230,6 @@
     .sec-header h2 span { color: var(--teal); }
     .sec-header p { color: var(--mid); font-size: 14px; max-width: 480px; margin: 0 auto; line-height: 1.65; }
 
-    /* Feature grid */
     .feat-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -512,13 +457,6 @@
     .ebook-link:hover { color: var(--teal-dark); }
     .ebook-num { font-size: 11px; color: var(--mid); min-width: 18px; margin-top: 1px; font-weight: 600; }
 
-    /* ── MATERI ── */
-    .materi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
     /* ── PAGE HEADER ── */
     .page-hero {
       background: linear-gradient(135deg, var(--teal-xlight) 0%, var(--lemon-light) 100%);
@@ -572,6 +510,170 @@
     .pillar-title { font-size: 13px; font-weight: 700; color: #fff; }
     .pillar-sub { font-size: 11px; color: rgba(255,255,255,0.68); margin-top: 4px; }
 
+    /* ══ MATERI PAGE - NEW STYLES ══ */
+
+    /* Tab navigation for subjects */
+    .materi-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      padding: 24px 8% 0;
+      background: var(--white);
+      border-bottom: 2px solid var(--teal-light);
+      position: sticky; top: 64px; z-index: 100;
+      background: var(--white);
+    }
+
+    .materi-tab {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 20px; border-radius: 12px 12px 0 0;
+      font-size: 13px; font-weight: 700;
+      cursor: pointer; border: none; background: transparent;
+      color: var(--mid); font-family: 'Poppins', sans-serif;
+      transition: all 0.22s; position: relative; bottom: -2px;
+      border: 2px solid transparent; border-bottom: none;
+    }
+    .materi-tab:hover { color: var(--teal); background: var(--teal-xlight); }
+    .materi-tab.active {
+      color: var(--teal-dark); background: var(--white);
+      border-color: var(--teal-light); border-bottom-color: var(--white);
+    }
+    .materi-tab .tab-count {
+      background: var(--teal-light); color: var(--teal-dark);
+      border-radius: 20px; padding: 1px 7px; font-size: 10px; font-weight: 800;
+    }
+    .materi-tab.active .tab-count { background: var(--teal); color: #fff; }
+
+    /* Subject panel */
+    .materi-panel { display: none; padding: 40px 8%; background: var(--white); }
+    .materi-panel.active { display: block; }
+
+    /* Subtopic section within a panel */
+    .subtopic {
+      margin-bottom: 36px;
+    }
+    .subtopic-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 16px; padding-bottom: 10px;
+      border-bottom: 2px solid var(--teal-light);
+    }
+    .subtopic-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: var(--teal-light); display: flex;
+      align-items: center; justify-content: center; font-size: 16px;
+      flex-shrink: 0;
+    }
+    .subtopic-title {
+      font-family: 'Nunito', sans-serif; font-size: 1.1rem;
+      font-weight: 900; color: var(--dark);
+    }
+    .subtopic-count {
+      margin-left: auto; font-size: 11px; color: var(--mid);
+      background: var(--teal-xlight); border: 1px solid var(--teal-light);
+      border-radius: 20px; padding: 2px 10px; font-weight: 700;
+    }
+
+    /* File list inside subtopic */
+    .file-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 10px;
+    }
+
+    .file-item {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--white); border: 2px solid var(--teal-light);
+      border-radius: 12px; padding: 12px 16px;
+      text-decoration: none; color: var(--dark);
+      transition: all 0.22s; font-size: 13px;
+    }
+    .file-item:hover {
+      border-color: var(--teal); background: var(--teal-xlight);
+      transform: translateX(4px); box-shadow: var(--card-shadow);
+    }
+    .file-type-badge {
+      flex-shrink: 0; font-size: 9.5px; font-weight: 800;
+      padding: 2px 7px; border-radius: 6px; text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-pdf { background: rgba(239,68,68,0.1); color: #c0392b; border: 1px solid rgba(239,68,68,0.2); }
+    .badge-ppt { background: rgba(234,88,12,0.1); color: #b45309; border: 1px solid rgba(234,88,12,0.2); }
+    .badge-pptx { background: rgba(234,88,12,0.12); color: #92400e; border: 1px solid rgba(234,88,12,0.25); }
+
+    .file-name { flex: 1; line-height: 1.4; font-weight: 500; }
+    .file-num { font-size: 11px; color: var(--mid); font-weight: 700; min-width: 20px; }
+    .file-arrow {
+      color: var(--teal); font-size: 11px; opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .file-item:hover .file-arrow { opacity: 1; transform: translateX(2px); }
+
+    /* Subject color themes */
+    .theme-astro .subtopic-icon { background: rgba(139,92,246,0.12); }
+    .theme-astro .subtopic-header { border-bottom-color: rgba(139,92,246,0.2); }
+    .theme-astro .file-item:hover { border-color: #8b5cf6; background: rgba(139,92,246,0.05); }
+    .theme-astro .file-arrow { color: #8b5cf6; }
+    .theme-astro .subtopic-count { background: rgba(139,92,246,0.08); border-color: rgba(139,92,246,0.2); }
+
+    .theme-geo .subtopic-icon { background: rgba(217,119,6,0.1); }
+    .theme-geo .subtopic-header { border-bottom-color: rgba(217,119,6,0.2); }
+    .theme-geo .file-item:hover { border-color: #d97706; background: rgba(217,119,6,0.05); }
+    .theme-geo .file-arrow { color: #d97706; }
+    .theme-geo .subtopic-count { background: rgba(217,119,6,0.08); border-color: rgba(217,119,6,0.2); }
+
+    .theme-meteo .subtopic-icon { background: rgba(59,130,246,0.1); }
+    .theme-meteo .subtopic-header { border-bottom-color: rgba(59,130,246,0.2); }
+    .theme-meteo .file-item:hover { border-color: #3b82f6; background: rgba(59,130,246,0.05); }
+    .theme-meteo .file-arrow { color: #3b82f6; }
+    .theme-meteo .subtopic-count { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.2); }
+
+    .theme-osean .subtopic-icon { background: rgba(6,182,212,0.1); }
+    .theme-osean .subtopic-header { border-bottom-color: rgba(6,182,212,0.2); }
+    .theme-osean .file-item:hover { border-color: #06b6d4; background: rgba(6,182,212,0.05); }
+    .theme-osean .file-arrow { color: #06b6d4; }
+    .theme-osean .subtopic-count { background: rgba(6,182,212,0.08); border-color: rgba(6,182,212,0.2); }
+
+    /* Materi search */
+    .materi-search-wrap {
+      padding: 20px 8% 0;
+      background: var(--white);
+    }
+    .materi-search {
+      max-width: 460px;
+      position: relative;
+    }
+    .materi-search input {
+      width: 100%; padding: 11px 44px 11px 18px;
+      border-radius: 50px; border: 2px solid var(--teal-light);
+      background: var(--white); font-family: 'Poppins', sans-serif;
+      font-size: 13px; color: var(--dark); outline: none;
+      transition: border-color 0.25s;
+    }
+    .materi-search input:focus { border-color: var(--teal); }
+    .materi-search i {
+      position: absolute; right: 16px; top: 50%;
+      transform: translateY(-50%); color: var(--teal); pointer-events: none; font-size: 13px;
+    }
+
+    /* Subject overview bar */
+    .subject-overview {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      padding: 20px 8%;
+      background: var(--white);
+    }
+    .subj-pill {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: 50px;
+      font-size: 12px; font-weight: 700; cursor: pointer;
+      border: 2px solid; transition: all 0.22s;
+    }
+    .subj-pill-astro { border-color: rgba(139,92,246,0.3); color: #7c3aed; background: rgba(139,92,246,0.07); }
+    .subj-pill-astro:hover { background: rgba(139,92,246,0.15); }
+    .subj-pill-geo { border-color: rgba(217,119,6,0.3); color: #b45309; background: rgba(217,119,6,0.07); }
+    .subj-pill-geo:hover { background: rgba(217,119,6,0.15); }
+    .subj-pill-meteo { border-color: rgba(59,130,246,0.3); color: #1d4ed8; background: rgba(59,130,246,0.07); }
+    .subj-pill-meteo:hover { background: rgba(59,130,246,0.15); }
+    .subj-pill-osean { border-color: rgba(6,182,212,0.3); color: #0e7490; background: rgba(6,182,212,0.07); }
+    .subj-pill-osean:hover { background: rgba(6,182,212,0.15); }
+
     /* ── FOOTER ── */
     footer {
       background: var(--dark); color: #fff;
@@ -610,7 +712,6 @@
     .footer-col a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; transition: color 0.2s; }
     .footer-col a:hover { color: var(--lemon); }
 
-    /* Contact info block */
     .footer-contact { display: flex; flex-direction: column; gap: 12px; }
     .contact-row {
       display: flex; align-items: center; gap: 12px;
@@ -642,7 +743,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* back to top */
     #btt {
       position: fixed; bottom: 26px; right: 26px;
       width: 44px; height: 44px; border-radius: 50%;
@@ -656,7 +756,6 @@
     #btt.show { opacity: 1; transform: translateY(0); }
     #btt:hover { background: var(--teal-dark); transform: translateY(-3px); }
 
-    /* mobile */
     @media(max-width:760px){
       .nav-links {
         display: none; flex-direction: column;
@@ -667,21 +766,22 @@
       .nav-links.open { display: flex; }
       .hamburger { display: block; }
       .nav-social { gap: 6px; }
+      .materi-tabs { padding: 16px 5% 0; top: 64px; }
+      .materi-tab { padding: 8px 12px; font-size: 12px; }
     }
     @media(max-width:500px){
       .hero { padding: 60px 5% 50px; }
-      .quick-section, .res-section, .inner-section { padding: 50px 5%; }
+      .quick-section, .res-section, .inner-section, .materi-panel { padding: 40px 5%; }
+      .subject-overview, .materi-search-wrap { padding-left: 5%; padding-right: 5%; }
     }
   </style>
 </head>
 <body>
 <script>
-  // Guard role: hanya akun Kebumian yang boleh membuka halaman ini.
   const loggedIn = localStorage.getItem('geomersLoggedIn');
   const role = localStorage.getItem('geomersRole');
-
   if (loggedIn !== 'true' || role !== 'kebumian') {
-    window.location.replace('../login/');
+    window.location.replace('../login.html');
   }
 </script>
 
@@ -722,12 +822,11 @@
 
 <!-- ══════════════════════ HOME ══════════════════════ -->
 <div class="page active" id="page-home">
-
   <section class="hero">
     <div class="hero-content">
       <div class="hero-badge"><i class="fas fa-globe"></i> Platform OSN Kebumian Terlengkap</div>
       <h1>Raih <em>Emas</em> OSN<br>Kebumian Bersama<br>Geomers!</h1>
-      <p>Soal OSK 2013–2025, TryOut dari berbagai komunitas, Ebook referensi, dan materi lengkap — semuanya gratis dalam satu platform.</p>
+      <p>Soal OSK 2008–2025, TryOut dari berbagai komunitas, Ebook referensi, dan materi lengkap — semuanya gratis dalam satu platform.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('soal')"><i class="fas fa-file-alt"></i> Lihat Soal OSN</button>
         <button class="btn-outline" onclick="showPage('tryout')"><i class="fas fa-bullseye"></i> Mulai TryOut</button>
@@ -735,42 +834,16 @@
       <div class="hero-stats">
         <div><div class="hstat-num">17+</div><div class="hstat-lbl">Tahun Soal</div></div>
         <div><div class="hstat-num">10+</div><div class="hstat-lbl">Paket TryOut</div></div>
-        <div><div class="hstat-num">4</div><div class="hstat-lbl">Bidang Ebook</div></div>
+        <div><div class="hstat-num">12+</div><div class="hstat-lbl">Ebook</div></div>
         <div><div class="hstat-num">∞</div><div class="hstat-lbl">Semangat</div></div>
       </div>
     </div>
-    <div class="hero-deco" aria-label="Countdown OSN-K 2026">
-      <div class="countdown-title">OSN-K 2026</div>
-      <div class="countdown-subtitle">Segera Dimulai!</div>
-      <div class="countdown-note">Persiapkan dirimu dan raih medali emas!</div>
-
-      <div class="countdown-boxes">
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-days">00</div>
-          <div class="countdown-label">Hari</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-hours">00</div>
-          <div class="countdown-label">Jam</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-minutes">00</div>
-          <div class="countdown-label">Menit</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-card">
-          <div class="countdown-num" id="cd-seconds">00</div>
-          <div class="countdown-label">Detik</div>
-        </div>
-      </div>
-
-      <div class="countdown-reminder">18 Juni 2026 · 08.00 WIB</div>
-
+    <div class="hero-deco">
       <div class="deco-row">
         <span class="deco-emoji" style="--d:3.2s;--dd:0s">🌋</span>
         <span class="deco-emoji" style="--d:2.8s;--dd:0.4s">🌊</span>
+      </div>
+      <div class="deco-row">
         <span class="deco-emoji" style="--d:3.6s;--dd:0.2s">🏔</span>
         <span class="deco-emoji" style="--d:3s;--dd:0.6s">🌤</span>
       </div>
@@ -781,8 +854,6 @@
     </div>
   </section>
 
-
-  <!-- Quick Access -->
   <section class="quick-section">
     <div class="sec-header">
       <div class="sec-label" style="justify-content:center;">
@@ -812,14 +883,13 @@
       </button>
       <button class="feat-card" onclick="showPage('materi')" style="text-align:left;">
         <div class="feat-icon">🌍</div>
-        <div class="feat-title">Materi & Komunitas</div>
-        <div class="feat-desc">Folder drive lengkap, komunitas belajar, arsip Fariq, Opsilon, Scuola, dan OSN-P.</div>
+        <div class="feat-title">Materi Kebumian</div>
+        <div class="feat-desc">100+ file PPT & PDF dari dosen ITB, UGM, Undip — Astronomi, Geologi, Meteorologi, Oseanografi.</div>
         <div class="feat-cta">Eksplorasi <i class="fas fa-arrow-right" style="font-size:11px;"></i></div>
       </button>
     </div>
   </section>
 
-  <!-- All Resources -->
   <section class="res-section">
     <div class="res-header">
       <div class="res-dot"></div>
@@ -897,7 +967,6 @@
     </div>
   </section>
 
-  <!-- Mission -->
   <section class="mission">
     <div class="sec-label" style="justify-content:center;margin-bottom:10px;">
       <div class="sec-label-line" style="background:rgba(255,255,255,0.4);"></div>
@@ -913,8 +982,7 @@
       <div class="pillar"><div class="pillar-icon">🤝</div><div class="pillar-title">Komunitas</div><div class="pillar-sub">Belajar bersama</div></div>
     </div>
   </section>
-
-</div><!-- /home -->
+</div>
 
 <!-- ══════════════════════ SOAL OSN ══════════════════════ -->
 <div class="page" id="page-soal">
@@ -923,7 +991,6 @@
     <h1>Soal <span class="t">OSK</span> Kebumian</h1>
     <p>Arsip soal Olimpiade Sains Kabupaten dari tahun 2008 hingga 2025</p>
   </div>
-
   <section class="inner-section">
     <div class="res-header">
       <div class="res-dot"></div>
@@ -952,7 +1019,6 @@
       <div class="list-item list-na"><div class="list-year">2025</div><div class="list-label">Soal OSK Kebumian 2025</div><div class="list-badge">Segera</div></div>
     </div>
   </section>
-
   <div style="padding:0 8% 36px;">
     <a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank" class="btn-primary" style="display:inline-flex;">
       <i class="fas fa-external-link-alt"></i> Bank Soal Resmi Puspresnas
@@ -967,7 +1033,6 @@
     <h1>TryOut & <span class="t">Latihan</span></h1>
     <p>Berbagai paket soal tryout dari komunitas terpercaya untuk persiapan OSN Kebumian</p>
   </div>
-
   <section class="inner-section">
     <div class="res-header">
       <div class="res-dot"></div>
@@ -976,59 +1041,50 @@
       <div class="res-count">8 paket</div>
     </div>
     <div class="to-grid">
-
       <div class="to-card">
         <div class="to-group">🏫 Geomaster Class</div>
         <a href="https://drive.google.com/file/d/1cq9PfyFtLWJEgJpVcEclOtzuCQxIrB9C/view" target="_blank" class="to-link">TO 1</a>
         <a href="https://drive.google.com/file/d/1R-cnSPpnMznAF-zuTshpDGF_d9rtRBsA/view" target="_blank" class="to-link">TO 2</a>
         <a href="https://drive.google.com/file/d/1cHLwl8t-4_d00kq4xuuMCUVgkMABO08H/view" target="_blank" class="to-link">TO 3</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🌀 Vortex</div>
         <a href="https://drive.google.com/file/d/1xI8M3YSL7xCrHlsHAbDgU1UxWBVnCbuf/view" target="_blank" class="to-link">Soal</a>
         <a href="https://drive.google.com/file/d/1Jt7U9gt5XdSrcS5pWsgRaar0vXa7N36v/view" target="_blank" class="to-link">Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🔶 KOJA TO</div>
         <a href="https://drive.google.com/file/d/1pcBP7ZqLIPka53VSoytdk1k5wgcHwTq7/view" target="_blank" class="to-link">Soal</a>
         <a href="https://drive.google.com/file/d/1EA8wesAXIfR_v4xNR74tLlHQZROlHwYG/view" target="_blank" class="to-link">Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🌐 Geoscience Q&A</div>
         <a href="https://drive.google.com/file/d/1PZvrfGV7Dn4TaKvQ3ZCmtfTqCJbqyncJ/view" target="_blank" class="to-link">Soal</a>
         <a href="https://drive.google.com/file/d/1O0AVA6JPKoeaadXRE4fEuGOun9WPwovf/view" target="_blank" class="to-link">Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">⚗️ IOSTPI (SCE)</div>
         <a href="https://drive.google.com/file/d/1f9VHHVMnyw0FKUct2qyoPXBQXUum0uar/view" target="_blank" class="to-link">2017</a>
         <a href="https://drive.google.com/file/d/1IcaP8s8_Fqjd4E5LDamQhQdyrxsEfNI1/view" target="_blank" class="to-link">2018</a>
         <a href="https://drive.google.com/file/d/1TYqxTCNyP6rM-6D-VdzIeejw6fSvAYDg/view" target="_blank" class="to-link">2020</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">🏆 TO PPSN</div>
         <a href="https://drive.google.com/file/d/1wnmQDHMybLa2mMNKiW1jeJyiOlFUUR3r/view" target="_blank" class="to-link">2023 Soal & Pembahasan</a>
         <a href="https://drive.google.com/file/d/1_xpfiS4ctgOaOPkClWWYt9S-u_rFV2TW/view" target="_blank" class="to-link">2024 Soal & Pembahasan</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">⚡ Alpha TO</div>
         <a href="https://drive.google.com/file/d/1XGZI1HsWsnDb7Eky8dJvDLQX2Wv8xHhr/view" target="_blank" class="to-link">Vol. 7</a>
         <a href="https://drive.google.com/file/d/1uYCbuBqYXq7RwrW78Ts0RK2IzX4Asdkq/view" target="_blank" class="to-link">Vol. 13</a>
         <a href="https://drive.google.com/file/d/1HAK9Ue_vtGcH_bFRWGCGQMay37zRCPfG/view" target="_blank" class="to-link">Vol. 14</a>
       </div>
-
       <div class="to-card">
         <div class="to-group">📗 POSI</div>
         <a href="https://drive.google.com/file/d/1kVo9V9YSt-B5-ANPOTHJfTG-PeAEPWPB/view" target="_blank" class="to-link">2018</a>
         <a href="https://drive.google.com/file/d/1U-myL_Vxk57T10_0D0UXcd5xyPEiTo4O/view" target="_blank" class="to-link">2019</a>
         <a href="https://drive.google.com/file/d/1SBefXK3nrzJ6zwKyuv8fPY7N3EjApGOY/view" target="_blank" class="to-link">2020</a>
       </div>
-
     </div>
   </section>
 </div>
@@ -1040,7 +1096,6 @@
     <h1>Ebook <span class="y">Referensi</span></h1>
     <p>Kumpulan buku teks sains kebumian dari penerbit internasional untuk persiapan olimpiade</p>
   </div>
-
   <section class="inner-section">
     <div class="res-header">
       <div class="res-dot" style="background:var(--lemon-dark);box-shadow:0 0 10px var(--lemon-dark);"></div>
@@ -1049,7 +1104,6 @@
       <div class="res-count">4 bidang</div>
     </div>
     <div class="ebook-grid">
-
       <div class="ebook-cat">
         <div class="ebook-cat-head">
           <div class="ebook-cat-icon">🌤</div>
@@ -1059,7 +1113,6 @@
         <a href="https://drive.google.com/file/d/1nZnfLNMBtRlA08hFBUKdP81slhNu8AVN/view" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Weather and Climate — An Illustrated Guide to Science</a>
         <a href="https://drive.google.com/file/d/12GA8CJ7bYcHlD1EZxuFu_KkDm8aBKfFL/view" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Essentials of Meteorology</a>
       </div>
-
       <div class="ebook-cat">
         <div class="ebook-cat-head">
           <div class="ebook-cat-icon">🪨</div>
@@ -1069,7 +1122,6 @@
         <a href="https://drive.google.com/file/d/1XT4AFkPbClY_OS7iCBHgHgqCwe1s4En9/view" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Atlas of Alteration</a>
         <a href="https://drive.google.com/file/d/1VCdpB5MfkxH-boXlPZxcUW5HrFAtPP0w/view" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> Physical Geology: Earth Revealed</a>
       </div>
-
       <div class="ebook-cat">
         <div class="ebook-cat-head">
           <div class="ebook-cat-icon">🌊</div>
@@ -1078,7 +1130,6 @@
         <a href="https://drive.google.com/file/d/1Ucisvb4z5-4gzrx_uuHn94RFHcE4SvPb/view" target="_blank" class="ebook-link"><span class="ebook-num">1.</span> Essentials of Oceanography</a>
         <a href="https://drive.google.com/file/d/1Ucisvb4z5-4gzrx_uuHn94RFHcE4SvPb/view" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Investigating Oceanography</a>
       </div>
-
       <div class="ebook-cat">
         <div class="ebook-cat-head">
           <div class="ebook-cat-icon">🔭</div>
@@ -1088,7 +1139,6 @@
         <a href="https://drive.google.com/file/d/1UnVZ9vFyQPjDzIf2Zu0wNPHBDyW7QQ9Q/view" target="_blank" class="ebook-link"><span class="ebook-num">2.</span> Space and Astronomi</a>
         <a href="https://drive.google.com/file/d/1UnVZ9vFyQPjDzIf2Zu0wNPHBDyW7QQ9Q/view" target="_blank" class="ebook-link"><span class="ebook-num">3.</span> A Practical Guide to Observational Astronomi</a>
       </div>
-
     </div>
   </section>
 </div>
@@ -1096,58 +1146,1181 @@
 <!-- ══════════════════════ MATERI ══════════════════════ -->
 <div class="page" id="page-materi">
   <div class="page-hero">
-    <div class="page-hero-badge">🌍 Materi</div>
-    <h1>Materi & <span class="t">Sumber Daya</span></h1>
-    <p>Kumpulan folder drive materi, arsip, komunitas, dan program pelatihan OSN Kebumian</p>
+    <div class="page-hero-badge">📂 Materi Lengkap</div>
+    <h1>Materi <span class="t">Kebumian</span></h1>
+    <p>100+ file PPT & PDF dari dosen ITB, UGM, Undip, dan universitas terkemuka lainnya</p>
   </div>
 
-  <section class="inner-section">
-    <div class="res-header">
-      <div class="res-dot"></div>
-      <div class="res-title">Sumber Materi</div>
-      <div class="res-line"></div>
-      <div class="res-count">6 sumber</div>
+  <!-- Quick subject pills -->
+  <div class="subject-overview">
+    <button class="subj-pill subj-pill-astro" onclick="switchMateriTab('astro')">🔭 Astronomi <span style="opacity:0.6;margin-left:4px;font-weight:600;">38 file</span></button>
+    <button class="subj-pill subj-pill-geo" onclick="switchMateriTab('geo')">🪨 Geologi <span style="opacity:0.6;margin-left:4px;font-weight:600;">36 file</span></button>
+    <button class="subj-pill subj-pill-meteo" onclick="switchMateriTab('meteo')">🌤 Meteorologi <span style="opacity:0.6;margin-left:4px;font-weight:600;">31 file</span></button>
+    <button class="subj-pill subj-pill-osean" onclick="switchMateriTab('osean')">🌊 Oseanografi <span style="opacity:0.6;margin-left:4px;font-weight:600;">24 file</span></button>
+  </div>
+
+  <!-- Materi search -->
+  <div class="materi-search-wrap">
+    <div class="materi-search">
+      <input type="text" id="materi-search-input" placeholder="Cari topik atau judul file..." oninput="materiSearch(this.value)">
+      <i class="fas fa-search"></i>
     </div>
-    <div class="materi-grid">
-      <a href="https://drive.google.com/drive/folders/1Fbncx_JvsmrFIpOyaAsAnGawy_txtZ64" target="_blank" class="res-card">
-        <div class="res-card-icon">🌤</div>
-        <div class="res-card-title">Meteorologi Lengkap</div>
-        <div class="res-card-desc">Materi meteorologi komprehensif, mulai dari dasar hingga tingkat lanjut.</div>
-        <div class="res-card-footer"><span class="rtag rtag-materi">Materi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1Cx6Qp37QK7IJxlUBwqJ6gXGP9qMzWMPl" target="_blank" class="res-card">
-        <div class="res-card-icon">🧭</div>
-        <div class="res-card-title">Opsilon Materi</div>
-        <div class="res-card-desc">Kompilasi materi dari tim Opsilon untuk persiapan OSN Kebumian.</div>
-        <div class="res-card-footer"><span class="rtag rtag-materi">Materi</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/1uY2q3J8B781eeFUU6Y81qMoIwWX7Bn7n" target="_blank" class="res-card">
-        <div class="res-card-icon">🎓</div>
-        <div class="res-card-title">Pelat Scuola</div>
-        <div class="res-card-desc">Modul pelatihan intensif dari program Scuola untuk peserta OSN.</div>
-        <div class="res-card-footer"><span class="rtag rtag-pelatihan">Pelatihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/drive/folders/12HQ8ll7-r2POdEKjNalD0tT_hmYvaJHg" target="_blank" class="res-card">
-        <div class="res-card-icon">🏅</div>
-        <div class="res-card-title">Pelatihan OSN-P</div>
-        <div class="res-card-desc">Materi dan soal khusus pelatihan OSN Provinsi Kebumian.</div>
-        <div class="res-card-footer"><span class="rtag rtag-pelatihan">Pelatihan</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://bit.ly/kebumianbersama" target="_blank" class="res-card">
-        <div class="res-card-icon">🤝</div>
-        <div class="res-card-title">Kebumian Bersama</div>
-        <div class="res-card-desc">Bergabung dalam komunitas belajar OSN Kebumian se-Indonesia.</div>
-        <div class="res-card-footer"><span class="rtag rtag-komunitas">Komunitas</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
-      <a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank" class="res-card">
-        <div class="res-card-icon">🗂</div>
-        <div class="res-card-title">Arsip Kebumian Fariq</div>
-        <div class="res-card-desc">Koleksi arsip materi dan soal dari komunitas Kebumian Indonesia.</div>
-        <div class="res-card-footer"><span class="rtag rtag-arsip">Arsip</span><div class="res-arrow"><i class="fas fa-arrow-right" style="font-size:10px;"></i></div></div>
-      </a>
+  </div>
+
+  <!-- Tab navigation -->
+  <div class="materi-tabs" id="materi-tabs">
+    <button class="materi-tab active" data-tab="astro" onclick="switchMateriTab('astro')">🔭 Astronomi <span class="tab-count">38</span></button>
+    <button class="materi-tab" data-tab="geo" onclick="switchMateriTab('geo')">🪨 Geologi <span class="tab-count">36</span></button>
+    <button class="materi-tab" data-tab="meteo" onclick="switchMateriTab('meteo')">🌤 Meteorologi <span class="tab-count">31</span></button>
+    <button class="materi-tab" data-tab="osean" onclick="switchMateriTab('osean')">🌊 Oseanografi <span class="tab-count">24</span></button>
+  </div>
+
+  <!-- ════ PANEL: ASTRONOMI ════ -->
+  <div class="materi-panel active" id="panel-astro">
+
+    <div class="subtopic theme-astro">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">⭐</div>
+        <div class="subtopic-title">Astrofisika</div>
+        <div class="subtopic-count">12 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1_tK17ob1kdAZUgnk191K2eE3dDqOgi66/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Analisis Garis Spektrum — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1n4N5_8_Byl5s_7043YJSuYiaKUQMMVau/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Besaran Mendasar dalam Astrofisika — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1GLX5FRa01AdgZq5Iciej6XLLA1vLg2KL/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Bintang Ganda — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ixkTNIoXJiJjzLM6q2VGABw7ma26Wq-l/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Fotometri Bintang 1 — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1xj2vePv8PMFmvMNwOt7jqD9BAkkkiUOu/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Fotometri Bintang 2 — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1FwquXncYJQV2wI9D_AEuYHUWHfNTUvyg/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Fotometri Bintang</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1jcVBETWm1orGqKe0dxmroQwoxxKIlZKM/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Gerak Bintang — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ImXx58GPP-oZWgvRfVE9jEm_9JlPiXgl/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Hukum Pancaran — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1SqBdfV7CBEeR2WXl1gp_PAo-eO2ADYT5/view" target="_blank" class="file-item">
+          <span class="file-num">9</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Magnitudo Bolometrik — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1R6_4JawJONtm7BVOqB6TJhMq2rSq8Rgq/view" target="_blank" class="file-item">
+          <span class="file-num">10</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Photometry</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1BGQHMYd3DM9AW2Utib5tsG8FBn2A9O8X/view" target="_blank" class="file-item">
+          <span class="file-num">11</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Radiasi Elektromagnetik — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1rZ4BV5G7mgEwjzPHnbH4BJJ7LjIqvLXw/view" target="_blank" class="file-item">
+          <span class="file-num">12</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Spektroskopi Bintang — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
     </div>
-  </section>
-</div>
+
+    <div class="subtopic theme-astro">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌐</div>
+        <div class="subtopic-title">Astronomi Dasar</div>
+        <div class="subtopic-count">5 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1of6PUcD9pgbO4WXP-BqJAEs83JU3_i7t/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Astronomi Praktis — ENDANG SOEGIARTINI (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1SIHlOdnyy_q5YCaGBbgNyyRikOiv1Nf5/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Ellipse — BIVIN (Lake Zurich HS)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/11u4qRWXhluf2jenGvOZtrJnSzRCIHrwy/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Bola Langit — WIRAMIHARDJA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1-bhKiRJnUTxm8Haa25PEpVy0yY-_ThtY/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Gerak Langit & Sistem Koordinat — WIRAMIHARDJA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1RxNCmJXOS-AqyzBAAoreSwHNrHf9ISz8/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Posisi Bintang dan Sistem Koordinat — UTAMA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-astro">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🪐</div>
+        <div class="subtopic-title">Mekanika Benda Langit</div>
+        <div class="subtopic-count">12 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1qE8yLzo5363H-L-b0TXPJC9S5OgCsPsM/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Astronomi Posisi - Gerak Planet — ENDANG SOEGIARTINI (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1a3rqSuWmg_kPcsEg7ZeWDwnMr5Ygoes9/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Astronomi Posisi — ENDANG SOEGIARTINI (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1O79ERN4PDtE2RYyR2Jg2hzyu7-5mV9WY/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Gaya Pasang Surut dan Implikasinya — SIREGAR (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1J7juKL1mZBBeg0IiDOQq8Nk8rLwE8shu/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Gerak Dua Benda — DAWANAS (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1-YSK4S4WkgHPoBdCQmq21cADkoMthhrE/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Gerak Planet & Fenomena Khusus</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1tbUnV4SnwFlyqMktbjAAw75eNCHaUZPg/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Gerak Planet — SIREGAR (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1RL5jRTJeot0jFSfAQTEhhDdxRQ1xISgs/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Hukum Kepler</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1OASYTFt1_6UXyWxYOHo7t0zx4KlBRvSx/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Masalah 2 Benda — ENDANG SOEGIARTINI (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Z5kwdHsNGa61AzKpyFp9rE161cpFXPFh/view" target="_blank" class="file-item">
+          <span class="file-num">9</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Mekanika Benda Langit (TPOA 2013)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1pPLfK1xdQY2XJRY2B8d88f7eeeWyW811/view" target="_blank" class="file-item">
+          <span class="file-num">10</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Mekanika Benda Langit — ENDANG SOEGIARTINI (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1S-JgDX8ErKMNJjjiLNZlbBFumf11WKOO/view" target="_blank" class="file-item">
+          <span class="file-num">11</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Mekanika Langit - Titik Lagrange — ENDANG SOEGIARTINI (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1fEdmnZdbUSst0yANzZfSlbef-isaL8q4/view" target="_blank" class="file-item">
+          <span class="file-num">12</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Roche Limit — ENDANG SOEGIARTINI (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-astro">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">☀️</div>
+        <div class="subtopic-title">Tata Surya & Planet Ekstrasolar</div>
+        <div class="subtopic-count">16 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/12VbGHyoMLpLXNfSznWW1CCAerschAHKm/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Bulan</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1tUiW9TKFIQxJUgoqeSNLrzB8G9xIv2NZ/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Bumi Sebagai Planet - 1</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1RuhMCKO2fmOB43q_r4Kk9iPG9qEXjJGV/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Bumi Sebagai Planet - 2</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1aYV_1QiikeGJ_6RPDc_Fa1THuwW-R1fJ/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Earth and Other Planets — MALASAN (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1YM7m4Rk52s8if6ZcxMuT055C9wgEVGQD/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Evolusi Tata Surya dan Medium Antarplanet</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1o3ap6mSkndgzEvMajjvM0GkOA_uGJr-P/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Fisika Keplanetan</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1aBGXYRlAKu6G9Bgm3zorSXuVfJHjV7r1/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Komet</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1OCrFssnsZx9fcrjamEgCTWpDoVAI7C5O/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Mengenal Tata Surya — HANIM (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1_onvGK3jSc7TaSh0Ck_MHAftYo3llYSn/view" target="_blank" class="file-item">
+          <span class="file-num">9</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Overview Tata Surya — HIDAYAT (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Ha_vbT6m77PSBAE9-SDmeYmHpSrsVdlA/view" target="_blank" class="file-item">
+          <span class="file-num">10</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Perjalanan Mengenal Tata Surya — UTAMA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1858EoMZXV5aC2TXIUm29ZsjXedq83L_h/view" target="_blank" class="file-item">
+          <span class="file-num">11</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Planet Luar-Surya — HIDAYAT (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/17a1Yksm-zNjXQ-uFncj0yFB-L_RrmoZK/view" target="_blank" class="file-item">
+          <span class="file-num">12</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Solar System</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1n8JrvgwnmcZRyWEiu8-n9QjLU8M2QUdr/view" target="_blank" class="file-item">
+          <span class="file-num">13</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Tata Surya — HENDARYONO (UPN)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1CVRhItIZ4FI-d50e9O9VPlr0YgOAG3xI/view" target="_blank" class="file-item">
+          <span class="file-num">14</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Tata Surya</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Zl1HUTJ1Ryv51CLN8ZlXpvHpfHwVkdM3/view" target="_blank" class="file-item">
+          <span class="file-num">15</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Teori Terjadinya Tata Surya</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/11aGUO7CN7feDsviv9pXUpHmzvNsF04Kj/view" target="_blank" class="file-item">
+          <span class="file-num">16</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">The Origin of Solar System</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-astro">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🔬</div>
+        <div class="subtopic-title">Observasi & Instrumen</div>
+        <div class="subtopic-count">10 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1yZxBBamR2gWMFJcBfc0yM4Rdltt5uP2P/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Basic Observations and Instruments in Astronomy — MALASAN (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1IxrLkvxdxTb4HoeBgMjtw26MnF3ogOUB/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Dasar-dasar Teleskop — DERMAWAN (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1kcqPej_hQK-le0M3GY2rUi9hFF6_Mmrx/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Kolektor Radiasi Elektromagnetik Optik dalam Astronomi Pengamatan</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1X99BOxHJvxeqb2IH8uhvjORluDwW7OA-/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Menghitung Massa Jupiter — ISLAMIYATI</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1dCQIeRQOIXA6dZM5R0TStWVb6VAqJu4k/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Optical Telescopes in Astronomy</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1eFZDbweQS9Cd8s7o8YYZ9HA2wGWLBOby/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Period of Rotation of the Sun — CLEA</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ySOe1vK0R_Y6jt3Niib4ODf3zSUtx2u9/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Photoelectric Photometry of Open Cluster Pleiades — CLEA</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1-UyGVvHK-R3PrdXf-BQJ8hmXvmuL3NAS/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Radiasi Elektromagnetik dan Teleskop — LANG (UIOWA)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1pnlPa3lJx8lZTv2YxAYVV_rO8Q2ugn_8/view" target="_blank" class="file-item">
+          <span class="file-num">9</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Revolution of the Moons of Jupiter — CLEA</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1RtlaYfF-Buw3lmrDgyWMuxJ1WULemNio/view" target="_blank" class="file-item">
+          <span class="file-num">10</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Telescope Scope for Astronomy Practical Test — PELATNAS</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /panel-astro -->
+
+  <!-- ════ PANEL: GEOLOGI ════ -->
+  <div class="materi-panel" id="panel-geo">
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🔥</div>
+        <div class="subtopic-title">Batuan Beku (Igneous Rocks)</div>
+        <div class="subtopic-count">5 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1jtZNVcGTZeeyfEkUOx0Aw0jIpXdoEmnC/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Batuan Beku (Igneous Rock) — SANTOSO</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/14YZYfSLcnq5pIqoQeYh85XQnEvJ4KubH/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Batuan Beku</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1PdGQHkXMxgX29f92aF2e8_ojgqaWRfbs/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Igneous Rocks and the Rock Cycle — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1264by-ZecSWZzdIsbDEPAUtyj9CkjsGX/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Igneous Rocks — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1jxyddQG1-nscT4M7A_RQCN-8R7jZmyqc/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Classification of Igneous Rocks</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🏖</div>
+        <div class="subtopic-title">Batuan Sedimen (Sedimentary Rocks)</div>
+        <div class="subtopic-count">5 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1KPyxejF1GAS8yEgwvjt9wDTtYrRtzRSN/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Batuan Sedimen (Sedimentary Rock) — SANTOSO</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1yzrj9EcFq4lihcmWWSDA2OIXkwYvdrWM/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Petrologi Batuan Sedimen</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1J1U8vKqcEFM_DUNCP2z6w0BzcWC7ALUv/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Sedimentary Rocks and the Rock Cycle — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1NMXGmxpMC_QtkZQUd449ybIr5pKUG6CO/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Lingkungan Pengendapan Sedimen</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1m7EQaalqdhCVGuw7Xa8yG7AMtCxfvSfS/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Texture of Sedimentary Rocks — SUSILO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">💎</div>
+        <div class="subtopic-title">Batuan Metamorf & Piroklastik</div>
+        <div class="subtopic-count">6 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1H47khyU33wUNNdrtQK7P72mJDFfL5hM6/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Batuan Metamorf (Metamorphic Rock) — SANTOSO</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1mC2rR1ReddicoVfHJ9yqxQaEi_kFeSSD/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Batuan Metamorf</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/17_f02uc4vTgpo0jeqPgJ1GY_-tzr4KHP/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Metamorphic Rocks and the Rock Cycle — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1d96hviYP62jVhogzTHGyUk6buR6c1im5/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Metamorphism and Metamorphic Rocks 1</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1R9JD1H4Z6EZDSZj0yvNBwjmmter2TnB6/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Petrologi Batuan Metamorf</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1SXZUm_iHe28TpoE1msHg47BK8KbQ4ary/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Batuan Piroklastik — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🔷</div>
+        <div class="subtopic-title">Kristal dan Mineral</div>
+        <div class="subtopic-count">7 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1ivarfbHZzXYH-Tch8YRxfshl2y9hTDCW/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Kristalografi dan Mineralogi — SANTOSO</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ZMJKJpQ7XJX0Blkg_Jj91UhEp8RwSDWO/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Kristalografi & Mineralogi #1 Pendahuluan — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1van1YHsGAe9d9xKJKflr2SQprKAC9DHO/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Kristalografi & Mineralogi #2 Morfologi Kristal — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1DEOaGYAJTu6AFBC_J9NFM2Z-stlkEFGw/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Kristalografi & Mineralogi #3 Mineralogi — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1N00KtF2dosoc9uDbcrD1iXaSwqhCgdqb/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Kristalografi & Mineralogi #4 Asosiasi dan Genesa Mineral — WARMADA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1b7mB_kFCE66TEYgkAW-Vj04jOd4YtRYL/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Mineralogi — AMIJAYA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1q8hx5AeEXndVVXNQxRAeMH-uFRiAP6O9/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Mengenal Batuan & Mineral (Museum Geologi)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">💧</div>
+        <div class="subtopic-title">Geohidrologi</div>
+        <div class="subtopic-count">3 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1K-uNsBWx5_CMnB2rs86izQGYidagV2Ks/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Geohidrologi — ASSEGGAF (Uni-Trisakti)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Yn_1WjlhuRz_y6uh67FdlZPpYWpT6ur4/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Hidrogeologi — WILOPO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1WEVqOhD1g1CXdnTG8kWepzP7hPn3HSeO/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Hydrogeology — PUTRA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🗺</div>
+        <div class="subtopic-title">Stratigrafi & Pemetaan</div>
+        <div class="subtopic-count">4 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1w8CQ-j2EATe9ZJWsxV-0QKCjGq4mEQCX/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Prinsip Stratigrafi dan Geologi Sejarah — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Px9SE0eorqUmTiMAah_fmz037ATTW9b1/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Prinsip Stratigrafi — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/13bZGgNaznjfSXth4KfhJ7Q1ZxPWelFMD/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Pengantar Geodesi dan Geomatika — MA'RUF (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/15ob7mF2tP-fivOWA5EfSPkdxEezMj52s/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Peta Topografi — SUDARNO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Fgp5T5zLQ5U0AWu3pA6AJcB-oCXNGtiC/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Kegunaan Peta Topografi dalam Pekerjaan Geologi — UGM</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ue8HjIAU3s3Uey8LghLjDlI8EozPa0XZ/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Peta Geologi — SAMODRA (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">📡</div>
+        <div class="subtopic-title">Geofisika</div>
+        <div class="subtopic-count">9 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1d-GSZ2yokfP3AXLRXMXHISYBQSXJnIOa/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Electric and Electromagnetic Prospecting Methods — UGM</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1GKubt7p84eQDEDUPjMgJITAvegRfeI-p/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Geolistrik - Resistivity Method — UGM</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1LAeLALsqnRBTvnDVXl9pqrLe2SF95ZoA/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Metode Geomagnetik — WAHID (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/15_wTvV8WubNZtVYq2R9jqgekZg10sqUx/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Metode Kemagnetan</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1WRvbguWCSTJa3o3ELUL1FvswTSdDcgOa/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Seismic and Seismology Basic Principles</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1bx-KTEmut28Yv3sOCTuCr155CFYA6R56/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Seismic Methods Basic Principles</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/11UIo_hkqdHMqHgHjwXE2RGokEZOQsawl/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Metode Gravitasi — UGM</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1R9SS4AFZu2q3sf95l0VuholHAOHTAmYd/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Survey Geofisika Metode Gravitasi</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1UjN8LogmquXpXmEWiTWxQoEum3JbA4l_/view" target="_blank" class="file-item">
+          <span class="file-num">9</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Geofisika Eksplorasi — UGM</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-geo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🦕</div>
+        <div class="subtopic-title">Paleontologi & Geologi Sejarah</div>
+        <div class="subtopic-count">9 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/17VGyLSmj-fLfDz_gfNKtlJvLuganNeGB/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Paleontologi — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/11BQgz_w9D68_fMP2-9qGztROxQlhYL/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Pengenalan Fosil — MARLIYANI (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1WZ3ogFwbCSjyXaQRRnfZ8AvS6Okbnibq/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Fosil</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ZpW_vsbbUDlg2hQKMHiRng_pK9fRp-9D/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Geologi Sejarah 01 Basics — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1iNdF7tSvCefYOTDPQsFAQthDf7Yzl66a/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Geologi Sejarah 02 Tata Surya — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1uaSqaCaccivaAO3sLU1j778dAHHvNq98/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Geologi Sejarah 03 Pre-Cambrian — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1OQsRRcTqqd20SUjypOXp0-0lwmrQuYsv/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Geologi Sejarah 04 Paleozoic — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1AZfdt7l8n-tQ14hJCQNjG5v-Z5cEjvOz/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Geologi Sejarah 05 Mesozoic — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/18z1LFol7wp4itvQfnNJge4Xj4YfWU3d5/view" target="_blank" class="file-item">
+          <span class="file-num">9</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Geologi Sejarah 06 Cenozoic — RAHARDJO (UGM)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /panel-geo -->
+
+  <!-- ════ PANEL: METEOROLOGI ════ -->
+  <div class="materi-panel" id="panel-meteo">
+
+    <div class="subtopic theme-meteo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌧</div>
+        <div class="subtopic-title">Awan dan Hidrologi</div>
+        <div class="subtopic-count">5 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1Zx7fyntxyITSMHvS63ZPIUsXvtZucNA7/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Atmospheric Moisture</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Dey5WDoVycTllyF8uLWtJunVfVcEvdiD/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Cloud Types</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/14gWQ856KG6IH63oRfhwTyAkc4YUU5tyH/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Precipitation</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1P1zZ_syEfLOgoYywj_B-BtGcRrghLLho/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Pembentukan Hujan — WIRATMO (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1O774eehY5AXTUdFp7MQLil1knEbdRvGz/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Perawanan — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-meteo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌡</div>
+        <div class="subtopic-title">Cuaca dan Klimatologi</div>
+        <div class="subtopic-count">6 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1ZeV24VLgErMQplyrKxqIEbbIfAndBpbg/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">The Hydrologic Cycle, Climate, and Weather</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1YApHK9tSJuv_m1N3LjVEsBUe6CRKRTRa/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Klasifikasi Iklim — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1earB86oHv4PUWTpNAMMwwCJiB8InM7EA/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Iklim Global — WIRATMO (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1w17HJ7Z27ZNJVGQHgklBhuTBpkT1x6aJ/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Cuaca dan Variabilitas Iklim</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1kNWGt93ZST4YE9HzvM3oTU7r0gp6RPoF/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Cuaca dan Iklim Terapan — DZAKIR (STMKG)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1q3ff6e2_RJb6HG48brIf4__NWVnBJ6pS/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Climate Classification</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-meteo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌫</div>
+        <div class="subtopic-title">Struktur dan Komposisi Atmosfer</div>
+        <div class="subtopic-count">5 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1CzpFKmIZ0cIM_M5qePSssO3FAioDTsR8/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Struktur dan Komposisi Atmosfer — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ApHWUUw--NIqVWIz8s0l_QCutsZkgQcg/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Struktur dan Komposisi Atmosfer — WIRATMO (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1snVb9mfH6oGMC3d6txDtVaRzpiPdfFXH/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Definitions and Atmospheric Structure</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Hui0b0GHVwfOgR0ZQ35X7AgnklLR8qS9/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Atmosfer — DAYEN</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1uvB9rRnFUrPWvGLOrNUp1ZMF_S9FZkNt/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Atmosfer Bumi</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-meteo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">💨</div>
+        <div class="subtopic-title">Gerak dan Sirkulasi Atmosfer</div>
+        <div class="subtopic-count">2 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1VgbeTlVUsSFUi3LUF4Tku4GfFQtiZbr2/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Sirkulasi Umum Atmosfer — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1xdIVrAzk3hm535fp2SCMUIOBwWXKN0PD/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Sirkulasi Atmosfer — WIRATMO (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-meteo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌡</div>
+        <div class="subtopic-title">Termodinamika, Proses Termal & Kelembaban</div>
+        <div class="subtopic-count">6 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1Qxgss4OPPEeOo3-SOYKsU4aMg_uRYETl/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Thermodynamic Diagrams</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1DJmbNBjmD3s4VGn8WZRJwPr3i4wjykKD/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">The Tephigram</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1pSZ8eM5iR62A-WVNYYMC5lkLPFlgom_y/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Termodinamika — AWALUDDIN</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1oUL7Uibh-q_ANBxFGm026ea-t6aNIeRU/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Proses Termal dan Proses Kelembaban — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Tbu8qUGNOlt-d420_-vX5Z0Y0tJj1Cbn/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Heat Index and Wind Chill</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1LzYiygHJeuZ4VP0yWIcwyQHLNNVlpBUr/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Campuran dari Gas Ideal dan Uap — FST USD Jogja</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-meteo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌀</div>
+        <div class="subtopic-title">Siklon, Front & El Niño</div>
+        <div class="subtopic-count">7 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1eeZAjOJiCuYYVTKGFxyH8GlVSibQz8b2/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Tropical Storms and Hurricanes</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1SFUfA2m0-NkhCjM3CekWI2ScqDji7bzy/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Siklon Tropis dan Tornado — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1OHapjlJcShofslZneoidueSxCMuAH141/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Siklon dan Antisiklon — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1XGR-q-FpHCvK-7f188DWkkh83L7yUxI_/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Hurricanes</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1x7Uyw06P-SChxjdLkippOO6EtuKDyvIN/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">The Mechanism of El Niño</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1baBaAVPIOnRCMtOVak4yyhJZgTe4MPwo/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Mekanisme El Niño dan La Niña</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1WhwNZ6Em0cyBRvMUrHXRCv5X6pmPABrN/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Fronts and Mid-latitude Cyclones</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1LfplTIdAeLxnYcuUJEqDaMYHZFlsjqhm/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Front</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1JGsdPlWrMAtdpIIQKdEoER5bxvJN35S6/view" target="_blank" class="file-item">
+          <span class="file-num">9</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Front dan Siklon Ekstratropis — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-meteo">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌩</div>
+        <div class="subtopic-title">Observasi, Instrumen & Bencana Meteorologi</div>
+        <div class="subtopic-count">7 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1OeaRMI2NSDGS0R6liIRvtpANjZss3cVr/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Observations</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1DBN6s1zp5jV5jw7okEBaKfB_v__8Foip/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Observasi — ZADRACH (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1wPwAhaFOWOV8xXyK8hQcRKW-F4TaDrL3/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Meteorological Instruments</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1n6xFPyDSP9_8WX7TgBL4vI0ViiUKBPDO/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Instrumen Meteorologi</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/11SMw0hQ7S4WjNWY_tQ76C56HHQed-g0r/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Tornadoes</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1GnSAi6EMO_56pLfPaYKusjZFK8GsDjXT/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Severe Weather</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1rhCCjDlAwMdccJ34zhpOcXpG2FRcW0e9/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Bahaya dan Bencana Alam Meteorologi</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /panel-meteo -->
+
+  <!-- ════ PANEL: OSEANOGRAFI ════ -->
+  <div class="materi-panel" id="panel-osean">
+
+    <div class="subtopic theme-osean">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌊</div>
+        <div class="subtopic-title">Oseanografi Dasar</div>
+        <div class="subtopic-count">4 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1gpWgVkB78l2_wnS4i9Xy8QSDnhN9vX-j/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Oseanografi</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1GvRWDGu2ouHfb6I2KoVOp5jF0lvdouOb/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Oseanografi Pres01 - Pendahuluan</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1nB5rccn1RpkJmTm2RBS0N16worG-TrKz/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Oseanografi — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1uf7S6nXJ936FiyPIB8x6ImfMx63n9m-P/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Oceanography — WINDUPRANATA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-osean">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🏄</div>
+        <div class="subtopic-title">Gerakan Air Laut</div>
+        <div class="subtopic-count">8 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1dDSCkqDbxKCLS-xaStneGmsPQ7tvPTzC/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Waves — WINDUPRANATA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1_Mzzr746RdsNv8N8eBrypN_NPgsFFs4R/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Oseanografi Pres04 - Gerakan Air Laut</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1KC8elWHs9mLACW1-fI8ydoy0BsKVwgH6/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Oseanografi Pres03 - Air Laut</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1x0_aA3Gtqx1PB_JuXkXUdBH29C9bOHHK/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Ocean and Coastal Currents — WINDUPRANATA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1ILEAt5Wr2Aij6-lp1BgynqkA-0rTi9uE/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Gelombang Pecah</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/10WsQh2EeyNpoBNRGJzsWzB3Zx40BWEuw/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Gelombang Laut — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1fJO-fhRIhfPnTXTt1LyyY7gqlJ0Pg7Ce/view" target="_blank" class="file-item">
+          <span class="file-num">7</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Arus Sepanjang Pantai</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Nc837001kbHvvlpG8ibJvIzKXOC59eI1/view" target="_blank" class="file-item">
+          <span class="file-num">8</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Arus Laut — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-osean">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🌕</div>
+        <div class="subtopic-title">Pasang Surut</div>
+        <div class="subtopic-count">5 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1EEDpSnDMl6tkL5b2FC7Rzj-nd2QfI-7A/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Perairan Laut</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1dObfzM4sPnCqQMqxtIjCKNzGjeG-gA54/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Pasang Surut</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Rz7YdVQEgTALv6NR-K4zcJ7UUc9GSLms/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Pasang Surut — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1w0zQlIE0GYastv18_zELrWOqungWsHEx/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Ocean and Coastal Tide — WINDUPRANATA (ITB)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1GnSeM5RXJj7J2DoTrqPApDpa2kZpGyaP/view" target="_blank" class="file-item">
+          <span class="file-num">5</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Kedudukan Muka Air Pasang Surut — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1EvnIPR9ooDOFwhLzZy3K1NjJZoy7DmRE/view" target="_blank" class="file-item">
+          <span class="file-num">6</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Faktor Pasang Surut — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-osean">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🏝</div>
+        <div class="subtopic-title">Morfologi Laut & Pesisir</div>
+        <div class="subtopic-count">4 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1Koo22dIZqs7SnrV48juGDu2tWpNRIon7/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Perubahan Garis Pantai</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1FE4mhQIajjxpUDXdoKP5tj7fnvFg5xYM/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Oseanografi Pres05 - Lingkungan Laut</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1SOZkWb3iwcVqo5zH2U4K1Zigj8Yzn_qo/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Oseanografi Pres02 - Samudera</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1G3uKua7-XmtkrvDUX_hxUMoOiRXGYdgU/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Muara Sungai</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-osean">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🧂</div>
+        <div class="subtopic-title">Karakteristik Air Laut</div>
+        <div class="subtopic-count">2 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1CIaVo-d7h7SuwgN5FhwZvfxBW3pxZVY-/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pptx">PPTX</span>
+          <span class="file-name">Oseanografi Pres03 - Air Laut</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1gKN_reeGsehAU8xDalbHklW-gorb9Obw/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Air, Udara, dan Es — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="subtopic theme-osean">
+      <div class="subtopic-header">
+        <div class="subtopic-icon">🦑</div>
+        <div class="subtopic-title">Sedimentologi & Biologi Laut</div>
+        <div class="subtopic-count">4 file</div>
+      </div>
+      <div class="file-list">
+        <a href="https://drive.google.com/file/d/1f3Ct-FEeOJ1-Mpd8LR7WMwCxolDXYNCg/view" target="_blank" class="file-item">
+          <span class="file-num">1</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Sedimen Dasar Samudra — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1n6NfUUyOI4FNr8NohgVcL9ooTF5_QMiZ/view" target="_blank" class="file-item">
+          <span class="file-num">2</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Analisa Sedimen</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1Oxpp_CxRjhqt0p5mRkPKZfLHNz-HSmB3/view" target="_blank" class="file-item">
+          <span class="file-num">3</span><span class="file-type-badge badge-ppt">PPT</span>
+          <span class="file-name">Oseanografi Pres06 - Kehidupan Laut</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+        <a href="https://drive.google.com/file/d/1i-jy5mbMV772eFUyfugb9OblpDZnP5nc/view" target="_blank" class="file-item">
+          <span class="file-num">4</span><span class="file-type-badge badge-pdf">PDF</span>
+          <span class="file-name">Bio-Ose — ATMODJO (Undip)</span>
+          <i class="fas fa-arrow-right file-arrow"></i>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /panel-osean -->
+
+</div><!-- /page-materi -->
 
 <!-- ══ FOOTER ══ -->
 <footer>
@@ -1166,8 +2339,8 @@
       </div>
       <p>Platform belajar OSN Kebumian terlengkap untuk pelajar Indonesia. Semua materi gratis dan terbuka untuk semua.</p>
       <div class="footer-social">
-        <a href="https://www.instagram.com/geomers_linguistics" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/6281270508101" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/geomers_linguistics" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/6281270508101" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -1185,6 +2358,7 @@
       <ul>
         <li><a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank">Bank Soal Puspresnas</a></li>
         <li><a href="https://bit.ly/kebumianbersama" target="_blank">Komunitas Kebumian</a></li>
+        <li><a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank">Arsip Fariq</a></li>
       </ul>
     </div>
     <div>
@@ -1192,28 +2366,19 @@
       <div class="footer-contact">
         <a href="https://www.instagram.com/geomers_linguistics" target="_blank" class="contact-row">
           <div class="contact-row-icon icon-ig"><i class="fab fa-instagram"></i></div>
-          <div>
-            <div class="contact-row-lbl">Instagram</div>
-            <div class="contact-row-val">@geomers_linguistics</div>
-          </div>
+          <div><div class="contact-row-lbl">Instagram</div><div class="contact-row-val">@geomers_linguistics</div></div>
           <i class="fas fa-external-link-alt" style="margin-left:auto;font-size:11px;opacity:0.5;"></i>
         </a>
         <a href="https://wa.me/6281270508101" target="_blank" class="contact-row">
           <div class="contact-row-icon icon-wa"><i class="fab fa-whatsapp"></i></div>
-          <div>
-            <div class="contact-row-lbl">WhatsApp Admin</div>
-            <div class="contact-row-val">+62 812-7050-8101</div>
-          </div>
+          <div><div class="contact-row-lbl">WhatsApp Admin</div><div class="contact-row-val">+62 812-7050-8101</div></div>
           <i class="fas fa-external-link-alt" style="margin-left:auto;font-size:11px;opacity:0.5;"></i>
         </a>
         <div class="contact-row" style="cursor:default;">
           <div class="contact-row-icon" style="background:rgba(20,184,157,0.2);color:var(--teal);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;">
             <i class="fas fa-clock"></i>
           </div>
-          <div>
-            <div class="contact-row-lbl">Jam Respons</div>
-            <div class="contact-row-val" style="font-size:12px;">Senin–Sabtu, 08.00–20.00</div>
-          </div>
+          <div><div class="contact-row-lbl">Jam Respons</div><div class="contact-row-val" style="font-size:12px;">Senin–Sabtu, 08.00–20.00</div></div>
         </div>
       </div>
     </div>
@@ -1223,92 +2388,6 @@
   </div>
 </footer>
 
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Ke atas">
-  <i class="fas fa-chevron-up"></i>
-</button>
-
-<script>
-  const navMap = { home:0, soal:1, tryout:2, ebook:3, materi:4 };
-
-  function showPage(name, btn) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
-    document.getElementById('page-' + name).classList.add('active');
-    const btns = document.querySelectorAll('.nav-links button');
-    if (btns[navMap[name]]) btns[navMap[name]].classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.getElementById('navLinks').classList.remove('open');
-  }
-
-  function homeSearch(val) {
-    const v = val.toLowerCase();
-    const cards = document.querySelectorAll('#all-cards .res-card');
-    let visible = 0;
-    cards.forEach(c => {
-      const text = (c.innerText + ' ' + (c.dataset.tags || '')).toLowerCase();
-      const show = !v || text.includes(v);
-      c.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-    document.getElementById('res-count').textContent = visible + ' sumber';
-  }
-
-  document.getElementById('hamburger').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
-  });
-
-  document.querySelectorAll('.feat-card').forEach((c, i) => {
-    c.style.animationDelay = (i * 0.08) + 's';
-  });
-
-  const countdownTarget = new Date('2026-06-18T08:00:00+07:00').getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = countdownTarget - now;
-
-    const daysEl = document.getElementById('cd-days');
-    const hoursEl = document.getElementById('cd-hours');
-    const minutesEl = document.getElementById('cd-minutes');
-    const secondsEl = document.getElementById('cd-seconds');
-
-    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
-
-    if (distance <= 0) {
-      daysEl.textContent = '00';
-      hoursEl.textContent = '00';
-      minutesEl.textContent = '00';
-      secondsEl.textContent = '00';
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    daysEl.textContent = String(days).padStart(2, '0');
-    hoursEl.textContent = String(hours).padStart(2, '0');
-    minutesEl.textContent = String(minutes).padStart(2, '0');
-    secondsEl.textContent = String(seconds).padStart(2, '0');
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  function logoutGeomers() {
-    localStorage.clear();
-    window.location.replace('../login/');
-  }
-</script>
-</body>
-</html>
-
-<!-- Back to top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Ke atas">
   <i class="fas fa-chevron-up"></i>
 </button>
@@ -1325,6 +2404,43 @@
     if (btns[navMap[name]]) btns[navMap[name]].classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('navLinks').classList.remove('open');
+  }
+
+  // ── MATERI TAB SWITCH ──
+  function switchMateriTab(tab) {
+    // tabs
+    document.querySelectorAll('.materi-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.tab === tab);
+    });
+    // panels
+    document.querySelectorAll('.materi-panel').forEach(p => {
+      p.classList.toggle('active', p.id === 'panel-' + tab);
+    });
+    // clear search
+    document.getElementById('materi-search-input').value = '';
+    document.querySelectorAll('.file-item').forEach(f => f.style.display = '');
+    document.querySelectorAll('.subtopic').forEach(s => s.style.display = '');
+    // scroll to tabs
+    document.getElementById('materi-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ── MATERI SEARCH ──
+  function materiSearch(val) {
+    const v = val.toLowerCase().trim();
+    // Only search in active panel
+    const activePanel = document.querySelector('.materi-panel.active');
+    if (!activePanel) return;
+
+    activePanel.querySelectorAll('.subtopic').forEach(section => {
+      let sectionVisible = false;
+      section.querySelectorAll('.file-item').forEach(item => {
+        const text = item.innerText.toLowerCase();
+        const show = !v || text.includes(v);
+        item.style.display = show ? '' : 'none';
+        if (show) sectionVisible = true;
+      });
+      section.style.display = sectionVisible ? '' : 'none';
+    });
   }
 
   // ── HOME SEARCH ──
@@ -1356,11 +2472,10 @@
     c.style.animationDelay = (i * 0.08) + 's';
   });
 
-
   // ── LOGOUT ──
   function logoutGeomers() {
     localStorage.clear();
-    window.location.replace('../login/');
+    window.location.replace('../login.html');
   }
 </script>
 </body>
