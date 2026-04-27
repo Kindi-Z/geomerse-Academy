@@ -1152,7 +1152,6 @@
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-inner">
-    <!-- Brand -->
     <div class="footer-brand">
       <div class="footer-logo-row">
         <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
@@ -1165,14 +1164,12 @@
         </svg>
         <div class="footer-logo-name">GEOMERS <span>Academy</span></div>
       </div>
-      <p>Platform belajar OSN Kebumian terlengkap untuk pelajar Indonesia. Semua materi gratis dan terbuka untuk semua.</p>
+      <p>Platform belajar OSN Geografi terlengkap untuk pelajar Indonesia. Semua materi gratis dan terbuka untuk semua.</p>
       <div class="footer-social">
         <a href="https://www.instagram.com/geomers_linguistics" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/6281270508101" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
-
-    <!-- Nav links -->
     <div class="footer-col">
       <h4>Navigasi</h4>
       <ul>
@@ -1183,18 +1180,13 @@
         <li><a href="#" onclick="showPage('materi');return false;">Materi</a></li>
       </ul>
     </div>
-
-    <!-- Resources -->
     <div class="footer-col">
       <h4>Sumber Daya</h4>
       <ul>
         <li><a href="https://pusatprestasinasional.kemendikdasmen.go.id/bank-soal-OSN" target="_blank">Bank Soal Puspresnas</a></li>
-        <li><a href="https://bit.ly/kebumianbersama" target="_blank">Komunitas Kebumian</a></li>
-        <li><a href="https://drive.google.com/folderview?id=1PNOXmKtDT3Tawmkrr8q9qGztROxQlhYL" target="_blank">Arsip Fariq</a></li>
+        <li><a href="https://bit.ly/geografibersama" target="_blank">Komunitas Geografi</a></li>
       </ul>
     </div>
-
-    <!-- Contact info -->
     <div>
       <div class="footer-col" style="margin-bottom:14px;"><h4>Informasi Web</h4></div>
       <div class="footer-contact">
@@ -1226,11 +1218,95 @@
       </div>
     </div>
   </div>
-
   <div class="footer-bottom">
-    © 2026 <span>Geomers Academy</span> · Platform OSN Kebumian untuk pelajar Indonesia 🌏
+    © 2026 <span>Geomers Academy</span> · Platform OSN Geografi untuk pelajar Indonesia 🌏
   </div>
 </footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Ke atas">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+  const navMap = { home:0, soal:1, tryout:2, ebook:3, materi:4 };
+
+  function showPage(name, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    const btns = document.querySelectorAll('.nav-links button');
+    if (btns[navMap[name]]) btns[navMap[name]].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  function homeSearch(val) {
+    const v = val.toLowerCase();
+    const cards = document.querySelectorAll('#all-cards .res-card');
+    let visible = 0;
+    cards.forEach(c => {
+      const text = (c.innerText + ' ' + (c.dataset.tags || '')).toLowerCase();
+      const show = !v || text.includes(v);
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('res-count').textContent = visible + ' sumber';
+  }
+
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+  });
+
+  document.querySelectorAll('.feat-card').forEach((c, i) => {
+    c.style.animationDelay = (i * 0.08) + 's';
+  });
+
+  const countdownTarget = new Date('2026-06-18T08:00:00+07:00').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownTarget - now;
+
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minutesEl = document.getElementById('cd-minutes');
+    const secondsEl = document.getElementById('cd-seconds');
+
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+    if (distance <= 0) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    daysEl.textContent = String(days).padStart(2, '0');
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  function logoutGeomers() {
+    localStorage.clear();
+    window.location.replace('../login/');
+  }
+</script>
+</body>
+</html>
 
 <!-- Back to top -->
 <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Ke atas">
