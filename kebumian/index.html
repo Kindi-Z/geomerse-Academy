@@ -620,6 +620,77 @@
       .hero { padding: 60px 5% 50px; }
       .quick-section, .res-section, .inner-section { padding: 50px 5%; }
     }
+
+    /* === COUNTDOWN HERO RIGHT === */
+.hero-right {
+  position: absolute;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%) translateY(-30px);
+  text-align: center;
+  z-index: 2;
+}
+
+.countdown-title {
+  font-weight: 800;
+  color: var(--teal);
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.countdown-main {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 4px 0 6px;
+}
+
+.countdown-sub {
+  font-size: 12px;
+  color: var(--mid);
+  margin-bottom: 12px;
+}
+
+.countdown-box {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.c-item {
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
+  width: 55px;
+  box-shadow: var(--card-shadow);
+}
+
+.c-num {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--teal);
+}
+
+.c-lbl {
+  font-size: 9px;
+  color: var(--mid);
+  font-weight: 700;
+}
+
+.countdown-date {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+@media(max-width:900px){
+  .hero-right{
+    position: static;
+    transform: none;
+    margin-top: 30px;
+  }
+}
   </style>
 </head>
 <body>
