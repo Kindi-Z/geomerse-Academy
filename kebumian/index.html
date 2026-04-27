@@ -100,7 +100,6 @@
     .page.active { display: block; }
 
     /* ── HERO ── */
-    /* ── HERO ── */
     .hero {
       position: relative;
       background: linear-gradient(135deg, var(--teal-xlight) 0%, #fff 55%, var(--lemon-light) 100%);
@@ -187,78 +186,11 @@
     }
     .hstat-lbl { font-size: 11px; color: var(--mid); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
 
-    .hero-deco {
-      position: absolute; right: 7%; top: 160px;
-      transform: none; display: none;
-      width: min(430px, 36vw); text-align: center;
-      animation: fadeUp 0.55s 0.32s ease both;
-    }
-    @media(min-width:900px){ .hero-deco { display: block; } }
-
-    .countdown-title {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(1.15rem, 2vw, 1.55rem);
-      font-weight: 900; color: var(--teal);
-      line-height: 1.15; text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .countdown-subtitle {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(1.25rem, 2.3vw, 1.8rem);
-      font-weight: 900; color: var(--dark);
-      line-height: 1.15; text-transform: uppercase;
-      margin-top: 4px;
-    }
-    .countdown-note {
-      color: var(--mid); font-size: 12.5px;
-      margin: 8px 0 18px;
-    }
-    .countdown-boxes {
-      display: flex; align-items: center; justify-content: center;
-      gap: 10px; margin-bottom: 16px;
-    }
-    .countdown-card {
-      min-width: 70px; padding: 13px 8px 10px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid rgba(20,184,157,0.12);
-      border-radius: 12px;
-      box-shadow: 0 5px 16px rgba(20,184,157,0.13), 0 2px 8px rgba(0,0,0,0.06);
-      backdrop-filter: blur(8px);
-    }
-    .countdown-num {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.75rem; font-weight: 900;
-      color: var(--teal); line-height: 1;
-    }
-    .countdown-label {
-      margin-top: 6px;
-      font-size: 10px; font-weight: 700; color: var(--mid);
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
-    .countdown-sep {
-      font-family: 'Nunito', sans-serif;
-      font-size: 1.7rem; font-weight: 900;
-      color: var(--teal-dark); opacity: 0.65;
-      margin-top: -10px;
-    }
-    .countdown-reminder {
-      font-size: 13px; color: var(--teal-dark);
-      font-weight: 700; margin-bottom: 18px;
-    }
-    .deco-row { display: flex; justify-content: center; gap: 22px; margin: 8px 0; }
-    .deco-emoji {
-      font-size: 2.15rem; display: block;
-      animation: floaty var(--d,3s) ease-in-out infinite;
-      animation-delay: var(--dd,0s);
-    }
-    @keyframes floaty {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
     /* Emoji deco */
     .hero-deco {
-  display: none !important;
-}
+      position: absolute; right: 15%; top: 50%;
+      transform: translateY(-50%); display: none;
+    }
     @media(min-width:900px){ .hero-deco { display: block; } }
     .deco-row { display: flex; gap: 28px; margin: 10px 0; }
     .deco-emoji {
@@ -688,95 +620,6 @@
       .hero { padding: 60px 5% 50px; }
       .quick-section, .res-section, .inner-section { padding: 50px 5%; }
     }
-
-   /* === COUNTDOWN HERO RIGHT === */
-.hero-right {
-  position: absolute;
-  right: 8%;
-  top: 50%;
-  transform: translateY(-50%) translateY(-20px);
-  width: 390px;
-  text-align: center;
-  z-index: 3;
-}
-
-.countdown-title {
-  font-weight: 900;
-  color: var(--teal);
-  letter-spacing: 3px;
-  font-size: 14px;
-}
-
-.countdown-main {
-  font-family: 'Nunito', sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--dark);
-  margin: 6px 0;
-}
-
-.countdown-sub {
-  font-size: 13px;
-  color: var(--mid);
-  margin-bottom: 16px;
-}
-
-.countdown-box {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-}
-
-.c-item {
-  background: #fff;
-  border-radius: 14px;
-  padding: 12px 8px;
-  width: 70px;
-  box-shadow: var(--card-shadow);
-}
-
-.c-num {
-  font-family: 'Nunito', sans-serif;
-  font-size: 25px;
-  font-weight: 900;
-  color: var(--teal);
-  line-height: 1;
-}
-
-.c-lbl {
-  margin-top: 6px;
-  font-size: 10px;
-  color: var(--mid);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.countdown-date {
-  margin-top: 14px;
-  font-size: 13px;
-  color: var(--teal);
-  font-weight: 800;
-}
-
-.countdown-icons {
-  margin-top: 18px;
-  display: flex;
-  justify-content: center;
-  gap: 22px;
-}
-
-.countdown-icons span {
-  font-size: 2rem;
-}
-
-@media(max-width:900px){
-  .hero-right {
-    position: static;
-    transform: none;
-    width: 100%;
-    margin-top: 38px;
-  }
-}
   </style>
 </head>
 <body>
@@ -830,65 +673,36 @@
 
   <!-- Hero -->
   <section class="hero">
-
-  <div class="hero-content">
-    <div class="hero-badge"><i class="fas fa-globe"></i> Platform OSN Kebumian Terlengkap</div>
-    <h1>Raih <em>Emas</em> OSN<br>Kebumian Bersama<br>Geomers!</h1>
-    <p>Soal OSK 2008–2025, TryOut dari berbagai komunitas, Ebook referensi, dan materi lengkap — semuanya gratis dalam satu platform.</p>
-
-    <div class="hero-btns">
-      <button class="btn-primary" onclick="showPage('soal')">
-        <i class="fas fa-file-alt"></i> Lihat Soal OSN
-      </button>
-      <button class="btn-outline" onclick="showPage('tryout')">
-        <i class="fas fa-bullseye"></i> Mulai TryOut
-      </button>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-globe"></i> Platform OSN Kebumian Terlengkap</div>
+      <h1>Raih <em>Emas</em> OSN<br>Kebumian Bersama<br>Geomers!</h1>
+      <p>Soal OSK 2008–2025, TryOut dari berbagai komunitas, Ebook referensi, dan materi lengkap — semuanya gratis dalam satu platform.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('soal')"><i class="fas fa-file-alt"></i> Lihat Soal OSN</button>
+        <button class="btn-outline" onclick="showPage('tryout')"><i class="fas fa-bullseye"></i> Mulai TryOut</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hstat-num">17+</div><div class="hstat-lbl">Tahun Soal</div></div>
+        <div><div class="hstat-num">10+</div><div class="hstat-lbl">Paket TryOut</div></div>
+        <div><div class="hstat-num">12+</div><div class="hstat-lbl">Ebook</div></div>
+        <div><div class="hstat-num">∞</div><div class="hstat-lbl">Semangat</div></div>
+      </div>
     </div>
-
-    <div class="hero-stats">
-      <div><div class="hstat-num">17+</div><div class="hstat-lbl">Tahun Soal</div></div>
-      <div><div class="hstat-num">10+</div><div class="hstat-lbl">Paket TryOut</div></div>
-      <div><div class="hstat-num">12+</div><div class="hstat-lbl">Ebook</div></div>
-      <div><div class="hstat-num">∞</div><div class="hstat-lbl">Semangat</div></div>
+    <div class="hero-deco">
+      <div class="deco-row">
+        <span class="deco-emoji" style="--d:3.2s;--dd:0s">🌋</span>
+        <span class="deco-emoji" style="--d:2.8s;--dd:0.4s">🌊</span>
+      </div>
+      <div class="deco-row">
+        <span class="deco-emoji" style="--d:3.6s;--dd:0.2s">🏔</span>
+        <span class="deco-emoji" style="--d:3s;--dd:0.6s">🌤</span>
+      </div>
+      <div class="deco-row">
+        <span class="deco-emoji" style="--d:2.6s;--dd:0.8s">🧭</span>
+        <span class="deco-emoji" style="--d:3.4s;--dd:0.1s">🔭</span>
+      </div>
     </div>
-  </div>
-
-  <!-- COUNTDOWN -->
-  <div class="hero-right">
-  <div class="countdown-title">TRYOUT OSN</div>
-  <div class="countdown-main">SEGERA DIMULAI!</div>
-  <div class="countdown-sub">Persiapkan dirimu dan raih medali emas!</div>
-
-  <div class="countdown-box">
-    <div class="c-item"><div id="hari" class="c-num">00</div><div class="c-lbl">HARI</div></div>
-    <div class="c-item"><div id="jam" class="c-num">00</div><div class="c-lbl">JAM</div></div>
-    <div class="c-item"><div id="menit" class="c-num">00</div><div class="c-lbl">MENIT</div></div>
-    <div class="c-item"><div id="detik" class="c-num">00</div><div class="c-lbl">DETIK</div></div>
-  </div>
-
-  <div class="countdown-date">18 Juni 2026 · 08.00 WIB</div>
-
-  <div class="countdown-icons">
-    <span>🌋</span>
-    <span>🌊</span>
-    <span>🏔</span>
-    <span>🌤</span>
-  </div>
-</div>
-
-  <!-- EMOJI -->
-  <div class="hero-deco">
-    <div class="deco-row">
-      <span class="deco-emoji">🌋</span>
-      <span class="deco-emoji">🌊</span>
-    </div>
-    <div class="deco-row">
-      <span class="deco-emoji">🏔</span>
-      <span class="deco-emoji">🌤</span>
-    </div>
-  </div>
-
-</section>
+  </section>
 
   <!-- Quick Access -->
   <section class="quick-section">
@@ -1394,29 +1208,6 @@
     localStorage.clear();
     window.location.replace('../login/');
   }
-</script>
-  <script>
-const targetDate = new Date("2026-06-18T08:00:00+07:00");
-
-function updateCountdown() {
-  const now = new Date();
-  const diff = targetDate - now;
-
-  if (diff <= 0) return;
-
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor((diff/(1000*60*60)) % 24);
-  const m = Math.floor((diff/(1000*60)) % 60);
-  const s = Math.floor((diff/1000) % 60);
-
-  document.getElementById("hari").textContent = String(d).padStart(2,'0');
-  document.getElementById("jam").textContent = String(h).padStart(2,'0');
-  document.getElementById("menit").textContent = String(m).padStart(2,'0');
-  document.getElementById("detik").textContent = String(s).padStart(2,'0');
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
 </script>
 </body>
 </html>
