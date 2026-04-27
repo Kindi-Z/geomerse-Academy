@@ -89,6 +89,17 @@
     }
     .logout-btn:hover { background: var(--lemon); color: var(--dark); }
 
+
+    .user-email {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #fff; background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.24);
+      padding: 7px 12px; border-radius: 50px;
+      font-size: 12px; font-weight: 700;
+      max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .user-email i { font-size: 12px; opacity: 0.9; }
+
     .hamburger {
       display: none; background: none; border: none;
       color: #fff; font-size: 20px; cursor: pointer;
@@ -710,6 +721,7 @@
       .nav-links.open { display: flex; }
       .hamburger { display: block; }
       .nav-social { gap: 6px; }
+      .user-email { max-width: 135px; padding: 6px 9px; font-size: 11px; }
     }
     @media(max-width:500px){
       .hero { padding: 60px 5% 50px; }
@@ -721,6 +733,7 @@
 <script>
   const loggedIn = localStorage.getItem('geomersLoggedIn');
   const role = localStorage.getItem('geomersRole');
+  const loggedInEmail = localStorage.getItem('geomersUser') || localStorage.getItem('geomersEmail') || '';
   if (loggedIn !== 'true' || role !== 'geografi') {
     window.location.replace('../login/');
   }
@@ -752,6 +765,10 @@
   </ul>
 
   <div style="display:flex;align-items:center;gap:8px;">
+    <div class="user-email" id="userEmail" title="Email login">
+      <i class="fas fa-user-circle"></i>
+      <span>Memuat...</span>
+    </div>
     <button class="logout-btn" onclick="logoutGeomers()">Keluar</button>
     <div class="nav-social">
       <a href="https://www.instagram.com/geomers_linguistics" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1372,6 +1389,27 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // ── EMAIL LOGIN INFO ──
+  function renderLoginEmail() {
+    const userEmailBox = document.getElementById('userEmail');
+    if (!userEmailBox) return;
+
+    const email = localStorage.getItem('geomersUser') || localStorage.getItem('geomersEmail') || loggedInEmail || '';
+    const emailText = userEmailBox.querySelector('span');
+
+    if (!emailText) return;
+
+    if (email) {
+      emailText.textContent = email;
+      userEmailBox.title = 'Login sebagai: ' + email;
+    } else {
+      emailText.textContent = 'Email tidak ditemukan';
+      userEmailBox.title = 'Email login tidak ditemukan';
+    }
+  }
+
+  renderLoginEmail();
 
   function logoutGeomers() {
     localStorage.clear();
