@@ -1208,6 +1208,130 @@
     font-size: 1.35rem;
   }
 }
+/* ==================================================
+   FIX NAVBAR DESKTOP + TRYOUT
+   ================================================== */
+
+nav {
+  gap: 16px;
+}
+
+.nav-logo {
+  flex: 0 0 auto;
+}
+
+.nav-links {
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.nav-links li {
+  flex: 0 0 auto;
+}
+
+.nav-links a,
+.nav-links button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+  line-height: 1;
+  min-height: 42px;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+/* Untuk laptop yang lebarnya agak kecil */
+@media (max-width: 1350px) {
+  nav {
+    padding-left: 4%;
+    padding-right: 4%;
+    gap: 10px;
+  }
+
+  .nav-links a,
+  .nav-links button {
+    padding: 0 10px;
+    font-size: 12.5px;
+  }
+
+  .user-email {
+    max-width: 175px;
+  }
+
+  .nav-social a {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Kalau layar mulai sempit, sembunyikan icon sosmed di navbar */
+@media (max-width: 1180px) {
+  .nav-social {
+    display: none;
+  }
+
+  .user-email {
+    max-width: 155px;
+  }
+}
+
+/* Mode tablet/HP: pindah ke hamburger */
+@media (max-width: 1050px) {
+  nav {
+    flex-wrap: nowrap !important;
+    height: 64px !important;
+    padding: 0 5% !important;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--teal);
+    padding: 14px;
+    gap: 6px;
+    z-index: 199;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a,
+  .nav-links button {
+    width: 100%;
+    min-height: 44px;
+    justify-content: flex-start;
+    padding: 0 16px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
   </style>
 </head>
 <body>
@@ -1237,15 +1361,16 @@
     </div>
   </a>
 
-  <ul class="nav-links" id="navLinks">
-    <li><button class="active" onclick="showPage('home',this)">🏠 Beranda</button></li>
-    <li><button onclick="showPage('soal',this)">📋 Soal OSN</button></li>
-    <li><button onclick="showPage('kumpulan-soal',this)">🎯 Kumpulan Soal</button></li>
-    <li><button onclick="showPage('ebook',this)">📚 Ebook</button></li>
-    <li><button onclick="showPage('materi',this)">🌍 Materi</button></li>
-  </ul>
+<ul class="nav-links" id="navLinks">
+  <li><button class="active" onclick="showPage('home',this)">🏠 Beranda</button></li>
+  <li><button onclick="showPage('soal',this)">📋 Soal OSN</button></li>
+  <li><button onclick="showPage('kumpulan-soal',this)">🎯 Kumpulan Soal</button></li>
+  <li><a href="../tryout/">📝 TryOut</a></li>
+  <li><button onclick="showPage('ebook',this)">📚 Ebook</button></li>
+  <li><button onclick="showPage('materi',this)">🌍 Materi</button></li>
+</ul>
 
-  <div style="display:flex;align-items:center;gap:8px;">
+  <div class="nav-actions">
     <div class="user-email" id="userEmail" title="Email login">
       <i class="fas fa-user-circle"></i>
       <span>Memuat...</span>
