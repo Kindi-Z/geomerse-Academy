@@ -1484,6 +1484,49 @@ nav {
     max-width: 115px;
   }
 }
+/* ===== FIX SPACE NAVBAR KE HERO ===== */
+.hero {
+  padding-top: 42px !important;
+  padding-bottom: 55px !important;
+  min-height: calc(100vh - 64px) !important;
+  align-items: flex-start !important;
+}
+
+/* Supaya isi hero tetap rapi */
+.hero-content {
+  margin-top: 20px !important;
+}
+
+/* Countdown kanan ikut dinaikkan */
+.hero-deco {
+  top: 90px !important;
+}
+
+/* Untuk layar laptop kecil/tablet */
+@media (max-width: 1100px) {
+  .hero {
+    padding-top: 36px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .hero-content {
+    margin-top: 10px !important;
+  }
+}
+
+/* Untuk HP */
+@media (max-width: 760px) {
+  .hero {
+    padding-top: 28px !important;
+    padding-bottom: 42px !important;
+    min-height: auto !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-content {
+    margin-top: 0 !important;
+  }
+}
   </style>
 </head>
 <body>
