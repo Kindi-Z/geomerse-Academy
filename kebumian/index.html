@@ -839,6 +839,86 @@
       .quick-section, .res-section, .inner-section, .materi-panel { padding: 40px 5%; }
       .subject-overview, .materi-search-wrap { padding-left: 5%; padding-right: 5%; }
     }
+    @media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 5%;
+  }
+
+  .user-email,
+  .nav-social {
+    display: none;
+  }
+
+  /* HERO */
+  .hero {
+    display: block;
+    padding: 40px 5%;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+  }
+
+  .hero-btns button {
+    width: 100%;
+  }
+
+  /* COUNTDOWN (biar tidak melayang) */
+  .hero-deco {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  /* SEMUA GRID JADI 1 KOLOM */
+  .feat-grid,
+  .res-grid,
+  .materi-grid,
+  .to-grid,
+  .ebook-grid,
+  .list-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CARD FULL WIDTH */
+  .feat-card,
+  .res-card,
+  .materi-card-sm,
+  .to-card {
+    width: 100%;
+  }
+
+  /* SECTION */
+  .quick-section,
+  .res-section,
+  .inner-section {
+    padding: 40px 5%;
+  }
+
+  /* FOOTER */
+  .footer-inner {
+    display: block;
+  }
+}
   </style>
 </head>
 <body>
