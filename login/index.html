@@ -23,26 +23,19 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-  min-height: 100%;
-  background:
-    radial-gradient(circle at top left, rgba(20,184,157,0.18), transparent 31%),
-    radial-gradient(circle at bottom right, rgba(249,216,87,0.34), transparent 31%),
-    linear-gradient(135deg, var(--teal-xlight), #fff 48%, var(--lemon-light));
-}
-
-body {
-  min-height: 100dvh;
-  font-family: 'Poppins', sans-serif;
-  color: var(--dark);
-  background:
-    radial-gradient(circle at top left, rgba(20,184,157,0.18), transparent 31%),
-    radial-gradient(circle at bottom right, rgba(249,216,87,0.34), transparent 31%),
-    linear-gradient(135deg, var(--teal-xlight), #fff 48%, var(--lemon-light));
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-}
+    body {
+      zoom: 0.67;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background:
+        radial-gradient(circle at top left, rgba(20,184,157,0.18), transparent 31%),
+        radial-gradient(circle at bottom right, rgba(249,216,87,0.34), transparent 31%),
+        linear-gradient(135deg, var(--teal-xlight), #fff 48%, var(--lemon-light));
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
 
     .page {
       flex: 1;
@@ -633,103 +626,6 @@ body {
     flex: 0 0 auto;
     padding-top: 18px;
     padding-bottom: 20px;
-  }
-}
-/* ==================================================
-   FIX LOGIN PAGE DESKTOP / LAPTOP
-   Menghilangkan space kosong bawah
-   ================================================== */
-
-@media (min-width: 1051px) {
-  html,
-  body {
-    width: 100%;
-    min-height: 100dvh;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    zoom: 1 !important;
-  }
-
-  .page {
-    flex: 1 0 auto;
-    min-height: calc(100dvh - 78px);
-    max-width: 1180px;
-    padding: 32px 28px 12px;
-    display: grid;
-    grid-template-columns: 1.02fr 530px;
-    align-items: center;
-    gap: 54px;
-  }
-
-  .phone-wrap {
-    min-height: 560px;
-  }
-
-  .phone {
-    width: 300px;
-    height: 570px;
-  }
-
-  .blob {
-    width: 420px;
-    height: 420px;
-  }
-
-  .yellow-blob {
-    width: 270px;
-    height: 270px;
-    bottom: 20px;
-  }
-
-  .login-card {
-    max-width: 530px;
-    padding: 44px 42px;
-  }
-
-  .brand {
-    margin-bottom: 28px;
-  }
-
-  .brand-mark {
-    width: 74px;
-    height: 74px;
-    margin-bottom: 20px;
-  }
-
-  .brand h1 {
-    font-size: 2.35rem;
-  }
-
-  .form-group input {
-    height: 62px;
-  }
-
-  .login-btn {
-    height: 60px;
-  }
-
-  .forgot {
-    margin: 20px 0;
-  }
-
-  .or {
-    margin: 20px 0;
-  }
-
-  .signup-box {
-    min-height: 68px;
-  }
-
-  .footer {
-    flex: 0 0 auto;
-    padding: 6px 24px 18px;
-  }
-
-  .footer-links {
-    margin-bottom: 8px;
   }
 }
   </style>
