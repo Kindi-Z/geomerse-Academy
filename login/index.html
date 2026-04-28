@@ -465,6 +465,146 @@
       .login-btn { height: 56px; }
       .footer-links { gap: 14px; }
     }
+    /* ==================================================
+   FIX LOGIN PAGE MOBILE
+   Menghilangkan space kosong bawah di HP
+   ================================================== */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    zoom: 1 !important;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page {
+    flex: 0 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 18px 14px 12px;
+  }
+
+  .phone-wrap {
+    display: none !important;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 30px 22px;
+    border-radius: 20px;
+  }
+
+  .brand {
+    margin-bottom: 24px;
+  }
+
+  .brand-mark {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 18px;
+    border-radius: 18px;
+    font-size: 1.55rem;
+  }
+
+  .brand h1 {
+    font-size: 1.85rem;
+    line-height: 1.05;
+  }
+
+  .brand p {
+    margin-top: 12px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .brand p br {
+    display: none;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group input {
+    height: 54px;
+    font-size: 0.88rem;
+    padding-left: 50px;
+  }
+
+  .form-group .icon {
+    left: 18px;
+    font-size: 1rem;
+  }
+
+  .login-btn {
+    height: 54px;
+    margin-top: 8px;
+    font-size: 0.95rem;
+  }
+
+  .forgot {
+    margin: 18px 0;
+    font-size: 0.9rem;
+  }
+
+  .or {
+    margin: 18px 0;
+  }
+
+  .signup-box {
+    min-height: 62px;
+    font-size: 0.88rem;
+    padding: 12px;
+  }
+
+  .footer {
+    flex: 0 0 auto;
+    padding: 16px 16px 22px;
+    font-size: 0.78rem;
+  }
+
+  .footer-links {
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .page {
+    padding: 14px 12px 10px;
+  }
+
+  .login-card {
+    padding: 26px 18px;
+  }
+
+  .brand h1 {
+    font-size: 1.65rem;
+  }
+
+  .brand p {
+    font-size: 0.82rem;
+  }
+
+  .footer-links {
+    gap: 12px;
+    font-size: 0.76rem;
+  }
+}
   </style>
 </head>
 <body>
