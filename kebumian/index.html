@@ -852,7 +852,6 @@
     padding: 10px 5%;
   }
 
-  .user-email,
   .nav-social {
     display: none;
   }
@@ -1022,6 +1021,20 @@
   #btt {
     width: 44px;
     height: 44px;
+  }
+}
+@media (max-width: 768px) {
+  .user-email {
+    display: inline-flex !important;
+    max-width: 120px;
+    padding: 6px 9px;
+    font-size: 10.5px;
+  }
+
+  .user-email span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
   </style>
