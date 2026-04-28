@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tryout | Geomers Academy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --teal: #14B89D;
+      --teal-dark: #0e9a84;
+      --teal-light: #d0f5ef;
+      --yellow: #F9D857;
+      --cream: #fffaf0;
+      --dark: #2D3E50;
+      --mid: #64748b;
+      --line: #dfe8e5;
+      --white: #ffffff;
+      --danger: #ef4444;
+      --shadow: 0 18px 45px rgba(20,184,157,0.14), 0 8px 18px rgba(45,62,80,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background:
+        radial-gradient(circle at top left, rgba(20,184,157,0.18), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(249,216,87,0.35), transparent 30%),
+        linear-gradient(135deg, #f0fffb, #fff 48%, #fff8d9);
+      min-height: 100vh;
+    }
+
+    nav {
+      height: 74px;
+      padding: 0 6%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      box-shadow: 0 8px 24px rgba(20,184,157,0.22);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(255,255,255,.75);
+      font-size: 22px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      font-size: .7rem;
+      letter-spacing: .16em;
+      opacity: .9;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .user-pill {
+      max-width: 220px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      font-size: .82rem;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .logout-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      color: white;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+    }
+
+    main {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+      padding: 44px 0 70px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(20,184,157,.13);
+      color: var(--teal-dark);
+      font-weight: 900;
+      font-size: .85rem;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      letter-spacing: -.04em;
+    }
+
+    .page-header h1 {
+      font-size: 2.7rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .page-header h1 span {
+      color: var(--teal-dark);
+    }
+
+    .page-header p {
+      color: var(--mid);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .tryout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(20,184,157,.16);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .tryout-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .tryout-card p {
+      color: var(--mid);
+      line-height: 1.65;
+      font-size: .92rem;
+      margin-bottom: 18px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      margin: 18px 0;
+      color: var(--mid);
+      font-size: .86rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .status.open {
+      background: rgba(20,184,157,.14);
+      color: var(--teal-dark);
+    }
+
+    .status.closed {
+      background: rgba(239,68,68,.12);
+      color: #dc2626;
+    }
+
+    .status.waiting {
+      background: rgba(249,216,87,.28);
+      color: #a16207;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: white;
+      box-shadow: 0 10px 24px rgba(20,184,157,.25);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--teal-dark);
+      border: 1px solid var(--teal-light);
+    }
+
+    .btn-warning {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .detail-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .detail-card h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.65);
+      color: var(--mid);
+      font-size: .9rem;
+    }
+
+    .info-item strong {
+      color: var(--dark);
+      text-align: right;
+    }
+
+    .exam-shell {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .timer-card {
+      position: sticky;
+      top: 92px;
+    }
+
+    .timer {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: var(--teal-dark);
+      text-align: center;
+      margin: 14px 0 8px;
+    }
+
+    .question-nav {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .qnum {
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: white;
+      font-weight: 900;
+      cursor: pointer;
+      color: var(--dark);
+    }
+
+    .qnum.active {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+    }
+
+    .qnum.answered {
+      background: var(--yellow);
+      color: var(--dark);
+      border-color: var(--yellow);
+    }
+
+    .question-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .question-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--dark);
+      margin: 18px 0;
+      white-space: pre-line;
+    }
+
+    .option {
+      width: 100%;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      text-align: left;
+      padding: 15px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: white;
+      margin-bottom: 12px;
+      cursor: pointer;
+      color: var(--dark);
+      font-family: 'Poppins', sans-serif;
+      font-size: .95rem;
+      line-height: 1.55;
+    }
+
+    .option.selected {
+      border-color: var(--teal);
+      background: rgba(20,184,157,.10);
+      box-shadow: 0 0 0 3px rgba(20,184,157,.08);
+    }
+
+    .option-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .exam-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 20px 0 28px;
+    }
+
+    .result-box {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .result-box strong {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 2rem;
+      color: var(--teal-dark);
+    }
+
+    .result-box span {
+      color: var(--mid);
+      font-size: .82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      background: white;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: .9rem;
+    }
+
+    th {
+      background: rgba(20,184,157,.10);
+      color: var(--teal-dark);
+      font-weight: 900;
+    }
+
+    .empty {
+      text-align: center;
+      color: var(--mid);
+      padding: 38px 20px;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        padding: 0 4%;
+      }
+
+      .user-pill {
+        max-width: 120px;
+        font-size: .75rem;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .tryout-grid,
+      .detail-layout,
+      .exam-shell,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timer-card {
+        position: static;
+      }
+
+      .question-nav {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .exam-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      main {
+        width: 92%;
+        padding-top: 32px;
+      }
+
+      .brand-text strong {
+        font-size: 1rem;
+      }
+
+      .brand-text span {
+        font-size: .58rem;
+      }
+
+      .brand-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .logout-btn {
+        padding: 8px 12px;
+        font-size: .78rem;
+      }
+
+      .card {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .question-nav {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="brand">
+      <div class="brand-icon">◎</div>
+      <div class="brand-text">
+        <strong>GEOMERS</strong>
+        <span>TRYOUT</span>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <div class="user-pill" id="userEmail">Memuat...</div>
+      <button class="logout-btn" id="logoutBtn">Keluar</button>
+    </div>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <div class="badge">⏱ Sistem Tryout Online</div>
+      <h1>Tryout <span>Geomers Academy</span></h1>
+      <p>Pilih tryout, kerjakan sesuai durasi, dan lihat peringkatmu di leaderboard.</p>
+    </header>
+
+    <!-- DAFTAR TRYOUT -->
+    <section id="listSection" class="section active">
+      <div id="tryoutGrid" class="tryout-grid"></div>
+    </section>
+
+    <!-- DETAIL TRYOUT -->
+    <section id="detailSection" class="section">
+      <div class="detail-layout">
+        <div class="card detail-card">
+          <div id="detailStatus" class="status open">Status</div>
+          <h2 id="detailTitle">Judul Tryout</h2>
+          <p id="detailDesc" style="color: var(--mid); line-height: 1.75;"></p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <span>Program</span>
+              <strong id="detailProgram">-</strong>
+            </div>
+            <div class="info-item">
+              <span>Waktu dibuka</span>
+              <strong id="detailStart">-</strong>
+            </div>
+            <div class="info-item">
+              <span>Waktu ditutup</span>
+              <strong id="detailEnd">-</strong>
+            </div>
+            <div class="info-item">
+              <span>Durasi pengerjaan</span>
+              <strong id="detailDuration">-</strong>
+            </div>
+            <div class="info-item">
+              <span>Jumlah soal</span>
+              <strong id="detailQuestions">-</strong>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <button class="btn btn-secondary" onclick="showSection('listSection')">← Kembali</button>
+            <button class="btn btn-primary" id="startBtn">Mulai Tryout</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:1.5rem; margin-bottom:12px;">Ketentuan</h3>
+          <p style="color:var(--mid); line-height:1.8;">
+            Setelah menekan tombol <strong>Mulai Tryout</strong>, waktu akan berjalan.
+            Setiap akun hanya dapat mengikuti tryout yang sama sebanyak satu kali.
+            Jika waktu habis, jawaban akan dikirim otomatis.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HALAMAN UJIAN -->
+    <section id="examSection" class="section">
+      <div class="exam-shell">
+        <aside class="card timer-card">
+          <h3 style="text-align:center;">Sisa Waktu</h3>
+          <div class="timer" id="timer">00:00:00</div>
+          <p style="text-align:center; color:var(--mid); font-size:.85rem;">Jawaban tersimpan sementara saat dipilih.</p>
+          <div id="questionNav" class="question-nav"></div>
+        </aside>
+
+        <div class="card question-card">
+          <h2 id="questionNumber">Soal 1</h2>
+          <div id="questionText" class="question-text"></div>
+          <div id="optionsBox"></div>
+
+          <div class="exam-actions">
+            <button class="btn btn-secondary" id="prevBtn">← Sebelumnya</button>
+            <button class="btn btn-warning" id="nextBtn">Berikutnya →</button>
+            <button class="btn btn-danger" id="submitBtn">Submit Tryout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HASIL -->
+    <section id="resultSection" class="section">
+      <div class="card">
+        <h2 style="font-size:2rem;">Hasil Tryout</h2>
+        <p style="color:var(--mid); margin-top:8px;">Berikut hasil pengerjaan dan leaderboard sementara.</p>
+
+        <div class="result-grid">
+          <div class="result-box">
+            <strong id="scoreBox">0</strong>
+            <span>Skor</span>
+          </div>
+          <div class="result-box">
+            <strong id="correctBox">0</strong>
+            <span>Benar</span>
+          </div>
+          <div class="result-box">
+            <strong id="wrongBox">0</strong>
+            <span>Salah</span>
+          </div>
+          <div class="result-box">
+            <strong id="blankBox">0</strong>
+            <span>Kosong</span>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px;">
+          <button class="btn btn-secondary" onclick="showSection('listSection')">Kembali ke Daftar Tryout</button>
+          <button class="btn btn-primary" onclick="loadLeaderboard()">Refresh Leaderboard</button>
+        </div>
+
+        <h3 style="font-size:1.5rem; margin-bottom:14px;">Leaderboard</h3>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Peringkat</th>
+                <th>Peserta</th>
+                <th>Skor</th>
+                <th>Benar</th>
+                <th>Durasi</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+              <tr>
+                <td colspan="5" class="empty">Memuat leaderboard...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+    import {
+      getFirestore,
+      collection,
+      doc,
+      getDoc,
+      getDocs,
+      setDoc,
+      updateDoc,
+      query,
+      where,
+      orderBy,
+      limit,
+      runTransaction,
+      Timestamp
+    } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+    /* =====================================================
+       GANTI firebaseConfig DENGAN CONFIG FIREBASE ANDA
+       Sama seperti yang digunakan pada halaman login.
+    ===================================================== */
+    const firebaseConfig = {
+      apiKey: "AIzaSyCxwyTe5FylqJZcPO8TA7Va_xCRbMzJyWk",
+      authDomain: "geomers-academy-5b9e5.firebaseapp.com",
+      projectId: "geomers-academy-5b9e5",
+      storageBucket: "geomers-academy-5b9e5.firebasestorage.app",
+      messagingSenderId: "598328922866",
+      appId: "1:598328922866:web:d2f38f330c53e9d227766b"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    let currentUser = null;
+    let selectedTryout = null;
+    let selectedTryoutId = null;
+    let currentAttemptId = null;
+    let questions = [];
+    let answers = {};
+    let currentIndex = 0;
+    let timerInterval = null;
+    let dueAtMillis = null;
+    let startedAtMillis = null;
+
+    const listSection = document.getElementById("listSection");
+    const detailSection = document.getElementById("detailSection");
+    const examSection = document.getElementById("examSection");
+    const resultSection = document.getElementById("resultSection");
+
+    window.showSection = function(sectionId) {
+      [listSection, detailSection, examSection, resultSection].forEach(section => {
+        section.classList.remove("active");
+      });
+      document.getElementById(sectionId).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      await signOut(auth);
+      localStorage.removeItem("geomersLoggedIn");
+      localStorage.removeItem("geomersUser");
+      localStorage.removeItem("geomersRole");
+      window.location.href = "../login/";
+    });
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.href = "../login/";
+        return;
+      }
+
+      currentUser = user;
+      document.getElementById("userEmail").textContent = user.email || "Akun aktif";
+      await loadTryouts();
+    });
+
+    function formatDate(timestamp) {
+      if (!timestamp) return "-";
+      const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+      return date.toLocaleString("id-ID", {
+        dateStyle: "medium",
+        timeStyle: "short"
+      });
+    }
+
+    function formatDuration(seconds) {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.floor((seconds % 3600) / 60);
+      const s = Math.floor(seconds % 60);
+      return [h, m, s].map(x => String(x).padStart(2, "0")).join(":");
+    }
+
+    function getTryoutStatus(tryout) {
+      const now = Date.now();
+      const start = tryout.startAt?.toDate?.().getTime() || 0;
+      const end = tryout.endAt?.toDate?.().getTime() || 0;
+
+      if (!tryout.isActive) return "closed";
+      if (now < start) return "waiting";
+      if (now > end) return "closed";
+      return "open";
+    }
+
+    function statusLabel(status) {
+      if (status === "open") return "Sedang dibuka";
+      if (status === "waiting") return "Belum dibuka";
+      return "Sudah ditutup";
+    }
+
+    async function loadTryouts() {
+      const grid = document.getElementById("tryoutGrid");
+      grid.innerHTML = `<div class="card empty">Memuat data tryout...</div>`;
+
+      const userRole = localStorage.getItem("geomersRole") || "kebumian";
+
+      const q = query(
+        collection(db, "tryouts"),
+        where("program", "in", [userRole, "all"]),
+        orderBy("startAt", "desc")
+      );
+
+      const snap = await getDocs(q);
+
+      if (snap.empty) {
+        grid.innerHTML = `<div class="card empty">Belum ada tryout yang tersedia.</div>`;
+        return;
+      }
+
+      grid.innerHTML = "";
+
+      snap.forEach((docSnap) => {
+        const t = docSnap.data();
+        const status = getTryoutStatus(t);
+
+        const card = document.createElement("div");
+        card.className = "card tryout-card";
+        card.innerHTML = `
+          <div class="status ${status}">${statusLabel(status)}</div>
+          <h3>${t.title || "Tryout Tanpa Judul"}</h3>
+          <p>${t.description || "Tidak ada deskripsi."}</p>
+          <div class="meta">
+            <div>📌 Program: <strong>${t.program || "-"}</strong></div>
+            <div>🕒 Dibuka: <strong>${formatDate(t.startAt)}</strong></div>
+            <div>⏳ Ditutup: <strong>${formatDate(t.endAt)}</strong></div>
+            <div>⏱ Durasi: <strong>${t.durationMinutes || 0} menit</strong></div>
+          </div>
+          <button class="btn btn-primary" ${status === "closed" ? "disabled" : ""}>
+            Lihat Detail
+          </button>
+        `;
+
+        card.querySelector("button").addEventListener("click", () => {
+          openDetail(docSnap.id, t);
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    async function openDetail(tryoutId, tryoutData) {
+      selectedTryoutId = tryoutId;
+      selectedTryout = tryoutData;
+
+      const status = getTryoutStatus(tryoutData);
+
+      document.getElementById("detailStatus").className = `status ${status}`;
+      document.getElementById("detailStatus").textContent = statusLabel(status);
+      document.getElementById("detailTitle").textContent = tryoutData.title || "Tryout";
+      document.getElementById("detailDesc").textContent = tryoutData.description || "-";
+      document.getElementById("detailProgram").textContent = tryoutData.program || "-";
+      document.getElementById("detailStart").textContent = formatDate(tryoutData.startAt);
+      document.getElementById("detailEnd").textContent = formatDate(tryoutData.endAt);
+      document.getElementById("detailDuration").textContent = `${tryoutData.durationMinutes || 0} menit`;
+
+      const qsnap = await getDocs(collection(db, "tryouts", tryoutId, "questions"));
+      document.getElementById("detailQuestions").textContent = `${qsnap.size} soal`;
+
+      const startBtn = document.getElementById("startBtn");
+      startBtn.disabled = status !== "open";
+      startBtn.textContent = status === "open" ? "Mulai Tryout" : statusLabel(status);
+      startBtn.onclick = startTryout;
+
+      showSection("detailSection");
+    }
+
+    async function startTryout() {
+      if (!currentUser || !selectedTryoutId || !selectedTryout) return;
+
+      const status = getTryoutStatus(selectedTryout);
+      if (status !== "open") {
+        alert("Tryout belum dibuka atau sudah ditutup.");
+        return;
+      }
+
+      const confirmed = confirm(
+        "Setelah mulai, waktu akan berjalan dan Anda tidak dapat mengulang tryout ini. Lanjutkan?"
+      );
+
+      if (!confirmed) return;
+
+      const attemptId = `${selectedTryoutId}_${currentUser.uid}`;
+      const attemptRef = doc(db, "attempts", attemptId);
+
+      try {
+        await runTransaction(db, async (transaction) => {
+          const existingAttempt = await transaction.get(attemptRef);
+
+          if (existingAttempt.exists()) {
+            const data = existingAttempt.data();
+
+            if (data.status === "submitted" || data.status === "expired") {
+              throw new Error("Anda sudah mengikuti tryout ini. Setiap akun hanya dapat mengikuti satu kali.");
+            }
+
+            currentAttemptId = attemptId;
+            answers = data.answers || {};
+            startedAtMillis = data.startedAt?.toDate?.().getTime() || Date.now();
+            dueAtMillis = data.dueAt?.toDate?.().getTime() || Date.now();
+            return;
+          }
+
+          const now = Date.now();
+          const durationMs = (selectedTryout.durationMinutes || 60) * 60 * 1000;
+          const tryoutEnd = selectedTryout.endAt.toDate().getTime();
+          const due = Math.min(now + durationMs, tryoutEnd);
+
+          transaction.set(attemptRef, {
+            userId: currentUser.uid,
+            userEmail: currentUser.email,
+            tryoutId: selectedTryoutId,
+            tryoutTitle: selectedTryout.title,
+            program: selectedTryout.program,
+            status: "in_progress",
+            answers: {},
+            startedAt: Timestamp.fromDate(new Date(now)),
+            dueAt: Timestamp.fromDate(new Date(due)),
+            createdAt: Timestamp.fromDate(new Date(now))
+          });
+
+          currentAttemptId = attemptId;
+          answers = {};
+          startedAtMillis = now;
+          dueAtMillis = due;
+        });
+
+        await loadQuestions();
+        renderQuestion();
+        startTimer();
+        showSection("examSection");
+
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+    async function loadQuestions() {
+      const q = query(
+        collection(db, "tryouts", selectedTryoutId, "questions"),
+        orderBy("number", "asc")
+      );
+
+      const snap = await getDocs(q);
+
+      questions = snap.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+      if (questions.length === 0) {
+        alert("Soal tryout belum tersedia.");
+        showSection("detailSection");
+      }
+    }
+
+    function renderQuestionNav() {
+      const nav = document.getElementById("questionNav");
+      nav.innerHTML = "";
+
+      questions.forEach((q, index) => {
+        const btn = document.createElement("button");
+        btn.className = "qnum";
+        btn.textContent = index + 1;
+
+        if (index === currentIndex) btn.classList.add("active");
+        if (answers[q.id]) btn.classList.add("answered");
+
+        btn.onclick = () => {
+          currentIndex = index;
+          renderQuestion();
+        };
+
+        nav.appendChild(btn);
+      });
+    }
+
+    function renderQuestion() {
+      const q = questions[currentIndex];
+      if (!q) return;
+
+      document.getElementById("questionNumber").textContent = `Soal ${currentIndex + 1}`;
+      document.getElementById("questionText").textContent = q.text || q.questionText || "";
+
+      const options = q.options || {
+        A: q.optionA,
+        B: q.optionB,
+        C: q.optionC,
+        D: q.optionD,
+        E: q.optionE
+      };
+
+      const optionsBox = document.getElementById("optionsBox");
+      optionsBox.innerHTML = "";
+
+      ["A", "B", "C", "D", "E"].forEach(letter => {
+        if (!options[letter]) return;
+
+        const btn = document.createElement("button");
+        btn.className = "option";
+        if (answers[q.id] === letter) btn.classList.add("selected");
+
+        btn.innerHTML = `
+          <span class="option-letter">${letter}</span>
+          <span>${options[letter]}</span>
+        `;
+
+        btn.onclick = async () => {
+          answers[q.id] = letter;
+          await updateDoc(doc(db, "attempts", currentAttemptId), {
+            answers
+          });
+          renderQuestion();
+        };
+
+        optionsBox.appendChild(btn);
+      });
+
+      document.getElementById("prevBtn").disabled = currentIndex === 0;
+      document.getElementById("nextBtn").disabled = currentIndex === questions.length - 1;
+
+      renderQuestionNav();
+    }
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderQuestion();
+      }
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      if (currentIndex < questions.length - 1) {
+        currentIndex++;
+        renderQuestion();
+      }
+    });
+
+    document.getElementById("submitBtn").addEventListener("click", async () => {
+      const confirmed = confirm("Yakin ingin submit tryout sekarang?");
+      if (confirmed) {
+        await submitAttempt(false);
+      }
+    });
+
+    function startTimer() {
+      clearInterval(timerInterval);
+
+      timerInterval = setInterval(async () => {
+        const remaining = Math.max(0, Math.floor((dueAtMillis - Date.now()) / 1000));
+        document.getElementById("timer").textContent = formatDuration(remaining);
+
+        if (remaining <= 0) {
+          clearInterval(timerInterval);
+          await submitAttempt(true);
+        }
+      }, 1000);
+    }
+
+    async function submitAttempt(autoSubmit = false) {
+      if (!currentAttemptId) return;
+
+      clearInterval(timerInterval);
+
+      let correct = 0;
+      let wrong = 0;
+      let blank = 0;
+      let score = 0;
+
+      questions.forEach(q => {
+        const selected = answers[q.id];
+        const point = Number(q.point || 1);
+
+        if (!selected) {
+          blank++;
+        } else if (selected === q.correctAnswer) {
+          correct++;
+          score += point;
+        } else {
+          wrong++;
+        }
+      });
+
+      const durationUsed = Math.max(0, Math.floor((Date.now() - startedAtMillis) / 1000));
+
+      await updateDoc(doc(db, "attempts", currentAttemptId), {
+        status: autoSubmit ? "expired" : "submitted",
+        submittedAt: Timestamp.fromDate(new Date()),
+        score,
+        correctCount: correct,
+        wrongCount: wrong,
+        blankCount: blank,
+        durationUsed
+      });
+
+      document.getElementById("scoreBox").textContent = score;
+      document.getElementById("correctBox").textContent = correct;
+      document.getElementById("wrongBox").textContent = wrong;
+      document.getElementById("blankBox").textContent = blank;
+
+      showSection("resultSection");
+      await loadLeaderboard();
+    }
+
+    window.loadLeaderboard = async function() {
+      if (!selectedTryoutId) return;
+
+      const body = document.getElementById("leaderboardBody");
+      body.innerHTML = `<tr><td colspan="5" class="empty">Memuat leaderboard...</td></tr>`;
+
+      const q = query(
+        collection(db, "attempts"),
+        where("tryoutId", "==", selectedTryoutId),
+        where("status", "in", ["submitted", "expired"]),
+        orderBy("score", "desc"),
+        orderBy("durationUsed", "asc"),
+        limit(100)
+      );
+
+      const snap = await getDocs(q);
+
+      if (snap.empty) {
+        body.innerHTML = `<tr><td colspan="5" class="empty">Belum ada peserta yang submit.</td></tr>`;
+        return;
+      }
+
+      body.innerHTML = "";
+
+      let rank = 1;
+      snap.forEach(docSnap => {
+        const a = docSnap.data();
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+          <td><strong>#${rank}</strong></td>
+          <td>${a.userEmail || "Peserta"}</td>
+          <td><strong>${a.score || 0}</strong></td>
+          <td>${a.correctCount || 0}</td>
+          <td>${formatDuration(a.durationUsed || 0)}</td>
+        `;
+
+        body.appendChild(tr);
+        rank++;
+      });
+    };
+  </script>
+</body>
+</html>
