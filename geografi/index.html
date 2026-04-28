@@ -927,6 +927,177 @@
     white-space: nowrap;
   }
 }
+@media (max-width: 899px) {
+  .hero {
+    display: block !important;
+    min-height: auto !important;
+    padding: 42px 5% 38px !important;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: 24px;
+    margin-top: 34px;
+    margin-bottom: 0;
+  }
+
+  .hero-deco {
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    transform: none !important;
+
+    width: 100% !important;
+    max-width: 390px;
+    margin: 34px auto 0 !important;
+    padding: 18px 14px 16px;
+
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(20, 184, 157, 0.18);
+    box-shadow: 0 14px 34px rgba(20, 184, 157, 0.16);
+    backdrop-filter: blur(10px);
+
+    text-align: center;
+    z-index: 3;
+  }
+
+  .countdown-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #14B89D;
+    margin-bottom: 2px;
+  }
+
+  .countdown-subtitle {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #2b3d52;
+    margin-bottom: 4px;
+  }
+
+  .countdown-note {
+    font-size: 12px;
+    line-height: 1.45;
+    color: #64748b;
+    margin: 6px 0 14px;
+  }
+
+  .countdown-boxes {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .countdown-card {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 4px 9px;
+    border-radius: 14px;
+  }
+
+  .countdown-num {
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    margin-top: 5px;
+  }
+
+  .countdown-sep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #14B89D;
+    padding: 0 1px;
+  }
+
+  .countdown-reminder {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    margin: 4px 0 12px;
+  }
+
+  .deco-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin: 5px 0;
+  }
+
+  .deco-emoji {
+    font-size: 1.45rem;
+  }
+}
+
+/* Ukuran HP kecil */
+@media (max-width: 420px) {
+  .hero {
+    padding: 36px 5% 34px !important;
+  }
+
+  .hero-deco {
+    max-width: 100%;
+    margin-top: 28px !important;
+    padding: 16px 10px 14px;
+    border-radius: 22px;
+  }
+
+  .countdown-subtitle {
+    font-size: 1rem;
+  }
+
+  .countdown-note {
+    font-size: 11.5px;
+  }
+
+  .countdown-boxes {
+    gap: 4px;
+  }
+
+  .countdown-card {
+    padding: 10px 3px 8px;
+    border-radius: 12px;
+  }
+
+  .countdown-num {
+    font-size: 1.25rem;
+  }
+
+  .countdown-label {
+    font-size: 8px;
+  }
+
+  .countdown-sep {
+    font-size: 1rem;
+  }
+
+  .deco-emoji {
+    font-size: 1.35rem;
+  }
+}
   </style>
 </head>
 <body>
