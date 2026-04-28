@@ -628,6 +628,38 @@
     padding-bottom: 20px;
   }
 }
+/* ==================================================
+   FIX LAPTOP TANPA MENGUBAH ZOOM
+   ================================================== */
+
+@media (min-width: 1051px) {
+  html {
+    min-height: 100%;
+    background:
+      radial-gradient(circle at top left, rgba(20,184,157,0.18), transparent 31%),
+      radial-gradient(circle at bottom right, rgba(249,216,87,0.34), transparent 31%),
+      linear-gradient(135deg, var(--teal-xlight), #fff 48%, var(--lemon-light));
+  }
+
+  body {
+    zoom: 0.67 !important;
+    min-height: calc(100vh / 0.67);
+    background:
+      radial-gradient(circle at top left, rgba(20,184,157,0.18), transparent 31%),
+      radial-gradient(circle at bottom right, rgba(249,216,87,0.34), transparent 31%),
+      linear-gradient(135deg, var(--teal-xlight), #fff 48%, var(--lemon-light));
+  }
+
+  .page {
+    flex: 1 0 auto;
+    padding-bottom: 12px;
+  }
+
+  .footer {
+    flex: 0 0 auto;
+    padding-bottom: 28px;
+  }
+}
   </style>
 </head>
 <body>
