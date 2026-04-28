@@ -1332,6 +1332,42 @@ nav {
     display: block;
   }
 }
+/* Perbaikan jarak antar section: OSK - OSP - OSN */
+.inner-section {
+  margin-bottom: 48px !important;
+  padding-bottom: 0 !important;
+  min-height: auto !important;
+}
+
+.inner-section + .inner-section {
+  margin-top: 48px !important;
+  padding-top: 0 !important;
+}
+
+/* Jarak antara judul section dan daftar item */
+.res-header {
+  margin-bottom: 28px !important;
+}
+
+/* Pastikan grid tidak memberi jarak kosong berlebih */
+.list-grid {
+  margin-bottom: 0 !important;
+}
+
+/* Versi mobile */
+@media (max-width: 768px) {
+  .inner-section {
+    margin-bottom: 36px !important;
+  }
+
+  .inner-section + .inner-section {
+    margin-top: 36px !important;
+  }
+
+  .res-header {
+    margin-bottom: 22px !important;
+  }
+}
   </style>
 </head>
 <body>
