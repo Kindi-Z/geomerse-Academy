@@ -919,6 +919,111 @@
     display: block;
   }
 }
+/* ===== FIX FOOTER MOBILE ===== */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  footer {
+    width: 100%;
+    margin: 0;
+    padding: 36px 6% 28px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .footer-inner {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .footer-brand,
+  .footer-col,
+  .footer-contact {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .footer-col a {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .contact-row {
+    width: 100%;
+    max-width: 100%;
+    padding: 13px 14px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-row strong,
+  .contact-row span {
+    word-break: break-word;
+  }
+
+  .footer-bottom {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 22px 0 0;
+    margin: 18px 0 0;
+  }
+
+  #btt {
+    right: 14px;
+    bottom: 14px;
+    width: 46px;
+    height: 46px;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 420px) {
+  footer {
+    padding: 32px 5% 26px;
+  }
+
+  .contact-row {
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    padding-right: 48px;
+    padding-left: 8px;
+    text-align: left;
+  }
+
+  #btt {
+    width: 44px;
+    height: 44px;
+  }
+}
   </style>
 </head>
 <body>
