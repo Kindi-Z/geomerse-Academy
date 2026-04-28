@@ -1368,6 +1368,122 @@ nav {
     margin-bottom: 22px !important;
   }
 }
+/* ===== FIX NAVBAR & MENU MOBILE AGAR TIDAK TERBENAM KE KANAN ===== */
+@media (max-width: 1050px) {
+  nav {
+    width: 100%;
+    max-width: 100vw;
+    height: 64px !important;
+    padding: 0 12px !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-logo {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .nav-brand-text {
+    min-width: 0;
+  }
+
+  .nav-brand-text span {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-left: 8px;
+  }
+
+  .nav-social {
+    display: none !important;
+  }
+
+  .user-email {
+    max-width: 92px !important;
+    padding: 6px 8px !important;
+    font-size: 10px !important;
+  }
+
+  .logout-btn {
+    padding: 7px 10px !important;
+    font-size: 11px !important;
+    flex-shrink: 0;
+  }
+
+  .hamburger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+  }
+
+  .nav-links {
+    position: fixed !important;
+    top: 64px !important;
+    left: 10px !important;
+    right: 10px !important;
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+    z-index: 999 !important;
+  }
+
+  .nav-links.open {
+    display: flex !important;
+  }
+
+  .nav-links li,
+  .nav-links a,
+  .nav-links button {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-links a,
+  .nav-links button {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 42px;
+    padding: 0 14px !important;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 420px) {
+  .user-email {
+    display: none !important;
+  }
+
+  .logout-btn {
+    padding: 7px 9px !important;
+  }
+
+  .nav-brand-text span:first-child,
+  .nav-brand-text span:last-child {
+    max-width: 115px;
+  }
+}
   </style>
 </head>
 <body>
