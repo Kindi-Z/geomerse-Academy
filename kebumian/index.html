@@ -1628,31 +1628,39 @@ nav {
 </head>
 <body>
 <script type="module">
-  import { auth } from "../firebase-config.js";
+  import { auth } from "./firebase-config.js";
   import {
     onAuthStateChanged,
     signOut
   } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
+  // Supaya fungsi logout di script bawah bisa akses Firebase
+  window.firebaseAuth = auth;
+  window.firebaseSignOut = signOut;
+
+  const LOGIN_URL = "/login/";
+  const KEBUMIAN_URL = "/kebumian/";
+  const GEOGRAFI_URL = "/geografi/";
+
   function redirectByRole(role) {
     if (role === "kebumian") {
-      window.location.replace("../kebumian/");
+      window.location.replace(KEBUMIAN_URL);
       return;
     }
 
     if (role === "geografi") {
-      window.location.replace("../geografi/");
+      window.location.replace(GEOGRAFI_URL);
       return;
     }
 
     localStorage.clear();
-    window.location.replace("../login/");
+    window.location.replace(LOGIN_URL);
   }
 
   onAuthStateChanged(auth, async (user) => {
     if (!user) {
       localStorage.clear();
-      window.location.replace("../login/");
+      window.location.replace(LOGIN_URL);
       return;
     }
 
@@ -1667,6 +1675,7 @@ nav {
 
       localStorage.setItem("geomersLoggedIn", "true");
       localStorage.setItem("geomersUser", user.email || "");
+      localStorage.setItem("geomersEmail", user.email || "");
       localStorage.setItem("geomersRole", role);
 
       document.documentElement.classList.remove("auth-checking");
@@ -1675,7 +1684,7 @@ nav {
     } catch (error) {
       console.error("Auth check error:", error);
       localStorage.clear();
-      window.location.replace("../login/");
+      window.location.replace(LOGIN_URL);
     }
   });
 </script>
@@ -3796,18 +3805,26 @@ nav {
   renderLoginEmail();
 
   // ── LOGOUT ──
-  async function logoutGeomers() {
+async function logoutGeomers() {
   try {
+    document.documentElement.classList.remove("auth-ready");
+    document.documentElement.classList.add("auth-checking");
+
     if (window.firebaseSignOut && window.firebaseAuth) {
       await window.firebaseSignOut(window.firebaseAuth);
     }
+
+    localStorage.clear();
+    sessionStorage.clear();
+
+    window.location.replace("/login/");
   } catch (error) {
     console.error("Logout error:", error);
+    alert("Logout gagal. Silakan coba lagi.");
   }
-
-  localStorage.clear();
-  window.location.replace("../login/");
 }
+
+window.logoutGeomers = logoutGeomers;
 </script>
 </body>
 </html>
