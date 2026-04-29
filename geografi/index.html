@@ -1362,6 +1362,39 @@ nav {
     display: none !important;
   }
 }
+/* Perbaikan jarak antar-section: OSK, OSP, OSN */
+.inner-section {
+  margin-top: 0 !important;
+  margin-bottom: 48px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: auto !important;
+}
+
+/* Jarak khusus antar section berurutan */
+.inner-section + .inner-section {
+  margin-top: 48px !important;
+}
+
+/* Jarak antara judul section dan daftar item */
+.res-header {
+  margin-bottom: 24px !important;
+}
+
+/* Pastikan grid tidak memberi ruang kosong berlebihan */
+.list-grid {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  row-gap: 18px !important;
+}
+
+/* Jika ada wrapper utama yang memakai gap besar */
+.resources,
+.resource-section,
+.resources-section,
+.resource-container {
+  gap: 48px !important;
+}
   </style>
 </head>
 <body>
