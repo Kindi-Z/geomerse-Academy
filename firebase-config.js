@@ -20,12 +20,12 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "ISI_DENGAN_API_KEY_LAMA_ANDA",
-  authDomain: "ISI_DENGAN_AUTH_DOMAIN_LAMA_ANDA",
-  projectId: "ISI_DENGAN_PROJECT_ID_LAMA_ANDA",
-  storageBucket: "ISI_DENGAN_STORAGE_BUCKET_LAMA_ANDA",
-  messagingSenderId: "ISI_DENGAN_MESSAGING_SENDER_ID_LAMA_ANDA",
-  appId: "ISI_DENGAN_APP_ID_LAMA_ANDA"
+  apiKey: "AIzaSyCxwyTe5FylqJZcPO8TA7Va_xCRbMzJyWk",
+  authDomain: "geomers-academy-5b9e5.firebaseapp.com",
+  projectId: "geomers-academy-5b9e5",
+  storageBucket: "geomers-academy-5b9e5.firebasestorage.app",
+  messagingSenderId: "598328922866",
+  appId: "1:598328922866:web:d2f38f330c53e9d227766b"
 };
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
