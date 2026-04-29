@@ -4,517 +4,1098 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>TryOut | Geomers OSN Geografi</title>
-  <meta name="description" content="TryOut Geomers OSN Kebumian" />
-
-  <!-- FAVICON SESUAI WEB KEBUMIAN -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%2314B89D%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2246%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%225%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2246%22%20rx%3D%2220%22%20ry%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2246%22%20rx%3D%2234%22%20ry%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cline%20x1%3D%2216%22%20y1%3D%2246%22%20x2%3D%2284%22%20y2%3D%2246%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cline%20x1%3D%2250%22%20y1%3D%2212%22%20x2%3D%2250%22%20y2%3D%2280%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cpath%20d%3D%22M38%2078%20L32%2092%20L48%2080%22%20fill%3D%22white%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
-
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>TryOut Geografi | Geomers Academy</title>
 
   <style>
     :root {
       --teal: #14B89D;
-      --teal-dark: #0e9a84;
-      --teal-light: #d0f5ef;
-      --teal-xlight: #e8faf7;
-      --lemon: #F9D857;
-      --lemon-light: #fef8d5;
-      --white: #ffffff;
-      --dark: #2D3E50;
-      --mid: #5a7080;
-      --shadow: 0 18px 45px rgba(20, 184, 157, 0.16), 0 8px 24px rgba(0, 0, 0, 0.08);
+      --teal-dark: #0D947F;
+      --yellow: #FFDB58;
+      --dark: #25364A;
+      --muted: #64748B;
+      --soft: #EAFBF8;
+      --border: #C8F2EA;
+      --danger: #DC2626;
+      --danger-soft: #FEF2F2;
+      --success: #059669;
+      --success-soft: #ECFDF5;
+      --white: #FFFFFF;
+      --shadow: 0 16px 42px rgba(37, 54, 74, 0.10);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    body {
       margin: 0;
-      padding: 0;
-    }
-
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(20, 184, 157, 0.18), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(249, 216, 87, 0.35), transparent 34%),
-        linear-gradient(135deg, var(--teal-xlight) 0%, #fff 54%, var(--lemon-light) 100%);
+        radial-gradient(circle at top left, rgba(20, 184, 157, 0.18), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(255, 219, 88, 0.24), transparent 32%),
+        linear-gradient(135deg, #F4FFFC, #FFFBEA);
       color: var(--dark);
     }
 
-    /* NAVBAR */
-    .navbar {
+    .topbar {
       width: 100%;
-      min-height: 76px;
-      padding: 0 5.4%;
-      background: var(--teal);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(20, 184, 157, 0.18);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar-inner {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 14px 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      box-shadow: 0 4px 24px rgba(20, 184, 157, 0.35);
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      gap: 16px;
     }
 
-    .nav-logo {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-
-    .logo-svg {
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
-    }
-
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.12;
-    }
-
-    .nav-brand-text span:first-child {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900;
-      font-size: 1.25rem;
-      color: #fff;
-      letter-spacing: 0.05em;
-    }
-
-    .nav-brand-text span:last-child {
-      margin-top: 3px;
-      font-size: 0.66rem;
-      color: rgba(255, 255, 255, 0.82);
-      font-weight: 700;
-      letter-spacing: 0.16em;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       gap: 10px;
-      flex: 1;
-    }
-
-    .nav-menu a {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.92);
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 11px 18px;
-      border-radius: 999px;
-      transition: 0.22s ease;
-      white-space: nowrap;
-    }
-
-    .nav-menu a:hover,
-    .nav-menu a.active {
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-    }
-
-    .nav-action {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .back-btn {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 11px 20px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.26);
-      transition: 0.22s ease;
-      white-space: nowrap;
-    }
-
-    .back-btn:hover {
-      background: var(--lemon);
+      font-weight: 900;
+      letter-spacing: 0.3px;
       color: var(--dark);
     }
 
-    /* MAIN */
-    .main {
-      min-height: calc(100vh - 76px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 64px 24px;
-      position: relative;
-      overflow: hidden;
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: 0 8px 18px rgba(20, 184, 157, 0.24);
     }
 
-    .main::before {
-      content: '';
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      border: 2px solid rgba(20, 184, 157, 0.12);
-      top: -260px;
-      right: -150px;
-      pointer-events: none;
+    .nav-link {
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--teal-dark);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--soft);
+      border: 1px solid var(--border);
     }
 
-    .main::after {
-      content: '';
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background: rgba(249, 216, 87, 0.24);
-      bottom: -130px;
-      left: -90px;
-      pointer-events: none;
+    .container {
+      width: min(1000px, calc(100% - 32px));
+      margin: 34px auto 56px;
     }
 
     .card {
-      width: min(720px, 100%);
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(20, 184, 157, 0.18);
-      border-radius: 32px;
-      padding: 56px 46px;
-      text-align: center;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(20, 184, 157, 0.20);
+      border-radius: 28px;
       box-shadow: var(--shadow);
-      position: relative;
-      z-index: 2;
-      animation: fadeUp 0.45s ease both;
-    }
-
-    .icon-box {
-      width: 86px;
-      height: 86px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 16px 35px rgba(20, 184, 157, 0.28);
-      margin-bottom: 26px;
-    }
-
-    .icon-box svg {
-      width: 48px;
-      height: 48px;
+      padding: 30px;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--teal-light);
-      color: var(--teal-dark);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      padding: 9px 18px;
+      padding: 8px 14px;
       border-radius: 999px;
-      text-transform: uppercase;
-      margin-bottom: 22px;
+      background: var(--soft);
+      color: var(--teal-dark);
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-family: 'Nunito', sans-serif;
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 900;
-      color: var(--dark);
-      line-height: 1;
-      margin-bottom: 18px;
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.7px;
     }
 
-    h1 span {
-      color: var(--teal);
-      position: relative;
-      display: inline-block;
+    p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 8px 0;
     }
 
-    h1 span::after {
-      content: '';
-      position: absolute;
-      height: 6px;
-      left: 4px;
-      right: 4px;
-      bottom: 4px;
-      background: var(--lemon);
-      border-radius: 999px;
-      z-index: -1;
-    }
-
-    .subtitle {
-      font-size: 1.08rem;
-      color: var(--mid);
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 0 auto 34px;
-    }
-
-    .btn-row {
-      display: flex;
-      justify-content: center;
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      flex-wrap: wrap;
+      margin: 24px 0 10px;
     }
 
+    .info {
+      background: #F8FFFD;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .info strong {
+      display: block;
+      font-size: 24px;
+      color: var(--teal-dark);
+      margin-bottom: 4px;
+    }
+
+    .timer-box {
+      margin: 20px 0;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, var(--dark), #314A67);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .timer-label {
+      font-size: 14px;
+      opacity: 0.86;
+      font-weight: 700;
+    }
+
+    .timer-value {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .question {
+      padding: 22px;
+      border: 1px solid rgba(20, 184, 157, 0.22);
+      border-radius: 22px;
+      background: #FFFFFF;
+      margin: 18px 0;
+    }
+
+    .question h3 {
+      margin: 0 0 14px;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 13px 14px;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: 0.18s ease;
+      color: #334155;
+      background: #FFFFFF;
+    }
+
+    .option:hover {
+      border-color: var(--teal);
+      background: #F4FFFC;
+      transform: translateY(-1px);
+    }
+
+    .option input {
+      margin-top: 2px;
+      accent-color: var(--teal);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    button,
     .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 0 26px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.95rem;
-      transition: 0.24s ease;
+      gap: 8px;
+      font-size: 15px;
+      transition: 0.18s ease;
+    }
+
+    button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
     }
 
     .btn-primary {
-      background: var(--lemon);
+      background: var(--yellow);
       color: var(--dark);
-      box-shadow: 0 8px 22px rgba(249, 216, 87, 0.42);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      filter: brightness(0.98);
+      box-shadow: 0 10px 20px rgba(255, 219, 88, 0.28);
     }
 
     .btn-outline {
-      color: var(--teal);
+      background: white;
+      color: var(--teal-dark);
       border: 2px solid var(--teal);
-      background: transparent;
     }
 
-    .btn-outline:hover {
-      background: var(--teal);
-      color: #fff;
-      transform: translateY(-2px);
+    .status {
+      padding: 15px 16px;
+      border-radius: 18px;
+      margin-top: 16px;
+      font-weight: 800;
+      line-height: 1.5;
     }
 
-    .footer-note {
-      margin-top: 34px;
-      font-size: 0.86rem;
-      color: var(--mid);
+    .status.error {
+      background: var(--danger-soft);
+      color: var(--danger);
+      border: 1px solid #FECACA;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .status.success {
+      background: var(--success-soft);
+      color: var(--success);
+      border: 1px solid #A7F3D0;
     }
 
-    /* TABLET */
-    @media (max-width: 1024px) {
-      .navbar {
-        padding: 0 4%;
-      }
-
-      .nav-menu {
-        gap: 4px;
-      }
-
-      .nav-menu a {
-        font-size: 0.86rem;
-        padding: 10px 12px;
-      }
+    .loading {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 900;
     }
 
-    /* MOBILE */
-    @media (max-width: 760px) {
-      .navbar {
-        min-height: 72px;
-        padding: 0 20px;
+    .score-box {
+      margin-top: 20px;
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--soft), #FFF8D7);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .score-box strong {
+      display: block;
+      font-size: clamp(42px, 8vw, 72px);
+      color: var(--teal-dark);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .leaderboard-card {
+      margin-top: 26px;
+      padding: 20px;
+      border-radius: 22px;
+      background: #FFFFFF;
+      border: 1px solid rgba(20, 184, 157, 0.22);
+    }
+
+    .leaderboard-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .leaderboard-title h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .leaderboard-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .lb-row {
+      display: grid;
+      grid-template-columns: 48px 1fr 80px 100px;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #F8FFFD;
+      border: 1px solid #E2E8F0;
+      font-size: 14px;
+    }
+
+    .lb-row.lb-head {
+      background: var(--soft);
+      color: var(--teal-dark);
+      font-weight: 900;
+    }
+
+    .lb-row.me {
+      border-color: var(--teal);
+      background: #F0FDFA;
+    }
+
+    .lb-rank {
+      font-weight: 900;
+      color: var(--teal-dark);
+    }
+
+    .lb-name {
+      font-weight: 800;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .lb-score {
+      font-weight: 900;
+      text-align: right;
+    }
+
+    .lb-time {
+      color: var(--muted);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .small-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 780px) {
+      .topbar-inner {
+        width: min(100% - 24px, 1100px);
       }
 
-      .logo-svg {
-        width: 38px;
-        height: 38px;
+      .brand {
+        font-size: 14px;
       }
 
-      .nav-brand-text span:first-child {
-        font-size: 1.05rem;
+      .brand-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 12px;
       }
 
-      .nav-brand-text span:last-child {
-        font-size: 0.56rem;
+      .nav-link {
+        padding: 9px 12px;
+        font-size: 13px;
       }
 
-      .nav-menu {
-        display: none;
-      }
-
-      .back-btn {
-        font-size: 0.84rem;
-        padding: 9px 15px;
-      }
-
-      .main {
-        min-height: calc(100dvh - 72px);
-        padding: 38px 16px;
-        align-items: center;
+      .container {
+        width: min(100% - 24px, 1000px);
+        margin: 22px auto 42px;
       }
 
       .card {
-        border-radius: 26px;
-        padding: 38px 24px;
-      }
-
-      .icon-box {
-        width: 72px;
-        height: 72px;
+        padding: 20px;
         border-radius: 22px;
-        margin-bottom: 22px;
       }
 
-      .icon-box svg {
-        width: 42px;
-        height: 42px;
+      .info-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .badge {
-        font-size: 0.68rem;
-        padding: 8px 14px;
-        margin-bottom: 18px;
-      }
-
-      h1 {
-        font-size: clamp(2.9rem, 16vw, 4.2rem);
-      }
-
-      .subtitle {
-        font-size: 0.96rem;
-        line-height: 1.65;
-        margin-bottom: 28px;
-      }
-
-      .btn-row {
+      .timer-box {
+        align-items: flex-start;
         flex-direction: column;
       }
 
+      .question {
+        padding: 17px;
+      }
+
+      button,
       .btn {
         width: 100%;
       }
 
-      .footer-note {
-        font-size: 0.78rem;
-        margin-top: 26px;
+      .lb-row {
+        grid-template-columns: 40px 1fr 64px;
+      }
+
+      .lb-time {
+        display: none;
       }
     }
 
     @media (max-width: 420px) {
-      .navbar {
-        padding: 0 14px;
-      }
-
-      .nav-logo {
-        gap: 9px;
-      }
-
-      .logo-svg {
-        width: 35px;
-        height: 35px;
-      }
-
-      .nav-brand-text span:first-child {
-        font-size: 0.95rem;
-      }
-
-      .nav-brand-text span:last-child {
-        font-size: 0.5rem;
-      }
-
-      .back-btn {
-        padding: 8px 12px;
-        font-size: 0.78rem;
-      }
-
-      .card {
-        padding: 34px 20px;
+      .info-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="navbar">
-    <a href="../" class="nav-logo" aria-label="Geomers OSN Kebumian">
-      <!-- LOGO GLOBE SESUAI KEBUMIAN -->
-      <svg class="logo-svg" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="46" r="34" fill="none" stroke="white" stroke-width="5"/>
-        <ellipse cx="50" cy="46" rx="20" ry="34" fill="none" stroke="white" stroke-width="4"/>
-        <ellipse cx="50" cy="46" rx="34" ry="14" fill="none" stroke="white" stroke-width="4"/>
-        <line x1="16" y1="46" x2="84" y2="46" stroke="white" stroke-width="4"/>
-        <line x1="50" y1="12" x2="50" y2="80" stroke="white" stroke-width="4"/>
-        <path d="M38 78 L32 92 L48 80" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-      </svg>
-
-      <div class="nav-brand-text">
-        <span>GEOMERS</span>
-        <span>OSN Geografi</span>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-icon">🌏</div>
+        <div>GEOMERS TRYOUT GEOGRAFI</div>
       </div>
-    </a>
 
-    <div class="nav-action">
-      <a href="../" class="back-btn">Kembali</a>
+      <a href="/geografi/" class="nav-link">Kembali</a>
     </div>
   </header>
 
-  <main class="main">
-    <section class="card">
-      <div class="icon-box">
-        <svg viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="46" r="34" fill="none" stroke="white" stroke-width="5"/>
-          <ellipse cx="50" cy="46" rx="20" ry="34" fill="none" stroke="white" stroke-width="4"/>
-          <ellipse cx="50" cy="46" rx="34" ry="14" fill="none" stroke="white" stroke-width="4"/>
-          <line x1="16" y1="46" x2="84" y2="46" stroke="white" stroke-width="4"/>
-          <line x1="50" y1="12" x2="50" y2="80" stroke="white" stroke-width="4"/>
-          <path d="M38 78 L32 92 L48 80" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <div class="badge">TryOut Geomers</div>
-
-      <h1><span>Segera</span></h1>
-
-      <p class="subtitle">
-        Fitur TryOut OSN GEografi sedang disiapkan. Nantinya halaman ini dapat digunakan untuk simulasi soal, pembatasan waktu, skor, dan leaderboard.
-      </p>
-
-      <div class="btn-row">
-        <a href="../" class="btn btn-primary">Kembali ke Beranda</a>
-        <a href="../#soal-osn" class="btn btn-outline">Lihat Soal OSN</a>
-      </div>
-
-      <p class="footer-note">
-        © 2026 Geomers Academy · OSN Geografi
-      </p>
+  <main class="container">
+    <section id="app" class="card">
+      <div class="loading">Memuat TryOut...</div>
     </section>
   </main>
+
+  <script type="module">
+    import { auth, db } from "../../firebase-config.js";
+
+    import {
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+    import {
+      doc,
+      getDoc,
+      updateDoc,
+      setDoc,
+      runTransaction,
+      serverTimestamp,
+      collection,
+      getDocs
+    } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+    const REQUIRED_ROLE = "geografi";
+    const TRYOUT_ID = "geografi-to-1";
+    const TRYOUT_TITLE = "TryOut Geografi 1";
+    const DURATION_SECONDS = 45 * 60;
+
+    const questions = [
+      {
+        text: "Ilmu yang mempelajari persamaan dan perbedaan fenomena geosfer dalam sudut pandang kewilayahan dan kelingkungan disebut ....",
+        options: ["Geologi", "Geografi", "Meteorologi", "Hidrologi"],
+        answer: 1
+      },
+      {
+        text: "Konsep geografi yang berkaitan dengan jarak, lokasi, dan akses suatu tempat terhadap tempat lain adalah ....",
+        options: ["Morfologi", "Keterjangkauan", "Aglomerasi", "Interaksi"],
+        answer: 1
+      },
+      {
+        text: "Peta dengan skala 1:50.000 berarti 1 cm pada peta sama dengan .... di lapangan.",
+        options: ["50 meter", "500 meter", "5 kilometer", "50 kilometer"],
+        answer: 1
+      },
+      {
+        text: "Fenomena urbanisasi paling tepat dikaji menggunakan pendekatan ....",
+        options: ["Keruangan", "Biologis", "Astronomis", "Kimiawi"],
+        answer: 0
+      },
+      {
+        text: "Citra satelit dan sistem informasi geografis banyak digunakan dalam geografi untuk ....",
+        options: ["Menghafal nama wilayah", "Menganalisis data spasial", "Mengukur massa batuan", "Menentukan umur fosil"],
+        answer: 1
+      }
+    ];
+
+    const app = document.getElementById("app");
+
+    let currentUser = null;
+    let attemptRef = null;
+    let attemptData = null;
+    let timerInterval = null;
+    let isSubmitting = false;
+
+    function escapeHTML(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatTime(seconds) {
+      const safeSeconds = Math.max(0, seconds);
+      const minutes = Math.floor(safeSeconds / 60);
+      const secs = safeSeconds % 60;
+      return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    }
+
+    function formatDuration(seconds) {
+      const safeSeconds = Math.max(0, Number(seconds || 0));
+      const minutes = Math.floor(safeSeconds / 60);
+      const secs = safeSeconds % 60;
+      return `${minutes}m ${String(secs).padStart(2, "0")}s`;
+    }
+
+    function getPublicName(user) {
+      const email = user?.email || "";
+      const name = email.split("@")[0] || "Peserta";
+
+      return name
+        .replace(/[._-]+/g, " ")
+        .replace(/\b\w/g, char => char.toUpperCase())
+        .slice(0, 32);
+    }
+
+    function redirectByRole(role) {
+      if (role === "kebumian") {
+        window.location.replace("/kebumian/");
+        return;
+      }
+
+      if (role === "geografi") {
+        window.location.replace("/geografi/");
+        return;
+      }
+
+      window.location.replace("/login/");
+    }
+
+    function getStartedMillis(data) {
+      if (typeof data?.startedAtMillis === "number") {
+        return data.startedAtMillis;
+      }
+
+      if (data?.startedAt?.toDate) {
+        return data.startedAt.toDate().getTime();
+      }
+
+      return Date.now();
+    }
+
+    function getRemainingSeconds() {
+      const startedMillis = getStartedMillis(attemptData);
+      const elapsed = Math.floor((Date.now() - startedMillis) / 1000);
+      return DURATION_SECONDS - elapsed;
+    }
+
+    function leaderboardBoxHTML() {
+      return `
+        <div class="leaderboard-card">
+          <div class="leaderboard-title">
+            <h2>🏆 Leaderboard</h2>
+          </div>
+
+          <div id="leaderboardList" class="leaderboard-list">
+            <div class="status success">Memuat leaderboard...</div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function saveLeaderboard(score, total, timeUsedSeconds) {
+      const leaderboardRef = doc(db, "tryouts", TRYOUT_ID, "leaderboard", currentUser.uid);
+      const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
+
+      await setDoc(leaderboardRef, {
+        uid: currentUser.uid,
+        displayName: getPublicName(currentUser),
+        role: REQUIRED_ROLE,
+        tryoutId: TRYOUT_ID,
+        title: TRYOUT_TITLE,
+        score,
+        total,
+        percentage,
+        timeUsedSeconds,
+        submittedAt: serverTimestamp(),
+        submittedAtMillis: Date.now()
+      }, { merge: true });
+    }
+
+    async function loadLeaderboard() {
+      const leaderboardList = document.getElementById("leaderboardList");
+
+      if (!leaderboardList) return;
+
+      try {
+        const leaderboardRef = collection(db, "tryouts", TRYOUT_ID, "leaderboard");
+        const snapshot = await getDocs(leaderboardRef);
+
+        const rows = [];
+
+        snapshot.forEach((item) => {
+          rows.push(item.data());
+        });
+
+        rows.sort((a, b) => {
+          const scoreDiff = Number(b.score || 0) - Number(a.score || 0);
+          if (scoreDiff !== 0) return scoreDiff;
+
+          const timeDiff = Number(a.timeUsedSeconds || 999999) - Number(b.timeUsedSeconds || 999999);
+          if (timeDiff !== 0) return timeDiff;
+
+          return Number(a.submittedAtMillis || 0) - Number(b.submittedAtMillis || 0);
+        });
+
+        const topRows = rows.slice(0, 20);
+
+        if (topRows.length === 0) {
+          leaderboardList.innerHTML = `
+            <div class="status error">Belum ada peserta yang masuk leaderboard.</div>
+          `;
+          return;
+        }
+
+        const rowHTML = topRows.map((row, index) => {
+          const isMe = row.uid === currentUser?.uid;
+
+          return `
+            <div class="lb-row ${isMe ? "me" : ""}">
+              <div class="lb-rank">#${index + 1}</div>
+              <div class="lb-name">${escapeHTML(row.displayName || "Peserta")}${isMe ? " · Anda" : ""}</div>
+              <div class="lb-score">${Number(row.score || 0)}/${Number(row.total || questions.length)}</div>
+              <div class="lb-time">${formatDuration(row.timeUsedSeconds)}</div>
+            </div>
+          `;
+        }).join("");
+
+        leaderboardList.innerHTML = `
+          <div class="lb-row lb-head">
+            <div>Rank</div>
+            <div>Nama</div>
+            <div class="lb-score">Skor</div>
+            <div class="lb-time">Waktu</div>
+          </div>
+          ${rowHTML}
+        `;
+
+      } catch (error) {
+        console.error("Leaderboard error:", error);
+
+        leaderboardList.innerHTML = `
+          <div class="status error">Leaderboard gagal dimuat.</div>
+        `;
+      }
+    }
+
+    function renderIntro(user) {
+      app.innerHTML = `
+        <span class="badge">🎯 TryOut Geografi</span>
+        <h1>${escapeHTML(TRYOUT_TITLE)}</h1>
+        <p>
+          Selamat datang, <strong>${escapeHTML(user.email || "Geomers")}</strong>.
+          TryOut ini hanya dapat diikuti satu kali untuk setiap akun.
+        </p>
+        <p>
+          Setelah menekan tombol mulai, sistem akan mencatat akun Anda sebagai peserta TryOut.
+          Jika keluar sebelum submit, Anda masih dapat melanjutkan selama waktu masih tersedia.
+        </p>
+
+        <div class="info-grid">
+          <div class="info">
+            <strong>${questions.length}</strong>
+            Soal
+          </div>
+          <div class="info">
+            <strong>45</strong>
+            Menit
+          </div>
+          <div class="info">
+            <strong>1x</strong>
+            Kesempatan
+          </div>
+          <div class="info">
+            <strong>Auto</strong>
+            Simpan
+          </div>
+        </div>
+
+        <div id="statusBox"></div>
+
+        <div class="actions">
+          <button class="btn-primary" id="startBtn">Mulai TryOut</button>
+          <a class="btn btn-outline" href="/geografi/">Kembali ke Geografi</a>
+        </div>
+
+        <div class="small-note">
+          Catatan: gunakan koneksi internet yang stabil saat mengerjakan.
+        </div>
+
+        ${leaderboardBoxHTML()}
+      `;
+
+      document.getElementById("startBtn").addEventListener("click", startTryout);
+      loadLeaderboard();
+    }
+
+    async function startTryout() {
+      const startBtn = document.getElementById("startBtn");
+      const statusBox = document.getElementById("statusBox");
+
+      startBtn.disabled = true;
+      startBtn.textContent = "Menyiapkan...";
+
+      try {
+        const startedAtMillis = Date.now();
+
+        await runTransaction(db, async (transaction) => {
+          const existing = await transaction.get(attemptRef);
+
+          if (existing.exists()) {
+            throw new Error("ALREADY_EXISTS");
+          }
+
+          transaction.set(attemptRef, {
+            uid: currentUser.uid,
+            email: currentUser.email || "",
+            role: REQUIRED_ROLE,
+            tryoutId: TRYOUT_ID,
+            title: TRYOUT_TITLE,
+            status: "started",
+            total: questions.length,
+            durationSeconds: DURATION_SECONDS,
+            startedAt: serverTimestamp(),
+            startedAtMillis
+          });
+        });
+
+        const snap = await getDoc(attemptRef);
+        attemptData = snap.data();
+
+        renderQuestions();
+
+      } catch (error) {
+        if (error.message === "ALREADY_EXISTS") {
+          const snap = await getDoc(attemptRef);
+          attemptData = snap.data();
+
+          if (attemptData?.status === "submitted") {
+            renderLocked(attemptData);
+          } else {
+            renderQuestions();
+          }
+
+          return;
+        }
+
+        console.error("Start tryout error:", error);
+
+        statusBox.innerHTML = `
+          <div class="status error">
+            TryOut gagal dimulai. Silakan refresh halaman atau coba lagi.
+          </div>
+        `;
+
+        startBtn.disabled = false;
+        startBtn.textContent = "Mulai TryOut";
+      }
+    }
+
+    function renderQuestions() {
+      const questionHTML = questions.map((q, index) => {
+        const optionsHTML = q.options.map((option, optionIndex) => `
+          <label class="option">
+            <input type="radio" name="q${index}" value="${optionIndex}">
+            <span>${escapeHTML(option)}</span>
+          </label>
+        `).join("");
+
+        return `
+          <div class="question">
+            <h3>${index + 1}. ${escapeHTML(q.text)}</h3>
+            ${optionsHTML}
+          </div>
+        `;
+      }).join("");
+
+      app.innerHTML = `
+        <span class="badge">📝 Sedang Berlangsung</span>
+        <h1>${escapeHTML(TRYOUT_TITLE)}</h1>
+        <p>Pilih jawaban yang paling tepat. Setelah dikirim, hasil tidak dapat diubah.</p>
+
+        <div class="timer-box">
+          <div>
+            <div class="timer-label">Sisa Waktu</div>
+            <div class="timer-value" id="timerValue">--:--</div>
+          </div>
+          <div class="timer-label">
+            Jangan tutup halaman sebelum jawaban dikirim.
+          </div>
+        </div>
+
+        <form id="tryoutForm">
+          ${questionHTML}
+
+          <div id="statusBox"></div>
+
+          <div class="actions">
+            <button type="submit" class="btn-primary" id="submitBtn">Kirim Jawaban</button>
+            <a class="btn btn-outline" href="/geografi/">Kembali</a>
+          </div>
+        </form>
+      `;
+
+      document.getElementById("tryoutForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        submitTryout(false);
+      });
+
+      startTimer();
+    }
+
+    function startTimer() {
+      const timerValue = document.getElementById("timerValue");
+
+      if (timerInterval) {
+        clearInterval(timerInterval);
+      }
+
+      function updateTimer() {
+        const remaining = getRemainingSeconds();
+
+        if (timerValue) {
+          timerValue.textContent = formatTime(remaining);
+        }
+
+        if (remaining <= 0) {
+          clearInterval(timerInterval);
+          submitTryout(true);
+        }
+      }
+
+      updateTimer();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function collectAnswers(requireComplete = true) {
+      const answers = [];
+      let score = 0;
+      let unanswered = 0;
+
+      for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+
+        if (!selected) {
+          answers.push(null);
+          unanswered++;
+          continue;
+        }
+
+        const value = Number(selected.value);
+        answers.push(value);
+
+        if (value === questions[i].answer) {
+          score++;
+        }
+      }
+
+      if (requireComplete && unanswered > 0) {
+        return {
+          ok: false,
+          unanswered,
+          answers,
+          score
+        };
+      }
+
+      return {
+        ok: true,
+        unanswered,
+        answers,
+        score
+      };
+    }
+
+    async function submitTryout(autoSubmit = false) {
+      if (isSubmitting) return;
+
+      const statusBox = document.getElementById("statusBox");
+      const submitBtn = document.getElementById("submitBtn");
+
+      const result = collectAnswers(!autoSubmit);
+
+      if (!result.ok) {
+        statusBox.innerHTML = `
+          <div class="status error">
+            Masih ada ${result.unanswered} soal yang belum dijawab.
+          </div>
+        `;
+        return;
+      }
+
+      isSubmitting = true;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = autoSubmit ? "Waktu habis, menyimpan..." : "Menyimpan...";
+      }
+
+      try {
+        if (timerInterval) {
+          clearInterval(timerInterval);
+        }
+
+        const startedMillis = getStartedMillis(attemptData);
+        const timeUsedSeconds = Math.max(0, Math.floor((Date.now() - startedMillis) / 1000));
+
+        await updateDoc(attemptRef, {
+          status: "submitted",
+          answers: result.answers,
+          score: result.score,
+          correctCount: result.score,
+          total: questions.length,
+          unanswered: result.unanswered,
+          autoSubmitted: autoSubmit,
+          timeUsedSeconds,
+          submittedAt: serverTimestamp(),
+          submittedAtMillis: Date.now()
+        });
+
+        await saveLeaderboard(result.score, questions.length, timeUsedSeconds);
+
+        const snap = await getDoc(attemptRef);
+        renderResult(snap.data());
+
+      } catch (error) {
+        console.error("Submit tryout error:", error);
+
+        if (statusBox) {
+          statusBox.innerHTML = `
+            <div class="status error">
+              Jawaban gagal disimpan. Silakan coba lagi.
+            </div>
+          `;
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Kirim Jawaban";
+        }
+
+        isSubmitting = false;
+      }
+    }
+
+    function renderResult(data) {
+      const score = Number(data?.score || 0);
+      const total = Number(data?.total || questions.length);
+      const percent = total > 0 ? Math.round((score / total) * 100) : 0;
+
+      app.innerHTML = `
+        <span class="badge">✅ TryOut Selesai</span>
+        <h1>Jawaban berhasil dikirim</h1>
+        <p>
+          Hasil TryOut Anda sudah tersimpan. Anda tidak dapat mengulang TryOut ini dengan akun yang sama.
+        </p>
+
+        <div class="score-box">
+          <strong>${score}/${total}</strong>
+          <div>Skor Akhir: ${percent}%</div>
+        </div>
+
+        ${leaderboardBoxHTML()}
+
+        <div class="actions">
+          <a class="btn btn-primary" href="/geografi/">Kembali ke Geografi</a>
+        </div>
+      `;
+
+      loadLeaderboard();
+    }
+
+    function renderLocked(data) {
+      const scoreAvailable = typeof data?.score === "number";
+      const score = scoreAvailable ? Number(data.score) : 0;
+      const total = Number(data?.total || questions.length);
+      const percent = scoreAvailable && total > 0 ? Math.round((score / total) * 100) : null;
+
+      app.innerHTML = `
+        <span class="badge">🔒 TryOut Terkunci</span>
+        <h1>Akun ini sudah mengikuti TryOut</h1>
+        <p>
+          Satu akun hanya dapat mengikuti TryOut ini sebanyak satu kali.
+          Data pengerjaan Anda sudah tercatat di sistem.
+        </p>
+
+        ${
+          scoreAvailable
+            ? `
+              <div class="score-box">
+                <strong>${score}/${total}</strong>
+                <div>Skor Akhir: ${percent}%</div>
+              </div>
+            `
+            : `
+              <div class="status error">
+                Anda sudah pernah memulai TryOut ini, tetapi belum ada skor akhir yang tersimpan.
+              </div>
+            `
+        }
+
+        ${leaderboardBoxHTML()}
+
+        <div class="actions">
+          <a class="btn btn-primary" href="/geografi/">Kembali ke Geografi</a>
+        </div>
+      `;
+
+      loadLeaderboard();
+    }
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.replace("/login/");
+        return;
+      }
+
+      try {
+        currentUser = user;
+
+        const token = await user.getIdTokenResult(true);
+        const role = token.claims.role;
+
+        if (role !== REQUIRED_ROLE) {
+          redirectByRole(role);
+          return;
+        }
+
+        attemptRef = doc(db, "tryouts", TRYOUT_ID, "attempts", user.uid);
+
+        const attemptSnap = await getDoc(attemptRef);
+
+        if (!attemptSnap.exists()) {
+          renderIntro(user);
+          return;
+        }
+
+        attemptData = attemptSnap.data();
+
+        if (attemptData.status === "submitted") {
+          renderLocked(attemptData);
+          return;
+        }
+
+        renderQuestions();
+
+      } catch (error) {
+        console.error("TryOut auth error:", error);
+
+        app.innerHTML = `
+          <span class="badge">⚠️ Gagal Memuat</span>
+          <h1>TryOut tidak dapat dibuka</h1>
+          <p>Terjadi kendala saat memeriksa akun Anda. Silakan login ulang.</p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="/login/">Ke Halaman Login</a>
+          </div>
+        `;
+      }
+    });
+  </script>
 </body>
 </html>
