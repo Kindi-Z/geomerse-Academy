@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="auth-checking">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Geomers Academy | Login</title>
+  <style>
+  html.auth-checking body {
+    visibility: hidden !important;
+  }
+
+  html.auth-ready body {
+    visibility: visible !important;
+  }
+</style>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%2314B89D%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2246%22%20r%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%225%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2246%22%20rx%3D%2220%22%20ry%3D%2234%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2246%22%20rx%3D%2234%22%20ry%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cline%20x1%3D%2216%22%20y1%3D%2246%22%20x2%3D%2284%22%20y2%3D%2246%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cline%20x1%3D%2250%22%20y1%3D%2212%22%20x2%3D%2250%22%20y2%3D%2280%22%20stroke%3D%22white%22%20stroke-width%3D%224%22%2F%3E%3Cpath%20d%3D%22M38%2078%20L32%2092%20L48%2080%22%20fill%3D%22white%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -769,23 +778,65 @@
   </footer>
 
   <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyCxwyTe5FylqJZcPO8TA7Va_xCRbMzJyWk",
-    authDomain: "geomers-academy-5b9e5.firebaseapp.com",
-    projectId: "geomers-academy-5b9e5",
-    storageBucket: "geomers-academy-5b9e5.firebasestorage.app",
-    messagingSenderId: "598328922866",
-    appId: "1:598328922866:web:d2f38f330c53e9d227766b"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+  import { auth } from "../firebase-config.js";
+  import {
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut
+  } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
   const form = document.getElementById('loginForm');
   const errorBox = document.getElementById('errorBox');
+
+  function showLoginPage() {
+    document.documentElement.classList.remove("auth-checking");
+    document.documentElement.classList.add("auth-ready");
+  }
+
+  function redirectByRole(role) {
+    if (role === "kebumian") {
+      window.location.replace("../kebumian/");
+      return true;
+    }
+
+    if (role === "geografi") {
+      window.location.replace("../geografi/");
+      return true;
+    }
+
+    return false;
+  }
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      localStorage.clear();
+      showLoginPage();
+      return;
+    }
+
+    try {
+      const token = await user.getIdTokenResult(true);
+      const role = token.claims.role;
+
+      if (role === "kebumian" || role === "geografi") {
+        localStorage.setItem("geomersLoggedIn", "true");
+        localStorage.setItem("geomersUser", user.email || "");
+        localStorage.setItem("geomersRole", role);
+
+        redirectByRole(role);
+        return;
+      }
+
+      await signOut(auth);
+      localStorage.clear();
+      showLoginPage();
+
+    } catch (error) {
+      console.error("Auth check error:", error);
+      localStorage.clear();
+      showLoginPage();
+    }
+  });
 
   form.addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -801,60 +852,71 @@
 
     const loginBtn = document.querySelector('.login-btn');
     const originalText = loginBtn.textContent;
+
     loginBtn.textContent = 'Memproses...';
     loginBtn.disabled = true;
+    errorBox.classList.remove('show');
 
     try {
+      localStorage.clear();
+
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      const idTokenResult = await user.getIdTokenResult();
+
+      const idTokenResult = await user.getIdTokenResult(true);
       const role = idTokenResult.claims.role;
 
       if (!role) {
-  await signOut(auth);
-  throw new Error('Akun belum memiliki role. Hubungi admin.');
-}
+        await signOut(auth);
+        throw new Error('Akun belum memiliki role. Hubungi admin.');
+      }
 
       localStorage.setItem('geomersLoggedIn', 'true');
-      localStorage.setItem('geomersUser', user.email);
+      localStorage.setItem('geomersUser', user.email || '');
       localStorage.setItem('geomersRole', role);
 
-      if (role === 'kebumian') {
-  window.location.replace('../kebumian/');
-  return;
-}
+      if (redirectByRole(role)) {
+        return;
+      }
 
-if (role === 'geografi') {
-  window.location.replace('../geografi/');
-  return;
-}
-
-await signOut(auth);
-localStorage.clear();
-throw new Error('Role tidak dikenal. Hubungi admin.');
+      await signOut(auth);
+      localStorage.clear();
+      throw new Error('Role tidak dikenal. Hubungi admin.');
 
     } catch (error) {
-      let pesanError = 'Login gagal. ';
+      let pesanError = 'Login gagal.';
+
       switch (error.code) {
         case 'auth/invalid-email':
           pesanError = 'Format email tidak valid.';
           break;
+
         case 'auth/user-not-found':
           pesanError = 'Email tidak terdaftar.';
           break;
+
         case 'auth/wrong-password':
           pesanError = 'Password salah.';
           break;
-        case 'auth/too-many-requests':
-          pesanError = 'Terlalu banyak percobaan. Coba lagi nanti.';
+
+        case 'auth/invalid-credential':
+          pesanError = 'Email atau password salah.';
           break;
+
+        case 'auth/too-many-requests':
+          pesanError = 'Terlalu banyak percobaan login. Coba lagi nanti.';
+          break;
+
         default:
           pesanError = error.message || 'Email atau password salah.';
       }
+
       errorBox.textContent = pesanError;
       errorBox.classList.add('show');
+
       loginBtn.textContent = originalText;
       loginBtn.disabled = false;
+      showLoginPage();
     }
   });
 </script>
