@@ -1372,6 +1372,21 @@ nav {
     signOut
   } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
+  function redirectByRole(role) {
+    if (role === "kebumian") {
+      window.location.replace("../kebumian/");
+      return;
+    }
+
+    if (role === "geografi") {
+      window.location.replace("../geografi/");
+      return;
+    }
+
+    localStorage.clear();
+    window.location.replace("../login/");
+  }
+
   onAuthStateChanged(auth, async (user) => {
     if (!user) {
       localStorage.clear();
@@ -1384,9 +1399,7 @@ nav {
       const role = token.claims.role;
 
       if (role !== "geografi") {
-        await signOut(auth);
-        localStorage.clear();
-        window.location.replace("../login/");
+        redirectByRole(role);
         return;
       }
 
