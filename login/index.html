@@ -811,20 +811,27 @@
       const role = idTokenResult.claims.role;
 
       if (!role) {
-        throw new Error('Akun belum memiliki role. Hubungi admin.');
-      }
+  await signOut(auth);
+  throw new Error('Akun belum memiliki role. Hubungi admin.');
+}
 
       localStorage.setItem('geomersLoggedIn', 'true');
       localStorage.setItem('geomersUser', user.email);
       localStorage.setItem('geomersRole', role);
 
       if (role === 'kebumian') {
-        window.location.replace('../kebumian/');
-      } else if (role === 'geografi') {
-        window.location.replace('../geografi/');
-      } else {
-        throw new Error('Role tidak dikenal');
-      }
+  window.location.replace('../kebumian/');
+  return;
+}
+
+if (role === 'geografi') {
+  window.location.replace('../geografi/');
+  return;
+}
+
+await signOut(auth);
+localStorage.clear();
+throw new Error('Role tidak dikenal. Hubungi admin.');
 
     } catch (error) {
       let pesanError = 'Login gagal. ';
