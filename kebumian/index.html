@@ -1618,13 +1618,44 @@ nav {
   </style>
 </head>
 <body>
-<script>
-  const loggedIn = localStorage.getItem('geomersLoggedIn');
-  const role = localStorage.getItem('geomersRole');
-  const loggedInEmail = localStorage.getItem('geomersUser') || localStorage.getItem('geomersEmail') || '';
-  if (loggedIn !== 'true' || role !== 'kebumian') {
-    window.location.replace('../login/');
-  }
+<script type="module">
+  import { auth } from "../firebase-config.js";
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+
+  window.firebaseAuth = auth;
+  window.firebaseSignOut = signOut;
+  window.loggedInEmail = "";
+
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) {
+      localStorage.clear();
+      window.location.replace("../login/");
+      return;
+    }
+
+    try {
+      const token = await user.getIdTokenResult(true);
+      const role = token.claims.role;
+
+      if (role !== "kebumian") {
+        await signOut(auth);
+        localStorage.clear();
+        window.location.replace("../login/");
+        return;
+      }
+
+      window.loggedInEmail = user.email || "";
+
+      localStorage.setItem("geomersLoggedIn", "true");
+      localStorage.setItem("geomersUser", user.email || "");
+      localStorage.setItem("geomersRole", role);
+
+    } catch (error) {
+      console.error("Auth check error:", error);
+      localStorage.clear();
+      window.location.replace("../login/");
+    }
+  });
 </script>
 
 <!-- ══ NAV ══ -->
