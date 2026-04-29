@@ -1,20 +1,17 @@
-// firebase-config.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
-// Ganti dengan konfigurasi dari Step 4
 const firebaseConfig = {
-  apiKey: "AIzaSyD...",  // ← GANTI DENGAN PUNYA ANDA
-  authDomain: "geomers-academy.firebaseapp.com", // ← GANTI
-  projectId: "geomers-academy", // ← GANTI
-  storageBucket: "geomers-academy.firebasestorage.app", // ← GANTI
-  messagingSenderId: "123456789", // ← GANTI
-  appId: "1:123456789:web:abcdef" // ← GANTI
+  apiKey: "AIzaSyCxwyTe5FylqJZcPO8TA7Va_xCRbMzJyWk",  
+  authDomain: "geomers-academy-5b9e5.firebaseapp.com", 
+  projectId: "geomers-academy-5b9e5", 
+  storageBucket: "geomers-academy-5b9e5.firebasestorage.app", 
+  messagingSenderId: "598328922866", 
+  appId: "1:598328922866:web:d2f38f330c53e9d227766b" 
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
-// Export agar bisa dipakai di file lain
-export { auth, signInWithEmailAndPassword };
+export const auth = getAuth(app);
+export const db = getFirestore(app);
