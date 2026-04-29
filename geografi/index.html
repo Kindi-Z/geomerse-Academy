@@ -1372,6 +1372,9 @@ nav {
     signOut
   } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
+  window.firebaseAuth = auth;
+  window.firebaseSignOut = signOut;
+
   function redirectByRole(role) {
     if (role === "kebumian") {
       window.location.replace("../kebumian/");
@@ -2210,16 +2213,24 @@ nav {
 
   async function logoutGeomers() {
   try {
+    localStorage.removeItem("geomersLoggedIn");
+    localStorage.removeItem("geomersUser");
+    localStorage.removeItem("geomersRole");
+
     if (window.firebaseSignOut && window.firebaseAuth) {
       await window.firebaseSignOut(window.firebaseAuth);
+    } else {
+      console.warn("Firebase Auth belum siap saat logout.");
     }
+
+    window.location.replace("../login/");
   } catch (error) {
     console.error("Logout error:", error);
+    alert("Logout gagal. Silakan coba lagi.");
   }
-
-  localStorage.clear();
-  window.location.replace("../login/");
 }
+
+window.logoutGeomers = logoutGeomers;
 </script>
 </body>
 </html>
