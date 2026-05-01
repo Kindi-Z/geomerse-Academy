@@ -18,22 +18,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root {
-      --teal:        #14B89D;
-      --teal-dark:   #0e9a84;
-      --teal-light:  #d0f5ef;
-      --teal-xlight: #e8faf7;
-      --lemon:       #F9D857;
-      --lemon-dark:  #e8c530;
-      --lemon-light: #fef8d5;
-      --white:       #FFFFFF;
-      --warm:        #F5F0E6;
-      --dark:        #2D3E50;
-      --mid:         #5a7080;
-      --light-gray:  #e8ede8;
-      --card-shadow: 0 6px 24px rgba(20,184,157,0.13), 0 2px 8px rgba(0,0,0,0.07);
-      --card-shadow-hover: 0 16px 40px rgba(20,184,157,0.22), 0 4px 16px rgba(0,0,0,0.1);
-    }
+   :root {
+  --teal:        #14B89D;
+  --teal-dark:   #0e9a84;
+  --teal-light:  #c2ebe3;      /* lebih gelap dari asli #d0f5ef */
+  --teal-xlight: #dff5f1;      /* lebih gelap dari #e8faf7 */
+  --lemon:       #F9D857;
+  --lemon-dark:  #e2b93b;
+  --lemon-light: #fef0c4;      /* lebih kuat dari #fef8d5 */
+  --white:       #FFFFFF;
+  --warm:        #efe6db;
+  --dark:        #1a2c3c;      /* dari #2D3E50 jadi lebih gelap */
+  --mid:         #2c3f4f;      /* dari #5a7080 jadi lebih gelap, kontras tinggi */
+  --light-gray:  #e2e7e2;
+  --card-shadow: 0 6px 24px rgba(20,184,157,0.13), 0 2px 8px rgba(0,0,0,0.07);
+  --card-shadow-hover: 0 16px 40px rgba(20,184,157,0.22), 0 4px 16px rgba(0,0,0,0.1);
+}
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -186,14 +186,15 @@
     .btn-primary:hover { background: var(--lemon-dark); transform: translateY(-2px); }
 
     .btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: var(--teal);
-      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px;
-      padding: 12px 24px; border-radius: 50px;
-      text-decoration: none; border: 2px solid var(--teal); cursor: pointer;
-      transition: all 0.25s;
-    }
-    .btn-outline:hover { background: var(--teal); color: #fff; transform: translateY(-2px); }
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent;
+  color: #0c7a63;
+  font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px;
+  padding: 12px 24px; border-radius: 50px;
+  text-decoration: none; border: 2px solid #0c7a63;
+  cursor: pointer; transition: all 0.25s;
+}
+.btn-outline:hover { background: #0c7a63; color: #fff; transform: translateY(-2px); }
 
     .hero-stats {
       display: flex; gap: 32px; margin-top: 44px; flex-wrap: wrap;
